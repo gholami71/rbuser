@@ -1,29 +1,65 @@
 @font-face {
-    font-family: 'Vazir-Fdw';
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-FD-WOL.ttf') format('truetype');
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-FD-WOL.woff2') format('woff2');
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-FD-WOL.woff') format('woff') ;
-}
-@font-face {
-    font-family: 'Vazir-Fdw-bold';
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-Bold-FD-WOL.ttf') format('truetype');
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-Bold-FD-WOL.woff2') format('woff2');
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-Bold-FD-WOL.woff2') format('woff') ;
-}
-
-@font-face {
-    font-family: 'Vazir-Fdw-black';
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.ttf') format('truetype');
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.woff2') format('woff2');
-    src: url('../../public/Vazir/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.woff') format('woff') ;
+    font-family: 'vazirMedium';
+    src: url('../../public/font/Vazir-Medium-FD.eot') format('eot');
+    src: url('../../public/font/Vazir-Medium-FD.ttf') format('ttf');
+    src: url('../../public/font/Vazir-Medium-FD.woff') format('woff');
+    src: url('../../public/font/Vazir-Medium-FD.woff2') format('woff2');
 }
 
 *{
     margin: 0px;
     padding: 0px;
+    font-family: 'vazirMedium';
 }
 
-html,body,#root{
+$colorB1:#8664ff;
+$colorB2:#160e36;
+$colorB3:#c20f0f;
+
+html, body, #root{
     height: 100%;
-    direction: rtl;
 }
+
+.user-login{
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .login{
+        display: flex;
+        border-radius: 10px;
+        background-color: $colorB1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 50%;
+        width: 40%;
+        input{
+            margin: 10px;
+            border-radius: 5px;
+            border: 0px;
+        }
+
+    }
+}
+.dashboard{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+    
+}
+
+.menu{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding: 20px;
+    background-color: $colorB2;
+    width: 150px;
+    p{
+        color: aliceblue;
+        cursor: pointer;
+    }
+}
+
