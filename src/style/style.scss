@@ -52,8 +52,8 @@ html, body, #root{
 
 .menu{
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px;
     background-color: $colorB2;
     width: 150px;
@@ -63,3 +63,29 @@ html, body, #root{
     }
 }
 
+
+.InfoUser{
+    display: flex;
+    flex-direction: row;
+    .Info{
+        position: relative;
+        &:hover{
+            ul{
+                display: flex;
+                flex-direction: column;
+            }
+            
+        }
+        ul{
+            display: none;
+            position: absolute;
+            width: 100px;
+            padding: 10px;
+            background: $colorB1;
+            li{
+                width: 100%;
+            }
+        }
+
+    }
+}
