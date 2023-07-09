@@ -21,9 +21,19 @@ const Dashboard = () =>{
     useEffect(checkUser,[])
 
     return(
+        
         <div className="dashboard">
-                <Menu/>
-                <Outlet context={[cookie]}/>
+            <header>
+                <div className="logos">
+                    <img className="logo" src={process.env.PUBLIC_URL+'/img/logo.svg'} ></img> 
+                    <img src={process.env.PUBLIC_URL+'/img/subLogoDashboard.svg'}></img>            
+                </div>
+                <AiOutlineMenu/>
+            </header>
+                <main>
+                    <Menu/>
+                    <Outlet context={[cookie]}/>
+                </main>
         </div>
     )
 }

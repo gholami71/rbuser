@@ -180,8 +180,32 @@ html, body, #root {
 
 .dashboard {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  padding-top: 50px;
   height: 100%;
+  background-color: #111C36;
+  padding-left: 100px;
+}
+.dashboard main {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+.dashboard header {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.dashboard header .logos {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+}
+.dashboard header .logos :nth-child(1) {
+  width: 50px;
+}
+.dashboard header .logos :nth-child(2) {
+  width: 150px;
+  margin-left: 15px;
 }
 
 .menu {

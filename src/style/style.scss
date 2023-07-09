@@ -212,9 +212,40 @@ html, body, #root{
 }
 .dashboard{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    padding-top: 50px;
     height: 100%;
+    background-color: $colorMidnight;
+    padding-left: 100px;
+    main{
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        
+    }
+    header{
+        display: flex;
+        
+        flex-direction: row-reverse;
+        .logos{
+            
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-end;
     
+            :nth-child(1){
+                width: 50px;
+                
+            }
+            :nth-child(2){
+                width: 150px;
+                margin-left: 15px;
+                
+            }
+            
+        }
+    }
+
 }
 
 .menu{
