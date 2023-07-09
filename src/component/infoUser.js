@@ -2,9 +2,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CiUser } from "react-icons/ci";
+import { useNavigate } from "react-router";
 
 
 const InfoUser = () =>{
+    const navigate = useNavigate()
     return(
         <div className="InfoUser">
             <div className="Info">

@@ -74,18 +74,26 @@ html, body, #root {
   font-weight: 400;
 }
 .user-login .login .FormContiner {
-  width: 40%;
+  width: 245px;
 }
 .user-login .login .FormContiner h5 {
   font-family: "Bold";
   font-weight: 600;
+}
+.user-login .login .FormContiner .ent {
+  background-color: #26C5A8;
+  color: #FFFFFF;
+  border: 0px;
+  height: 40px;
+  font-size: 13pt;
+  width: 100%;
 }
 .user-login .login .FormContiner .InpIcn {
   display: flex;
   flex-direction: row;
   width: 245px;
   justify-content: space-between;
-  margin: 10px 5px;
+  margin: 10px 0px;
 }
 .user-login .login .FormContiner .InpIcn input {
   width: 190px;
@@ -121,7 +129,7 @@ html, body, #root {
   flex-direction: row;
   width: 245px;
   justify-content: space-between;
-  margin: 10px 5px;
+  margin: 10px 0px;
 }
 .user-login .login .FormContiner .InpCpt input {
   width: 110px;

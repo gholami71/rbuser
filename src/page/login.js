@@ -48,6 +48,7 @@ const Login = () =>{
         }else if(UserInput.phone.length!==11){
             alert('مقدار شماره همراه را به صورت صحیح وارد کنید')
         }else{
+
             axios.post(OnRun+'/user/applyphone', {UserInput:UserInput, CaptchaCode:CaptchaCode})
             .then(response=>{
             if(response.data.reply){
@@ -89,13 +90,17 @@ const Login = () =>{
             </header>
             
             <div className="login">
+                
                 <div className='rowBrand'>
                     <img src={process.env.PUBLIC_URL+'/img/logoMini.svg'}></img>
                     <h1>رُنــد تِـریــد</h1>
                     <h6>دستیار معاملاتی</h6>
                 </div>
                 <div className='FormContiner'>
+                    
                     <h5>ورود به حساب کاربری</h5>
+                    {status?
+                    <>
                     <div className='InpIcn'>
                         <input value={UserInput.phone} onChange={(e)=>setUserInput({...UserInput,phone:e.target.value})} placeholder='شماره همراه خود را وارد کنید' type='number' />
                         <div className='icn'>
@@ -107,27 +112,26 @@ const Login = () =>{
                         <input value={UserInput.captcha} onChange={(e)=>setUserInput({...UserInput,captcha:e.target.value})} placeholder='کد تصویر' type='text'/>             
                         {CaptchaImg==null?null:<img onClick={getCaptcha} src={`data:image/png;base64,${CaptchaImg}`}></img>}
                     </div>
+                    <button className='ent' onClick={applyphone}>تایید</button>
+                    </>
+                    :
+                    <>
+                    <div className='InpIcn'>
+                        <input value={UserInput.code} onChange={(e)=>{setUserInput({...UserInput,code:e.target.value})}} placeholder='کد تایید' />
+                        <div className='icn'>
+                            <span><FiPhone/></span>
+                        </div>
+                    </div>
+                    <button className='ent' onClick={handleCode}>ورود</button>
+                    </>
+}
+
 
                 </div>
 
-                {status?
-                    <>
                 
-            
 
-                <button className='ent' onClick={applyphone}>تایید</button>
-           
-                    </>:
-                    <div>
-                        <h6>
-                            کد تایید را وارد کنید
-                        </h6>
-                        <input value={UserInput.code} onChange={(e)=>{setUserInput({...UserInput,code:e.target.value})}} placeholder='کد تایید'></input>
-                        <button className='ent' onClick={handleCode}>تایید</button>
-                    </div>
-
-
-                }
+                
             </div>
      
             

@@ -52,6 +52,15 @@ $FontRegular :'Regular';
 $FontLight :'Light';
 $FontThin :'Thin';
 
+@mixin btn1(){
+    background-color:$colorJellyfish ;
+    color: $colorMilkWhite;
+    border: 0px;
+    height: 40px;
+    font-size: 13pt;
+
+}
+
 html, body, #root{
     height: 100%;
 }
@@ -96,17 +105,21 @@ html, body, #root{
 
         }
         .FormContiner{
-            width: 40%;
+            width: 245px;
             h5{
                 font-family: $FontBold;
                 font-weight: 600;
+            }
+            .ent{
+                @include btn1();
+                width: 100%;
             }
             .InpIcn{
                 display: flex;
                 flex-direction: row;
                 width: 245px;
                 justify-content: space-between;
-                margin: 10px 5px;
+                margin: 10px 0px;
                 input{
                     width: 190px;
                     height: 40px;
@@ -142,7 +155,7 @@ html, body, #root{
                 flex-direction: row;
                 width: 245px;
                 justify-content: space-between;
-                margin: 10px 5px;
+                margin: 10px 0px;
                 input{
                     width: 110px;
                     height: 40px;
