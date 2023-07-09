@@ -23,7 +23,7 @@ const Dashboard = () =>{
     return(
         <div className="dashboard">
                 <Menu/>
-                <Outlet/>
+                <Outlet context={[cookie]}/>
         </div>
     )
 }
