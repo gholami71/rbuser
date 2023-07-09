@@ -86,6 +86,14 @@ const Login = () =>{
         
         <div className="user-login">
             <header>
+                <div className='logos'>
+                    <img className='circle' src={process.env.PUBLIC_URL+'/img/circle.svg'}></img>
+                    <div className='logoConteiner'>
+                        <img className='logoAbsolote' src={process.env.PUBLIC_URL+'/img/logo.svg'}></img>
+                        <img src={process.env.PUBLIC_URL+'/img/subLogo.svg'}></img>
+                    </div>
+
+                </div>
 
             </header>
             
