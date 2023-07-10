@@ -196,6 +196,15 @@ html, body, #root {
   flex-direction: row-reverse;
   align-items: flex-end;
   margin-bottom: 50px;
+  justify-content: space-between;
+}
+.dashboard header .Conteiner {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: calc(100% - 300px - 50px - 50px);
+  margin-right: 50px;
 }
 .dashboard header .logos {
   display: flex;
@@ -213,13 +222,13 @@ html, body, #root {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 275px;
   height: 25px;
   width: 100px;
   border-radius: 5px;
   justify-content: center;
   background-color: #222B40;
   font-family: "Regular";
+  margin-right: 150px;
 }
 .dashboard header .exit :nth-child(1) {
   display: flex;
@@ -254,60 +263,70 @@ html, body, #root {
 
 .InfoUser {
   display: flex;
-  flex-direction: row;
-}
-.InfoUser .Info {
-  margin-left: 500px;
+  flex-direction: column;
   position: relative;
 }
-.InfoUser .Info p {
+.InfoUser > p {
   display: flex;
   flex-direction: row;
   font-size: 30px;
   justify-content: center;
   align-items: center;
-  background-color: #ECE8E5;
+  background-color: rgba(236, 232, 229, 0.7);
   border-radius: 5px;
   width: 40px;
   height: 30px;
 }
-.InfoUser .Info:hover ul {
+.InfoUser:hover ul {
   display: flex;
   flex-direction: column;
 }
-.InfoUser .Info ul {
+.InfoUser ul {
   display: none;
   position: absolute;
-  width: 100px;
-  padding: 10px;
-  background-color: #F3F1EF;
-  font: "Medium";
+  right: 40px;
+  width: 120px;
+  padding: 5px 8px;
+  background-color: #D9D9D9;
   font-size: 13pt;
+  border-radius: 10px;
 }
-.InfoUser .Info ul li {
+.InfoUser ul :last-child {
+  border-bottom: 0px !important;
+}
+.InfoUser ul li {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 5px 0px;
+  margin: 6px 0px;
+  cursor: pointer;
+  border-bottom: 1px #111C36 solid;
+}
+.InfoUser ul li > p {
+  font-size: 11pt;
+  font-family: "Regular";
+  margin-right: 10px;
+  color: #111C36;
+}
+.InfoUser ul li > span {
+  color: #111C36;
+  font-size: 17pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .alarms {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding-right: 50px;
-}
-.alarms .main {
+  width: calc(100% - 300px - 50px - 50px);
+  margin-right: 50px;
   display: flex;
   flex-direction: row;
-  height: 70%;
   background-color: #222B40;
-  border-radius: 10px;
-}
-.alarms .display {
-  display: flex;
-  flex-direction: row;
-  height: 30%;
-  background-color: #F3F1EF;
-  margin-top: 5px;
   border-radius: 10px;
 }
 
