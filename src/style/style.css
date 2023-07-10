@@ -256,7 +256,7 @@ html, body, #root {
   width: 300px;
   border-top-left-radius: 10px;
 }
-.menu p {
+.menu > p {
   color: aliceblue;
   cursor: pointer;
 }
@@ -332,15 +332,59 @@ html, body, #root {
 
 .InfoUserMenu {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.InfoUserMenu div {
+  width: 85%;
+  margin: 10px 0px;
+}
+.InfoUserMenu > :nth-child(1) {
+  display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.InfoUserMenu > :nth-child(1) span {
+  font-size: 35pt;
+  color: #F3F1EF;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
-.InfoUserMenu :nth-child(1) {
+.InfoUserMenu > :nth-child(1) p {
+  font-size: 13pt;
   color: #F3F1EF;
 }
-.InfoUserMenu :nth-child(2) {
-  margin-right: 10px;
+.InfoUserMenu > :nth-child(1) > :nth-child(2) {
+  font-family: "SemiBold";
 }
-.InfoUserMenu :nth-child(3) {
-  margin-right: 10px;
+.InfoUserMenu > :nth-child(1) > :nth-child(1) {
+  font-family: "Regular";
+}
+.InfoUserMenu .countdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+.InfoUserMenu .countdown span {
+  color: #ECBB3E;
+  font-size: 17pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+}
+.InfoUserMenu .countdown p {
+  color: #FFFFFF;
+  font-family: "Regular";
+}
+.InfoUserMenu .credit {
+  background: #26C5A8;
+}
+.InfoUserMenu .nocredit {
+  background: #FF7554;
 }/*# sourceMappingURL=style.css.map */
