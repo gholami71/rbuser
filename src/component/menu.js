@@ -5,7 +5,6 @@ const Menu = () =>{
     const navigate = useNavigate()
     return(
         <div className="menu">
-            <InfoUser/>
             <p onClick={()=>{navigate('alarms')}}>هشدارها</p>
         </div>
     )

@@ -1,8 +1,15 @@
 const Alarms = () =>{
     return(
-        <div>
-            alarm
+        <div className="alarms">
+            <div className="main">
+
+            </div>
+            <div className="display">
+
+            </div>
+            
         </div>
+        
     )
 }
 export default Alarms
