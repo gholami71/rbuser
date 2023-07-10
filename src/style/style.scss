@@ -253,7 +253,7 @@ html, body, #root{
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin-left: 150px;
+            margin-left: 275px;
             height: 25px;
             width: 100px;
             border-radius: 5px;  
@@ -308,7 +308,7 @@ html, body, #root{
     flex-direction: row;
    
     .Info{
-        margin-left: 600px;
+        margin-left: 500px;
         p{
             display: flex;
             flex-direction: row;
@@ -336,8 +336,8 @@ html, body, #root{
             width: 100px;
             padding: 10px;
             background-color: $colorLinen;
-            font-family: $FontMedium;
-            font-size: 13pt
+            font: $FontMedium;
+            font-size: 13pt;
             li{
                 width: 100%;
                
@@ -351,7 +351,9 @@ html, body, #root{
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-right: 50px;
+    height: 100%;
+    padding-right: 50px;
+    
     
     .main{
         display: flex;
@@ -370,5 +372,20 @@ html, body, #root{
         margin-top: 5px;
         border-radius: 10px;
 
+    }
+}
+
+.InfoUserMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    :nth-child(1){
+        color: $colorLinen;
+    }
+    :nth-child(2){
+        margin-right: 10px;
+    }
+    :nth-child(3){
+        margin-right: 10px;
     }
 }

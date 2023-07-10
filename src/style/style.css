@@ -213,7 +213,7 @@ html, body, #root {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 150px;
+  margin-left: 275px;
   height: 25px;
   width: 100px;
   border-radius: 5px;
@@ -257,7 +257,7 @@ html, body, #root {
   flex-direction: row;
 }
 .InfoUser .Info {
-  margin-left: 600px;
+  margin-left: 500px;
   position: relative;
 }
 .InfoUser .Info p {
@@ -281,16 +281,19 @@ html, body, #root {
   width: 100px;
   padding: 10px;
   background-color: #F3F1EF;
-  font-family: "Medium";
-  font-size: 13pt li;
-  font-size-width: 100%;
+  font: "Medium";
+  font-size: 13pt;
+}
+.InfoUser .Info ul li {
+  width: 100%;
 }
 
 .alarms {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-right: 50px;
+  height: 100%;
+  padding-right: 50px;
 }
 .alarms .main {
   display: flex;
@@ -306,4 +309,19 @@ html, body, #root {
   background-color: #F3F1EF;
   margin-top: 5px;
   border-radius: 10px;
+}
+
+.InfoUserMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.InfoUserMenu :nth-child(1) {
+  color: #F3F1EF;
+}
+.InfoUserMenu :nth-child(2) {
+  margin-right: 10px;
+}
+.InfoUserMenu :nth-child(3) {
+  margin-right: 10px;
 }/*# sourceMappingURL=style.css.map */

@@ -16,7 +16,7 @@ const Login = () =>{
 
     const checkUser = () =>{
         axios.post(OnRun+'/user/atuh', {cookie:cookie}).then(response=>{
-            console.log(response.data)
+           
             if(response.data.reply){
             
                 Navigate('/dashboard')
@@ -35,7 +35,7 @@ const Login = () =>{
     const getCaptcha = () =>{
         axios({method:'POST',url:OnRun+'/user/usercaptcha'
         }).then(response=>{
-            console.log(response.data.CaptchaCode)
+            
             
             setCaptchaCode(response.data.captcha)
             setCaptchaImg(response.data.img)
@@ -53,7 +53,7 @@ const Login = () =>{
             .then(response=>{
             if(response.data.reply){
                     setStatus(false)
-                    console.log(status)
+                   
                     
                 }
 
