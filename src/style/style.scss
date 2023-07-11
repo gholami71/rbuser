@@ -220,7 +220,7 @@ html, body, #root{
     background-color: $colorMidnight;
     padding-left: 100px;
     main{
-        display: flex;
+        display:flex;
         flex: 1;
         flex-direction: row;
         padding-bottom: 50px;
@@ -386,6 +386,7 @@ html, body, #root{
 .alarms{
     display: flex;
     flex-direction: column;
+    position: relative;
     width: calc(100% - 300px - 50px - 50px);
     margin-right: 50px;    
     display: flex;
@@ -466,5 +467,29 @@ html, body, #root{
     }
     .nocredit{
         background: $colorMangoOrange;
+    }
+}
+
+.PopUp{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    top: calc((100% - 400px)/2);
+    left: calc((100% - 500px)/2);
+    background-color: $colorJordyBlue;
+    z-index: 2;
+    button{
+        display: flex;
+        flex-direction: row;
+        width: 50px;
+        justify-content: center;
+        border: 0px;
+        border-radius: 5px;
+        background-color: $colorLinen;
+        cursor: pointer;
+        
+        
     }
 }

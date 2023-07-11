@@ -8,9 +8,6 @@ import { BsXCircle, BsCheck2Circle } from "react-icons/bs";
 const InfoUserMenu = () =>{
     const phu = getCookie('phu')
     const [userdata, setuserdata] = useState({'fullName':'','lable':''})
-    console.log(userdata)
-    
-    
     
     const infoMenu = () =>{
         axios.post(OnRun+'/user/userinfo',{phu:phu})

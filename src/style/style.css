@@ -324,6 +324,7 @@ html, body, #root {
 .alarms {
   display: flex;
   flex-direction: column;
+  position: relative;
   width: calc(100% - 300px - 50px - 50px);
   margin-right: 50px;
   display: flex;
@@ -403,4 +404,26 @@ html, body, #root {
 }
 .InfoUserMenu .nocredit {
   background: #FF7554;
+}
+
+.PopUp {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  top: calc((100% - 400px) / 2);
+  left: calc((100% - 500px) / 2);
+  background-color: #8BA7F0;
+  z-index: 2;
+}
+.PopUp button {
+  display: flex;
+  flex-direction: row;
+  width: 50px;
+  justify-content: center;
+  border: 0px;
+  border-radius: 5px;
+  background-color: #F3F1EF;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
