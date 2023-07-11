@@ -385,12 +385,26 @@ html, body, #root{
     display: flex;
     flex-direction: column;
     width: calc(100% - 300px - 50px - 50px);
-    margin-right: 50px;
-    
+    margin-right: 50px;    
     display: flex;
     flex-direction: row;
     background-color: $colorBalticSea;
     border-radius: 10px;
+    .btns{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: left;
+        
+        .btn{
+            display: flex;
+            flex-direction: row;        
+            font-size: 11pt;
+            font-family: $FontLight;
+            color: $colorMilkWhite;
+            cursor: pointer;
+        }
+    }
 
 }
 

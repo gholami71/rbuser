@@ -329,6 +329,20 @@ html, body, #root {
   background-color: #222B40;
   border-radius: 10px;
 }
+.alarms .btns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: left;
+}
+.alarms .btns .btn {
+  display: flex;
+  flex-direction: row;
+  font-size: 11pt;
+  font-family: "Light";
+  color: #FFFFFF;
+  cursor: pointer;
+}
 
 .InfoUserMenu {
   display: flex;
