@@ -49,7 +49,7 @@ const Profile = () =>{
     useEffect(getProfile,[])
 
     return(
-        <div>
+        <div className="container-page profile">
             <ToastContainer autoClose={3000} />
             <fieldset>
                 <input type="radio" checked={data.personality=='true'} onChange={(e)=>setData({...data,personality:e.target.value})} id="true" value="true" name="personality"/>

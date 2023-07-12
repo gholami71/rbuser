@@ -4,7 +4,7 @@ import CreateAlarm from "../../component/CreateAlarm"
 const Alarms = () =>{
     const [popup, setPopup] = useState(false)
     return(
-        <div className="alarms">
+        <div className="container-page alarms">
             <div className="btns">
                 <span className="btn" onClick={()=>{setPopup(!popup)}}>هشدار جدید</span>
             </div>

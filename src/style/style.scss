@@ -62,6 +62,18 @@ $FontThin :'Thin';
 
 }
 
+.container-page{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(100% - 300px - 50px - 50px);
+    margin-right: 50px;    
+    padding: 15px;
+    background-color: $colorBalticSea;
+    border-radius: 10px;
+
+}
+
 html, body, #root{
     height: 100%;
     background: $colorMidnight;
@@ -289,6 +301,7 @@ html, body, #root{
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            z-index: 3;
 
         }
         
@@ -384,15 +397,7 @@ html, body, #root{
 }
 
 .alarms{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: calc(100% - 300px - 50px - 50px);
-    margin-right: 50px;    
-    display: flex;
-    flex-direction: row;
-    background-color: $colorBalticSea;
-    border-radius: 10px;
+
     .btns{
         display: flex;
         flex-direction: row;
@@ -492,4 +497,17 @@ html, body, #root{
         
         
     }
+}
+
+.profile{
+    fieldset{
+        display: flex;
+        height: 50px;
+        input{
+            height: 50px;
+            
+        }
+    }
+
+    
 }

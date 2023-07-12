@@ -29,6 +29,17 @@
   font-family: "Regular";
 }
 
+.container-page {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: calc(100% - 300px - 50px - 50px);
+  margin-right: 50px;
+  padding: 15px;
+  background-color: #222B40;
+  border-radius: 10px;
+}
+
 html, body, #root {
   height: 100%;
   background: #111C36;
@@ -247,6 +258,7 @@ html, body, #root {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  z-index: 3;
 }
 
 .menu {
@@ -321,17 +333,6 @@ html, body, #root {
   justify-content: center;
 }
 
-.alarms {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: calc(100% - 300px - 50px - 50px);
-  margin-right: 50px;
-  display: flex;
-  flex-direction: row;
-  background-color: #222B40;
-  border-radius: 10px;
-}
 .alarms .btns {
   display: flex;
   flex-direction: row;
@@ -426,4 +427,12 @@ html, body, #root {
   border-radius: 5px;
   background-color: #F3F1EF;
   cursor: pointer;
+}
+
+.profile fieldset {
+  display: flex;
+  height: 50px;
+}
+.profile fieldset input {
+  height: 50px;
 }/*# sourceMappingURL=style.css.map */
