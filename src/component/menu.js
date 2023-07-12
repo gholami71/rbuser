@@ -7,6 +7,7 @@ const Menu = () =>{
         <div className="menu">
             <InfoUserMenu/>
             <p onClick={()=>{navigate('alarms')}}>هشدارها</p>
+    
         </div>
     )
 }

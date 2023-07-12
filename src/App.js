@@ -6,6 +6,7 @@ import Login from './page/login'
 import Dashboard from './page/dashboard';
 import Profile from './page/profile';
 import Alarms from './page/sub/alarms';
+import Pricing from './component/pricing';
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}>
           <Route path='alarms' element={<Alarms/>}></Route>
           <Route path='profile' element={<Profile/>}></Route>
+          <Route path='pricing' element={<Pricing/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

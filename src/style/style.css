@@ -496,4 +496,30 @@ html, body, #root {
   height: 40px;
   font-size: 13pt;
   width: 245px;
+}
+
+.TimePricing {
+  display: flex;
+  flex-direction: row;
+}
+.TimePricing input {
+  display: none;
+}
+.TimePricing input + label {
+  display: flex;
+  flex-direction: row;
+  font-family: "Medium";
+  color: #FFFFFF;
+  justify-content: center;
+  width: 25%;
+}
+.TimePricing input:checked + label {
+  background-color: #ECBB3E;
+}
+
+.TimeDetail {
+  display: flex;
+  flex-direction: row;
+  font-family: "Regular";
+  color: #F3F1EF;
 }/*# sourceMappingURL=style.css.map */

@@ -573,3 +573,34 @@ html, body, #root{
         width: 245px;
     }
 }
+
+.TimePricing{
+    display: flex;
+    flex-direction: row;
+    input{
+        display: none;
+        + label{
+            display: flex;
+            flex-direction: row;
+            font-family: $FontMedium;
+            color: $colorMilkWhite;
+            justify-content:center;
+            width: 25%;
+
+        }
+        &:checked{
+            + label{
+                background-color: $colorLightOrange;
+            }
+        }
+    }
+
+}
+
+.TimeDetail{
+    display: flex;
+    flex-direction: row;
+    font-family: $FontRegular;
+    color: $colorLinen;
+
+}

@@ -20,6 +20,10 @@ const InfoUser = () =>{
                     <span><BiTimeFive/></span>
                     <p>تاریخچه اشتراک</p>
                 </li>
+                <li>
+                    <span><BiTimeFive/></span>
+                    <p onClick={()=>navigate('pricing')}>تعرفه ها</p>
+                </li>
             </ul>
         </div>
     )
