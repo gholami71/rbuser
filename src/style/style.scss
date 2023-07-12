@@ -74,6 +74,108 @@ $FontThin :'Thin';
 
 }
 
+.InpRdiIcn{
+    display: flex;
+    flex-direction: row;
+    width: 245px;
+    justify-content: space-between;
+    margin: 10px 0px;
+    .rdi{
+        width: 200px;
+        height: 40px;
+        background: $colorMilkWhite;
+        border: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        input{
+            display: none;
+            + label{
+                text-align: center;
+                display: flex;
+                flex-direction: row;
+                &::before{
+                    content: '';
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 20%;
+                    background-color: $colorLinen;
+                    border: 2px $colorMilkWhite solid;
+                    margin-left: 8px;
+                    outline: 1px $colorLightOrange solid;
+                }
+            }
+            &:checked{
+                + label{
+                    &::before{
+                        background: $colorLightOrange;
+                    }
+
+                }
+            }
+        }
+    }
+    .icn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: $colorMilkWhite;
+        span{
+            font-size: 15pt;
+            color: $colorSoftBlue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+}
+.InpIcn{
+    display: flex;
+    flex-direction: row;
+    width: 245px;
+    justify-content: space-between;
+    margin: 10px 0px;
+    input{
+        width: 190px;
+        height: 40px;
+        background: $colorMilkWhite;
+        border: 0px;
+        padding: 0px 5px;
+        &::-webkit-inner-spin-button{
+            display: none;
+        }
+        &::-webkit-outer-spin-button{
+            display: none;
+        }
+        &:focus{
+            outline: 0px;
+
+        }
+    }
+    .icn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: $colorMilkWhite;
+        span{
+            font-size: 15pt;
+            color: $colorSoftBlue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
 html, body, #root{
     height: 100%;
     background: $colorMidnight;
@@ -160,42 +262,7 @@ html, body, #root{
                 @include btn1();
                 width: 100%;
             }
-            .InpIcn{
-                display: flex;
-                flex-direction: row;
-                width: 245px;
-                justify-content: space-between;
-                margin: 10px 0px;
-                input{
-                    width: 190px;
-                    height: 40px;
-                    background: $colorMilkWhite;
-                    border: 0px;
-                    padding: 0px 5px;
-                    &::-webkit-inner-spin-button{
-                        display: none;
-                    }
-                    &::-webkit-outer-spin-button{
-                        display: none;
-                    }
-                }
-                .icn{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    width: 40px;
-                    height: 40px;
-                    background: $colorMilkWhite;
-                    span{
-                        font-size: 15pt;
-                        color: $colorSoftBlue;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-            }
+            
             .InpCpt{
                 display: flex;
                 flex-direction: row;
@@ -224,6 +291,7 @@ html, body, #root{
 
     }
 }
+
 .dashboard{
     display: flex;
     flex-direction: column;
@@ -500,14 +568,8 @@ html, body, #root{
 }
 
 .profile{
-    fieldset{
-        display: flex;
-        height: 50px;
-        input{
-            height: 50px;
-            
-        }
+    button{
+        @include btn1();
+        width: 245px;
     }
-
-    
 }

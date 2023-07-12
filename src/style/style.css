@@ -40,6 +40,102 @@
   border-radius: 10px;
 }
 
+.InpRdiIcn {
+  display: flex;
+  flex-direction: row;
+  width: 245px;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.InpRdiIcn .rdi {
+  width: 200px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.InpRdiIcn .rdi input {
+  display: none;
+}
+.InpRdiIcn .rdi input + label {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.InpRdiIcn .rdi input + label::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 20%;
+  background-color: #F3F1EF;
+  border: 2px #FFFFFF solid;
+  margin-left: 8px;
+  outline: 1px #ECBB3E solid;
+}
+.InpRdiIcn .rdi input:checked + label::before {
+  background: #ECBB3E;
+}
+.InpRdiIcn .icn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF;
+}
+.InpRdiIcn .icn span {
+  font-size: 15pt;
+  color: #5398FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.InpIcn {
+  display: flex;
+  flex-direction: row;
+  width: 245px;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.InpIcn input {
+  width: 190px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 0px;
+  padding: 0px 5px;
+}
+.InpIcn input::-webkit-inner-spin-button {
+  display: none;
+}
+.InpIcn input::-webkit-outer-spin-button {
+  display: none;
+}
+.InpIcn input:focus {
+  outline: 0px;
+}
+.InpIcn .icn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF;
+}
+.InpIcn .icn span {
+  font-size: 15pt;
+  color: #5398FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 html, body, #root {
   height: 100%;
   background: #111C36;
@@ -128,42 +224,6 @@ html, body, #root {
   height: 40px;
   font-size: 13pt;
   width: 100%;
-}
-.user-login .login .FormContiner .InpIcn {
-  display: flex;
-  flex-direction: row;
-  width: 245px;
-  justify-content: space-between;
-  margin: 10px 0px;
-}
-.user-login .login .FormContiner .InpIcn input {
-  width: 190px;
-  height: 40px;
-  background: #FFFFFF;
-  border: 0px;
-  padding: 0px 5px;
-}
-.user-login .login .FormContiner .InpIcn input::-webkit-inner-spin-button {
-  display: none;
-}
-.user-login .login .FormContiner .InpIcn input::-webkit-outer-spin-button {
-  display: none;
-}
-.user-login .login .FormContiner .InpIcn .icn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #FFFFFF;
-}
-.user-login .login .FormContiner .InpIcn .icn span {
-  font-size: 15pt;
-  color: #5398FF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .user-login .login .FormContiner .InpCpt {
   display: flex;
@@ -429,10 +489,11 @@ html, body, #root {
   cursor: pointer;
 }
 
-.profile fieldset {
-  display: flex;
-  height: 50px;
-}
-.profile fieldset input {
-  height: 50px;
+.profile button {
+  background-color: #26C5A8;
+  color: #FFFFFF;
+  border: 0px;
+  height: 40px;
+  font-size: 13pt;
+  width: 245px;
 }/*# sourceMappingURL=style.css.map */
