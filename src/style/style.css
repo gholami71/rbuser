@@ -188,30 +188,32 @@ html, body, #root {
   margin: 50px 100px;
   align-items: center;
   height: 50%;
-  width: 450px;
+  width: 400px;
+  align-items: flex-end;
 }
 .user-login .login .rowBrand {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 50%;
+  width: 85%;
   justify-content: space-between;
 }
 .user-login .login .rowBrand img {
   width: 30px;
 }
 .user-login .login .rowBrand h1 {
-  font-size: 15pt;
+  font-size: 18pt;
   font-family: "Bold";
   font-weight: 800;
 }
 .user-login .login .rowBrand h6 {
-  font-size: 11pt;
+  font-size: 13pt;
   font-family: "Light";
   font-weight: 400;
 }
 .user-login .login .FormContiner {
   width: 245px;
+  margin-top: 35px;
 }
 .user-login .login .FormContiner h5 {
   font-family: "Bold";
@@ -232,22 +234,49 @@ html, body, #root {
   justify-content: space-between;
   margin: 10px 0px;
 }
-.user-login .login .FormContiner .InpCpt input {
-  width: 110px;
+.user-login .login .FormContiner .InpCpt .ic {
+  display: flex;
+  flex-direction: row;
+  background: #FFFFFF;
+  width: 200px;
+}
+.user-login .login .FormContiner .InpCpt .ic input {
+  width: calc(40% - 20px);
   height: 40px;
   background: #FFFFFF;
   border: 0px;
   padding: 0px 5px;
+  margin: 0px 5px;
 }
-.user-login .login .FormContiner .InpCpt input::-webkit-inner-spin-button {
+.user-login .login .FormContiner .InpCpt .ic input:focus {
+  outline: 0px;
+}
+.user-login .login .FormContiner .InpCpt .ic input::-webkit-inner-spin-button {
   display: none;
 }
-.user-login .login .FormContiner .InpCpt input::-webkit-outer-spin-button {
+.user-login .login .FormContiner .InpCpt .ic input::-webkit-outer-spin-button {
   display: none;
 }
-.user-login .login .FormContiner .InpCpt img {
-  width: 120px;
+.user-login .login .FormContiner .InpCpt .ic img {
+  width: 60%;
   cursor: pointer;
+}
+.user-login .login .FormContiner .InpCpt .icn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+.user-login .login .FormContiner .InpCpt .icn span {
+  font-size: 15pt;
+  color: #5398FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboard {

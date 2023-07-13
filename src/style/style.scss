@@ -196,6 +196,7 @@ html, body, #root{
             left: 15%;
             width: 350px;
             height: 350px;
+
             .circle{
                 width: 350px;
                 height: 350px;
@@ -230,23 +231,24 @@ html, body, #root{
         margin: 50px 100px;
         align-items: center;
         height: 50%;
-        width: 450px;
+        width: 400px;
+        align-items: flex-end;
         .rowBrand{
             display: flex;
             flex-direction: row;
             align-items: center;
-            width: 50%;
+            width: 85%;
             justify-content: space-between;
             img{
                 width: 30px;
             }
             h1{
-                font-size: 15pt;
+                font-size: 18pt;
                 font-family: $FontBold;
                 font-weight: 800;
             }
             h6{
-                font-size: 11pt;
+                font-size: 13pt;
                 font-family: $FontLight;
                 font-weight: 400;
             }
@@ -254,6 +256,7 @@ html, body, #root{
         }
         .FormContiner{
             width: 245px;
+            margin-top: 35px;
             h5{
                 font-family: $FontBold;
                 font-weight: 600;
@@ -269,22 +272,49 @@ html, body, #root{
                 width: 245px;
                 justify-content: space-between;
                 margin: 10px 0px;
-                input{
-                    width: 110px;
-                    height: 40px;
+                .ic{
+                    display: flex;
+                    flex-direction: row;
                     background: $colorMilkWhite;
-                    border: 0px;
-                    padding: 0px 5px;
-                    &::-webkit-inner-spin-button{
-                        display: none;
+                    width: 200px;
+                    input{
+                        width: calc(40% - 20px);
+                        height: 40px;
+                        background: $colorMilkWhite;
+                        border: 0px;
+                        padding: 0px 5px;
+                        margin: 0px 5px;
+                        &:focus{
+                            outline: 0px;
+                        }
+                        &::-webkit-inner-spin-button{
+                            display: none;
+                        }
+                        &::-webkit-outer-spin-button{
+                            display: none;
+                        }
                     }
-                    &::-webkit-outer-spin-button{
-                        display: none;
+                    img{
+                        width: 60%;
+                        cursor: pointer;
                     }
                 }
-                img{
-                    width: 120px;
+                .icn{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    background: $colorMilkWhite;
                     cursor: pointer;
+                    span{
+                        font-size: 15pt;
+                        color: $colorSoftBlue;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                 }
             }
         }
