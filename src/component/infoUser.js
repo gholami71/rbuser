@@ -1,6 +1,4 @@
 
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import { BiTimeFive ,BiUser} from "react-icons/bi";
