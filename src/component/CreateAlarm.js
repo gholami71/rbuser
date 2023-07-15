@@ -1,8 +1,28 @@
+import axios from "axios"
 import { useState } from "react"
+import { OnRun } from "../config/OnRun"
+import { useOutletContext } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
+
 
 const CreateAlarm = (props) =>{
 
     const [InputUser, setInputUser] = useState({'symbol':'','AlarmtType':'قیمت', 'method':'بیشتر','price':'', 'notification':''})
+    const [phu] = useOutletContext()
+    
+    const handlePopUp = () =>{
+        props.setPopup(false)
+        axios.post(OnRun+'/user/setalarm', {phu:phu, InputUser:InputUser}).then(response=>{
+            if(response.data.reply){
+                toast.success('هشدار جدید ثبت شد.',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+            }
+            else{
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+            }
+        })
+
+    }
     const handleAlarmType = (e) =>{
         if (e.target.value=='قیمت') {
             setInputUser({...InputUser,AlarmtType:e.target.value,method:'بیشتر'})
@@ -16,11 +36,14 @@ const CreateAlarm = (props) =>{
     }
     console.log(InputUser)
 
-    if (props.popup) {
         return(
             
+            <>
+            <ToastContainer autoClose={3000}/>
+            {
+                props.popup?
+                <div className="PopUp">
 
-            <div className="PopUp">
                 <div className="options">
                     <div>
                         <input list="symbols" placeholder="نماد" onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
@@ -69,13 +92,14 @@ const CreateAlarm = (props) =>{
                         }
                     </div>
                 </div>
-                <button onClick={()=>{props.setPopup(false)}}>ثبت</button>
+                <button onClick={handlePopUp}>ثبت</button>
                 <button onClick={()=>{props.setPopup(false)}}>لغو</button>
             </div>
-            
+            :null
+            }
+            </>
     
         )
         
-    }
     }
 export default CreateAlarm
