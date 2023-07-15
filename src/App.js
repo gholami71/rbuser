@@ -5,9 +5,10 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from './page/login'
 import Dashboard from './page/dashboard';
 import Profile from './page/profile';
-import Alarms from './page/sub/alarms';
-import Pricing from './component/pricing';
+import Pricing from './page/pricing'
+import Support from './page/support';
 
+import Alarms from './page/sub/alarms';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='alarms' element={<Alarms/>}></Route>
           <Route path='profile' element={<Profile/>}></Route>
           <Route path='pricing' element={<Pricing/>}></Route>
+          <Route path='support' element={<Support/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

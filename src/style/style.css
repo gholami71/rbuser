@@ -188,30 +188,32 @@ html, body, #root {
   margin: 50px 100px;
   align-items: center;
   height: 50%;
-  width: 450px;
+  width: 400px;
+  align-items: flex-end;
 }
 .user-login .login .rowBrand {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 50%;
+  width: 85%;
   justify-content: space-between;
 }
 .user-login .login .rowBrand img {
   width: 30px;
 }
 .user-login .login .rowBrand h1 {
-  font-size: 15pt;
+  font-size: 18pt;
   font-family: "Bold";
   font-weight: 800;
 }
 .user-login .login .rowBrand h6 {
-  font-size: 11pt;
+  font-size: 13pt;
   font-family: "Light";
   font-weight: 400;
 }
 .user-login .login .FormContiner {
   width: 245px;
+  margin-top: 35px;
 }
 .user-login .login .FormContiner h5 {
   font-family: "Bold";
@@ -232,31 +234,58 @@ html, body, #root {
   justify-content: space-between;
   margin: 10px 0px;
 }
-.user-login .login .FormContiner .InpCpt input {
-  width: 110px;
+.user-login .login .FormContiner .InpCpt .ic {
+  display: flex;
+  flex-direction: row;
+  background: #FFFFFF;
+  width: 200px;
+}
+.user-login .login .FormContiner .InpCpt .ic input {
+  width: calc(40% - 20px);
   height: 40px;
   background: #FFFFFF;
   border: 0px;
   padding: 0px 5px;
+  margin: 0px 5px;
 }
-.user-login .login .FormContiner .InpCpt input::-webkit-inner-spin-button {
+.user-login .login .FormContiner .InpCpt .ic input:focus {
+  outline: 0px;
+}
+.user-login .login .FormContiner .InpCpt .ic input::-webkit-inner-spin-button {
   display: none;
 }
-.user-login .login .FormContiner .InpCpt input::-webkit-outer-spin-button {
+.user-login .login .FormContiner .InpCpt .ic input::-webkit-outer-spin-button {
   display: none;
 }
-.user-login .login .FormContiner .InpCpt img {
-  width: 120px;
+.user-login .login .FormContiner .InpCpt .ic img {
+  width: 60%;
   cursor: pointer;
+}
+.user-login .login .FormContiner .InpCpt .icn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+.user-login .login .FormContiner .InpCpt .icn span {
+  font-size: 15pt;
+  color: #5398FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboard {
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
+  padding-top: 30px;
   height: -webkit-fill-available;
   background-color: #111C36;
-  padding-left: 100px;
+  padding-left: 30px;
 }
 .dashboard main {
   display: flex;
@@ -268,15 +297,16 @@ html, body, #root {
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   justify-content: space-between;
+  margin-left: 50px;
 }
 .dashboard header .Conteiner {
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
   justify-content: space-between;
-  width: calc(100% - 300px - 50px - 50px);
+  width: calc(100% - 280px - 50px);
   margin-right: 50px;
 }
 .dashboard header .logos {
@@ -326,14 +356,102 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px;
+  padding: 20px 0px;
   background-color: #222B40;
-  width: 300px;
+  width: 280px;
   border-top-left-radius: 10px;
 }
-.menu > p {
+.menu .InfoUserMenu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.menu .InfoUserMenu div {
+  width: 80%;
+  margin: 10px 0px;
+}
+.menu .InfoUserMenu > :nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu .InfoUserMenu > :nth-child(1) span {
+  font-size: 35pt;
+  color: #F3F1EF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu .InfoUserMenu > :nth-child(1) p {
+  font-size: 13pt;
+  color: #F3F1EF;
+}
+.menu .InfoUserMenu > :nth-child(1) > :nth-child(2) {
+  font-family: "SemiBold";
+}
+.menu .InfoUserMenu > :nth-child(1) > :nth-child(1) {
+  font-family: "Regular";
+}
+.menu .InfoUserMenu .countdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+.menu .InfoUserMenu .countdown span {
+  color: #ECBB3E;
+  font-size: 17pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+}
+.menu .InfoUserMenu .countdown p {
+  color: #FFFFFF;
+  font-family: "Regular";
+}
+.menu .InfoUserMenu .credit {
+  background: #26C5A8;
+}
+.menu .InfoUserMenu .nocredit {
+  background: #FF7554;
+}
+.menu .basic {
+  width: 100%;
+  margin-top: 50px;
+}
+.menu .basic > p {
   color: aliceblue;
   cursor: pointer;
+  width: 100%;
+  height: 65px;
+  font-family: "Bold";
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.menu .basic .active {
+  background: #D9D9D9;
+  color: #111C36;
+}
+.menu .basic .active::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 7px solid #D9D9D9;
+  position: absolute;
+  left: -7px;
+}
+.menu .basic .noactive:hover {
+  background: rgba(83, 152, 255, 0.25);
 }
 
 .InfoUser {
@@ -409,65 +527,6 @@ html, body, #root {
   cursor: pointer;
 }
 
-.InfoUserMenu {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-}
-.InfoUserMenu div {
-  width: 85%;
-  margin: 10px 0px;
-}
-.InfoUserMenu > :nth-child(1) {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.InfoUserMenu > :nth-child(1) span {
-  font-size: 35pt;
-  color: #F3F1EF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.InfoUserMenu > :nth-child(1) p {
-  font-size: 13pt;
-  color: #F3F1EF;
-}
-.InfoUserMenu > :nth-child(1) > :nth-child(2) {
-  font-family: "SemiBold";
-}
-.InfoUserMenu > :nth-child(1) > :nth-child(1) {
-  font-family: "Regular";
-}
-.InfoUserMenu .countdown {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 35px;
-}
-.InfoUserMenu .countdown span {
-  color: #ECBB3E;
-  font-size: 17pt;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-}
-.InfoUserMenu .countdown p {
-  color: #FFFFFF;
-  font-family: "Regular";
-}
-.InfoUserMenu .credit {
-  background: #26C5A8;
-}
-.InfoUserMenu .nocredit {
-  background: #FF7554;
-}
-
 .PopUp {
   display: flex;
   flex-direction: column;
@@ -523,4 +582,99 @@ html, body, #root {
   flex-direction: row;
   font-family: "Regular";
   color: #F3F1EF;
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.support .create {
+  width: 70%;
+  height: 50px;
+  margin: 20px;
+  border: 2px #D9D9D9 solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  outline: 5px rgba(255, 255, 255, 0.1) solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.support .create:hover {
+  background: rgba(255, 255, 255, 0.15);
+  outline: 5px rgba(255, 255, 255, 0.15) solid;
+}
+.support .create span {
+  font-size: 23pt;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 10px;
+}
+.support .create h6 {
+  font-size: 16pt;
+  color: #FFFFFF;
+  margin: 0px 10px;
+}
+.support .histor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.support .histor .ticket-row {
+  height: 65px;
+  border: 2px #D9D9D9 solid;
+  margin: 15px 0px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(83, 152, 255, 0.2);
+  outline: 5px rgba(83, 152, 255, 0.2) solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.support .histor .ticket-row .date {
+  flex: 1;
+  text-align: center;
+  font-size: 10pt;
+  color: #D9D9D9;
+}
+.support .histor .ticket-row .title {
+  flex: 3;
+  text-align: center;
+  color: #D9D9D9;
+  font-size: 15pt;
+  font-family: "Bold";
+}
+.support .histor .ticket-row .content {
+  flex: 8;
+  text-align: center;
+  color: #D9D9D9;
+  font-size: 11pt;
+  text-overflow: ellipsis;
+  font-family: "Regular";
+}
+.support .histor .ticket-row p {
+  color: #D9D9D9;
+  font-size: 14pt;
+  flex: 2;
+  font-family: "Regular";
+}
+.support .histor .ticket-row span {
+  color: #FF7554;
+  font-size: 18pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

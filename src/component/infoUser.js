@@ -1,6 +1,4 @@
 
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import { BiTimeFive ,BiUser} from "react-icons/bi";
@@ -23,6 +21,10 @@ const InfoUser = () =>{
                 <li>
                     <span><BiTimeFive/></span>
                     <p onClick={()=>navigate('pricing')}>تعرفه ها</p>
+                </li>
+                <li>
+                    <span><BiTimeFive/></span>
+                    <p onClick={()=>navigate('support')}>پشتیبانی</p>
                 </li>
             </ul>
         </div>

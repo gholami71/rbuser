@@ -196,6 +196,7 @@ html, body, #root{
             left: 15%;
             width: 350px;
             height: 350px;
+
             .circle{
                 width: 350px;
                 height: 350px;
@@ -230,23 +231,24 @@ html, body, #root{
         margin: 50px 100px;
         align-items: center;
         height: 50%;
-        width: 450px;
+        width: 400px;
+        align-items: flex-end;
         .rowBrand{
             display: flex;
             flex-direction: row;
             align-items: center;
-            width: 50%;
+            width: 85%;
             justify-content: space-between;
             img{
                 width: 30px;
             }
             h1{
-                font-size: 15pt;
+                font-size: 18pt;
                 font-family: $FontBold;
                 font-weight: 800;
             }
             h6{
-                font-size: 11pt;
+                font-size: 13pt;
                 font-family: $FontLight;
                 font-weight: 400;
             }
@@ -254,6 +256,7 @@ html, body, #root{
         }
         .FormContiner{
             width: 245px;
+            margin-top: 35px;
             h5{
                 font-family: $FontBold;
                 font-weight: 600;
@@ -269,22 +272,49 @@ html, body, #root{
                 width: 245px;
                 justify-content: space-between;
                 margin: 10px 0px;
-                input{
-                    width: 110px;
-                    height: 40px;
+                .ic{
+                    display: flex;
+                    flex-direction: row;
                     background: $colorMilkWhite;
-                    border: 0px;
-                    padding: 0px 5px;
-                    &::-webkit-inner-spin-button{
-                        display: none;
+                    width: 200px;
+                    input{
+                        width: calc(40% - 20px);
+                        height: 40px;
+                        background: $colorMilkWhite;
+                        border: 0px;
+                        padding: 0px 5px;
+                        margin: 0px 5px;
+                        &:focus{
+                            outline: 0px;
+                        }
+                        &::-webkit-inner-spin-button{
+                            display: none;
+                        }
+                        &::-webkit-outer-spin-button{
+                            display: none;
+                        }
                     }
-                    &::-webkit-outer-spin-button{
-                        display: none;
+                    img{
+                        width: 60%;
+                        cursor: pointer;
                     }
                 }
-                img{
-                    width: 120px;
+                .icn{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    background: $colorMilkWhite;
                     cursor: pointer;
+                    span{
+                        font-size: 15pt;
+                        color: $colorSoftBlue;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                 }
             }
         }
@@ -295,10 +325,10 @@ html, body, #root{
 .dashboard{
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 30px;
     height: -webkit-fill-available;
     background-color: $colorMidnight;
-    padding-left: 100px;
+    padding-left: 30px;
     main{
         display:flex;
         flex: 1;
@@ -311,15 +341,16 @@ html, body, #root{
         display: flex;       
         flex-direction: row-reverse;
         align-items: flex-end;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         justify-content: space-between;
+        margin-left: 50px;
 
         .Conteiner{
             display: flex;
             flex-direction: row-reverse;
             align-items: flex-end;
             justify-content: space-between;
-            width: calc(100% - 300px - 50px - 50px);
+            width: calc(100% - 280px - 50px);
             margin-right: 50px;
         }
 
@@ -385,15 +416,107 @@ html, body, #root{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    padding: 20px 0px;
     background-color: $colorBalticSea;
-    width: 300px;
+    width: 280px;
     border-top-left-radius: 10px;
-    
-    >p{
-        color: aliceblue;
-        cursor: pointer;
+    .InfoUserMenu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        div{
+            width: 80%;
+            margin: 10px 0px;
+        }
+        >:nth-child(1){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            span{
+                font-size: 35pt;
+                color: $colorLinen;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            p{
+                font-size: 13pt;
+                color: $colorLinen;
+            }
+            >:nth-child(2){
+                font-family: $FontSemiBold;
+            }
+            >:nth-child(1){
+                font-family: $FontRegular;
+            }
+        }
+        .countdown{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            span{
+                color: $colorLightOrange;
+                font-size: 17pt;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0px 5px;
+            }
+            p{
+                color: $colorMilkWhite;
+                font-family: $FontRegular;
+            }
+        }
+        .credit{
+            background: $colorJellyfish;
+        }
+        .nocredit{
+            background: $colorMangoOrange;
+        }
     }
+    .basic{
+        width: 100%;
+        margin-top: 50px;
+        >p{
+            color: aliceblue;
+            cursor: pointer;
+            width: 100%;
+            height: 65px;
+            font-family: $FontBold;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .active{
+            background: $colorQuillGrey;
+            color: $colorMidnight;
+
+            &::after{
+                content: '';
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 7px solid $colorQuillGrey;
+                position: absolute;
+                left: -7px;
+            }
+        }
+        .noactive{
+            &:hover{
+                background: rgba($color: $colorSoftBlue, $alpha: 0.25);
+            }
+        }
+
+    }
+    
 }
 
 
@@ -485,64 +608,6 @@ html, body, #root{
 
 }
 
-.InfoUserMenu{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    div{
-        width: 85%;
-        margin: 10px 0px;
-    }
-    >:nth-child(1){
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        span{
-            font-size: 35pt;
-            color: $colorLinen;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        p{
-            font-size: 13pt;
-            color: $colorLinen;
-        }
-        >:nth-child(2){
-            font-family: $FontSemiBold;
-        }
-        >:nth-child(1){
-            font-family: $FontRegular;
-        }
-    }
-    .countdown{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        height: 35px;
-        span{
-            color: $colorLightOrange;
-            font-size: 17pt;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0px 5px;
-        }
-        p{
-            color: $colorMilkWhite;
-            font-family: $FontRegular;
-        }
-    }
-    .credit{
-        background: $colorJellyfish;
-    }
-    .nocredit{
-        background: $colorMangoOrange;
-    }
-}
 
 .PopUp{
     display: flex;
@@ -603,5 +668,103 @@ html, body, #root{
     flex-direction: row;
     font-family: $FontRegular;
     color: $colorLinen;
+}
 
+.support{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .create{
+        width: 70%;
+        height: 50px;
+        margin: 20px;
+        border: 2px $colorQuillGrey solid;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background: rgba($color: $colorMilkWhite, $alpha: 0.1);
+        outline: 5px rgba($color: $colorMilkWhite, $alpha: 0.1) solid;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover{
+            background: rgba($color: $colorMilkWhite, $alpha: 0.15);
+            outline: 5px rgba($color: $colorMilkWhite, $alpha: 0.15) solid;
+
+
+        }
+
+        span{
+            font-size: 23pt;
+            color: $colorMilkWhite;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 0px 10px;
+        }
+        h6{
+            font-size: 16pt;
+            color: $colorMilkWhite;
+            margin: 0px 10px;
+        }
+    }
+    .histor{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        .ticket-row{
+            height: 65px;
+            border: 2px $colorQuillGrey solid;
+            margin: 15px 0px;
+            align-items: center;
+            justify-content: center;
+            background: rgba($color: $colorSoftBlue, $alpha: 0.2);
+            outline: 5px rgba($color: $colorSoftBlue, $alpha: 0.2) solid;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            width: 85%;
+            justify-content: space-between;
+            padding: 0px 20px;
+            .date{
+                flex: 1;
+                text-align: center;
+                font-size: 10pt;
+                color: $colorQuillGrey;
+            }
+            .title{
+                flex: 3;
+                text-align: center;
+                color: $colorQuillGrey;
+                font-size: 15pt;
+                font-family: $FontBold;
+            }
+            .content{
+                flex: 8;
+                text-align: center;
+                color: $colorQuillGrey;
+                font-size: 11pt;
+                text-overflow: ellipsis;
+                font-family: $FontRegular;
+            }
+            p{
+                color: $colorQuillGrey;
+                font-size: 14pt;
+                flex: 2;
+                font-family: $FontRegular;
+
+            }
+            span{
+                color: $colorMangoOrange;
+                font-size: 18pt;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                cursor: pointer;
+            }
+        }
+    }
 }
