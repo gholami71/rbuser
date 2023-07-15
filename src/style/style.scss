@@ -352,6 +352,7 @@ html, body, #root{
             background-color: $colorBalticSea;
             font-family: $FontRegular;
             margin-right: 150px;
+            cursor: pointer;
             :nth-child(1){
                 display: flex;
                 font-size: 12px;        

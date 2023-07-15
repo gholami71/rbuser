@@ -10,6 +10,8 @@ const Dashboard = () =>{
     const Navigate = useNavigate()
     const cookie = getCookie('phu')
 
+    
+
     const checkUser = () =>{
         axios.post(OnRun+'/user/atuh', {cookie:cookie}).then(response=>{
             if(!response.data.reply){
