@@ -9,6 +9,8 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const Support = () =>{
     const [popUp, setPopUp] = useState(false)
+    const [popupReply, setPopupReplay] = useState({active:false,msg:''})
+
     const [history, setHistory] = useState([])
     const [phu] = useOutletContext()
 
@@ -51,6 +53,15 @@ const Support = () =>{
         <div className="container-page support">
             <ToastContainer autoClose={3000} />
             <CreateTicket popUp={popUp} setPopUp={setPopUp}/>
+            {
+                popupReply.active?
+                <div className="PopUp">
+                    <p>{popupReply.msg}</p>
+                    <button onClick={()=>setPopupReplay({...popupReply,active:false})}>بستن</button>
+                </div>
+                :null
+            }
+
             <div className="create" onClick={()=>setPopUp(!popUp)}>
                 <span><BiCommentAdd/></span>
                 <h6>ایجاد تیکت</h6>
@@ -60,11 +71,11 @@ const Support = () =>{
                     history.map(i=>{
                         return(
                             <div key={i._id} className="ticket-row">
-                                    <h4 className="date">{i.date}</h4>
-                                    <h3 className="title">{i.title}</h3>
-                                    <h5 className="content">{i.content}</h5>
-                                    <p>درحال بررسی</p>
-                                    <span onClick={()=>delTicket(i._id)}><AiOutlineDelete/></span>
+                                <h4 className="date">{i.date}</h4>
+                                <h3 className="title">{i.title}</h3>
+                                <h5 className="content">{i.content}</h5>
+                                <span onClick={()=>delTicket(i._id)}><AiOutlineDelete/></span>
+                                {i.reply==''?<p>درحال بررسی</p>:<p onClick={()=>setPopupReplay({active:!popupReply.active,msg:i.reply})}>مشاهده پاسخ</p>}
                             </div>
                         )
                     })
