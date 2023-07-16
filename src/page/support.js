@@ -5,7 +5,7 @@ import axios from "axios";
 import { OnRun } from "../config/OnRun";
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete,AiOutlinePlus } from "react-icons/ai";
 
 const Support = () =>{
     const [popUp, setPopUp] = useState(false)
@@ -51,11 +51,11 @@ const Support = () =>{
         <div className="container-page support">
             <ToastContainer autoClose={3000} />
             <CreateTicket popUp={popUp} setPopUp={setPopUp}/>
-            <div className="create" onClick={()=>setPopUp(!popUp)}>
-                <span><BiCommentAdd/></span>
+            <div className="create1" onClick={()=>setPopUp(!popUp)}>
+                <span><AiOutlinePlus/></span>
                 <h6>ایجاد تیکت</h6>
             </div>
-            <div className="histor">
+            <div className="history">
                 {
                     history.map(i=>{
                         return(
