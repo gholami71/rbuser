@@ -458,6 +458,7 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 }
 .InfoUser > p {
   display: flex;
@@ -470,14 +471,11 @@ html, body, #root {
   width: 40px;
   height: 30px;
 }
-.InfoUser:hover ul {
+.InfoUser ul {
   display: flex;
   flex-direction: column;
-}
-.InfoUser ul {
-  display: none;
   position: absolute;
-  right: 40px;
+  margin-top: 60px;
   width: 120px;
   padding: 5px 8px;
   background-color: #D9D9D9;
@@ -533,20 +531,50 @@ html, body, #root {
   position: absolute;
   width: 500px;
   height: 400px;
-  top: calc((100% - 400px) / 2);
-  left: calc((100% - 500px) / 2);
-  background-color: #8BA7F0;
+  top: calc((100% - 460px) / 2);
+  left: calc((100% - 560px) / 2);
+  background-color: #111C36;
+  padding: 30px;
+  border-radius: 10px;
   z-index: 2;
+}
+.PopUp > :nth-child(n) {
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 0px;
+  border-radius: 3px;
+}
+.PopUp > :nth-child(n):focus {
+  outline: 0px;
+}
+.PopUp span {
+  color: #F3F1EF;
+  font-size: 15pt;
+}
+.PopUp input {
+  height: 40px;
 }
 .PopUp button {
   display: flex;
   flex-direction: row;
   width: 50px;
+  text-align: center;
   justify-content: center;
   border: 0px;
   border-radius: 5px;
   background-color: #F3F1EF;
   cursor: pointer;
+}
+.PopUp textarea {
+  height: 70%;
+}
+.PopUp button {
+  background-color: #26C5A8;
+  color: #FFFFFF;
+  border: 0px;
+  height: 40px;
+  font-size: 13pt;
+  width: 200px;
 }
 
 .profile button {
@@ -621,56 +649,102 @@ html, body, #root {
   color: #FFFFFF;
   margin: 0px 10px;
 }
-.support .histor {
+.support .create1 {
   display: flex;
   flex-direction: column;
+  font-size: 20pt;
+  color: #F3F1EF;
+  background-color: #FF7554;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}
+.support .create1 span {
+  margin: 0px;
+  cursor: pointer;
+  font-size: 35px;
+  height: 35px;
+}
+.support .create1 h6 {
+  font-size: 15pt;
+  font-family: "Thin";
+}
+.support .history {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
   width: 100%;
   align-items: center;
 }
-.support .histor .ticket-row {
-  height: 65px;
-  border: 2px #D9D9D9 solid;
-  margin: 15px 0px;
+.support .history > :nth-child(2n) {
+  background-color: #F3F1EF;
+  font: #222B40;
+}
+.support .history > :nth-child(2n) .date {
+  color: #222B40;
+}
+.support .history > :nth-child(2n) .title {
+  color: #222B40;
+}
+.support .history > :nth-child(2n) .content {
+  color: #222B40;
+}
+.support .history > :nth-child(2n) p, .support .history > :nth-child(2n) span {
+  color: #222B40;
+}
+.support .history > :nth-child(2n+1) {
+  font: #222B40;
+}
+.support .history > :nth-child(2n+1) .date {
+  color: #F3F1EF;
+}
+.support .history > :nth-child(2n+1) .title {
+  color: #F3F1EF;
+}
+.support .history > :nth-child(2n+1) .content {
+  color: #F3F1EF;
+}
+.support .history > :nth-child(2n+1) p, .support .history > :nth-child(2n+1) span {
+  color: #F3F1EF;
+}
+.support .history .ticket-row {
+  height: 40px;
+  margin: 3px 0px;
   align-items: center;
   justify-content: center;
-  background: rgba(83, 152, 255, 0.2);
-  outline: 5px rgba(83, 152, 255, 0.2) solid;
+  font-family: "Thin";
   border-radius: 5px;
   display: flex;
   flex-direction: row;
+  border: 1px #F3F1EF solid;
   width: 85%;
   justify-content: space-between;
   padding: 0px 20px;
 }
-.support .histor .ticket-row .date {
+.support .history .ticket-row .date {
   flex: 1;
   text-align: center;
   font-size: 10pt;
-  color: #D9D9D9;
 }
-.support .histor .ticket-row .title {
+.support .history .ticket-row .title {
   flex: 3;
   text-align: center;
-  color: #D9D9D9;
   font-size: 15pt;
-  font-family: "Bold";
 }
-.support .histor .ticket-row .content {
+.support .history .ticket-row .content {
   flex: 8;
   text-align: center;
-  color: #D9D9D9;
   font-size: 11pt;
   text-overflow: ellipsis;
-  font-family: "Regular";
 }
-.support .histor .ticket-row p {
-  color: #D9D9D9;
+.support .history .ticket-row p {
   font-size: 14pt;
   flex: 2;
-  font-family: "Regular";
 }
-.support .histor .ticket-row span {
-  color: #FF7554;
+.support .history .ticket-row span {
   font-size: 18pt;
   display: flex;
   align-items: center;

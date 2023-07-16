@@ -3,6 +3,7 @@ import { useState } from "react"
 import { OnRun } from "../config/OnRun"
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import { MdCancelPresentation } from "react-icons/md";
 
 
 
@@ -35,8 +36,9 @@ const CreateTicket = (props) =>{
         {
             props.popUp?
                 <div className="PopUp">
+                    <span onClick={(e)=>{props.setPopUp(!props.popUp)}}><MdCancelPresentation/></span>
                     <input value={ticket.title} onChange={(e)=>setTicket({...ticket,title:e.target.value})} placeholder="عنوان"></input>
-                    <input value={ticket.content} onChange={(e)=>setTicket({...ticket,content:e.target.value})} placeholder="درخواست"></input>
+                    <textarea value={ticket.content} onChange={(e)=>setTicket({...ticket,content:e.target.value})} placeholder="درخواست"></textarea>
                     <button onClick={handlerSetTicket}>ثبت</button>
                 </div>
                 :null

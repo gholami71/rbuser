@@ -524,6 +524,7 @@ html, body, #root{
     display: flex;
     flex-direction: column;
     position: relative;
+    cursor: pointer;
 
     >p{
         display: flex;
@@ -537,16 +538,12 @@ html, body, #root{
         height: 30px;
         
     }
-    &:hover{
-        ul{
-            display: flex;
-            flex-direction: column;
-        }
-    }
+   
     ul{
-        display: none;
+        display: flex;
+        flex-direction: column;
         position: absolute;
-        right: 40px;
+        margin-top: 60px;
         width: 120px;
         padding: 5px 8px;
         background-color: $colorQuillGrey;
@@ -615,20 +612,47 @@ html, body, #root{
     position: absolute;
     width: 500px;
     height: 400px;
-    top: calc((100% - 400px)/2);
-    left: calc((100% - 500px)/2);
-    background-color: $colorJordyBlue;
+    top: calc((100% - 460px)/2);
+    left: calc((100% - 560px)/2);
+    background-color: $colorMidnight;
+    padding: 30px;
+    border-radius: 10px;
     z-index: 2;
+    >:nth-child(n){
+        margin-bottom: 5px;
+        padding: 5px;
+        border: 0px;
+        border-radius: 3px;
+        &:focus{
+            outline: 0px;
+        }
+    }
+    span{
+        color: $colorLinen;
+        
+        font-size: 15pt;
+    }
+    input{
+        height: 40px;
+    }
+    
     button{
         display: flex;
         flex-direction: row;
         width: 50px;
+        text-align: center;
         justify-content: center;
         border: 0px;
         border-radius: 5px;
         background-color: $colorLinen;
-        cursor: pointer;
-        
+        cursor: pointer;  
+    }
+    textarea{
+        height: 70%
+    }
+    button{
+        @include btn1();
+        width: 200px
         
     }
 }
@@ -709,22 +733,81 @@ html, body, #root{
             margin: 0px 10px;
         }
     }
-    .histor{
+
+    .create1{
         display: flex;
         flex-direction: column;
+        font-size: 20pt;
+        color: $colorLinen;
+        background-color: $colorMangoOrange;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+        cursor: pointer;
+        span{
+            margin: 0px;
+            cursor: pointer;
+            font-size: 35px;
+            height: 35px;
+        }
+        h6{
+            font-size: 15pt;
+            font-family: $FontThin;
+
+        }
+    }
+    .history{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2%;
         width: 100%;
         align-items: center;
+        >:nth-child(2n){
+            background-color: $colorLinen;
+            font: $colorBalticSea;
+            .date{
+                color: $colorBalticSea;
+            }
+            .title{
+                color: $colorBalticSea;
+            }
+            .content{
+                color: $colorBalticSea;
+            }
+            p, span{
+                color: $colorBalticSea;
+
+            }
+
+        }
+        >:nth-child(2n+1){
+            font: $colorBalticSea;
+            .date{
+                color: $colorLinen;
+            }
+            .title{
+                color: $colorLinen;
+            }
+            .content{
+                color: $colorLinen;
+            }
+            p, span{
+                color: $colorLinen;
+            }
+            
+        }
         .ticket-row{
-            height: 65px;
-            border: 2px $colorQuillGrey solid;
-            margin: 15px 0px;
+            height: 40px;
+            margin: 3px 0px;
             align-items: center;
-            justify-content: center;
-            background: rgba($color: $colorSoftBlue, $alpha: 0.2);
-            outline: 5px rgba($color: $colorSoftBlue, $alpha: 0.2) solid;
+            justify-content: center; 
+            font-family: $FontThin;
             border-radius: 5px;
             display: flex;
             flex-direction: row;
+            border: 1px $colorLinen solid;
             width: 85%;
             justify-content: space-between;
             padding: 0px 20px;
@@ -732,32 +815,24 @@ html, body, #root{
                 flex: 1;
                 text-align: center;
                 font-size: 10pt;
-                color: $colorQuillGrey;
             }
             .title{
                 flex: 3;
                 text-align: center;
-                color: $colorQuillGrey;
                 font-size: 15pt;
-                font-family: $FontBold;
             }
             .content{
                 flex: 8;
                 text-align: center;
-                color: $colorQuillGrey;
                 font-size: 11pt;
                 text-overflow: ellipsis;
-                font-family: $FontRegular;
             }
             p{
-                color: $colorQuillGrey;
                 font-size: 14pt;
                 flex: 2;
-                font-family: $FontRegular;
 
             }
             span{
-                color: $colorMangoOrange;
                 font-size: 18pt;
                 display: flex;
                 align-items: center;
