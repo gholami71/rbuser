@@ -49,7 +49,9 @@ const CreateAlarm = (props) =>{
                         <input list="symbols" placeholder="نماد" onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
                         <datalist id="symbols">
                             <option>خودرو</option>
+                            <option>گوهر</option>
                             <option>فولاد</option>
+                            <option>تپسی</option>
                             <option>ویسا</option>
                             <option>طلا</option>
                         </datalist>

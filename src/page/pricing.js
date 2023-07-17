@@ -14,7 +14,6 @@ const Pricing = () =>{
             setPrice({pro:1000*data.time, proPlus:1500*data.time,primium:2000*data.time})            
 
         }
-        console.log(data)
     }
 
     useEffect(handlePrice,[data.time])
