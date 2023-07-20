@@ -62,6 +62,8 @@ $FontThin :'Thin';
 
 }
 
+
+
 .container-page{
     display: flex;
     flex-direction: column;
@@ -141,7 +143,7 @@ $FontThin :'Thin';
     width: 245px;
     justify-content: space-between;
     margin: 10px 0px;
-    input{
+    input, select{
         width: 190px;
         height: 40px;
         background: $colorMilkWhite;
@@ -553,6 +555,7 @@ html, body, #root{
             border-bottom: 0px !important;
 
         }
+        
 
 
         li{
@@ -562,8 +565,12 @@ html, body, #root{
             align-items: center;
             padding: 0px 0px 5px 0px;
             margin: 6px 0px;
-            cursor: pointer;
+            
             border-bottom: 1px $colorMidnight solid;
+            &:hover{
+                background-color: $colorLinen;
+            }
+            
             >p{
                 font-size: 11pt;
                 font-family: $FontRegular;
@@ -609,6 +616,8 @@ html, body, #root{
 .PopUp{
     display: flex;
     flex-direction: column;
+    align-items: center ;
+    justify-content: flex-start;
     position: absolute;
     width: 500px;
     height: 400px;
@@ -618,6 +627,14 @@ html, body, #root{
     padding: 30px;
     border-radius: 10px;
     z-index: 2;
+    .TicketTitle{
+        width: 100%;
+    }
+    .closeIcon{
+        align-self: self-start;
+        color: $colorLinen;
+        font-size: 15pt;
+    }
     >:nth-child(n){
         margin-bottom: 5px;
         padding: 5px;
@@ -626,16 +643,7 @@ html, body, #root{
         &:focus{
             outline: 0px;
         }
-    }
-    span{
-        color: $colorLinen;
-        
-        font-size: 15pt;
-    }
-    input{
-        height: 40px;
-    }
-    
+    }   
     button{
         display: flex;
         flex-direction: row;
@@ -648,7 +656,8 @@ html, body, #root{
         cursor: pointer;  
     }
     textarea{
-        height: 70%
+        height: 70%;
+        width: 100%
     }
     button{
         @include btn1();
@@ -694,47 +703,13 @@ html, body, #root{
     color: $colorLinen;
 }
 
-.support{
+.elements{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+
     .create{
-        width: 70%;
-        height: 50px;
-        margin: 20px;
-        border: 2px $colorQuillGrey solid;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background: rgba($color: $colorMilkWhite, $alpha: 0.1);
-        outline: 5px rgba($color: $colorMilkWhite, $alpha: 0.1) solid;
-        border-radius: 5px;
-        cursor: pointer;
-        &:hover{
-            background: rgba($color: $colorMilkWhite, $alpha: 0.15);
-            outline: 5px rgba($color: $colorMilkWhite, $alpha: 0.15) solid;
-
-
-        }
-
-        span{
-            font-size: 23pt;
-            color: $colorMilkWhite;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            margin: 0px 10px;
-        }
-        h6{
-            font-size: 16pt;
-            color: $colorMilkWhite;
-            margin: 0px 10px;
-        }
-    }
-
-    .create1{
         display: flex;
         flex-direction: column;
         font-size: 20pt;
@@ -753,7 +728,7 @@ html, body, #root{
             height: 35px;
         }
         h6{
-            font-size: 15pt;
+            font-size: 14pt;
             font-family: $FontThin;
 
         }
@@ -798,7 +773,7 @@ html, body, #root{
             }
             
         }
-        .ticket-row{
+        .element-row{
             height: 40px;
             margin: 3px 0px;
             align-items: center;
@@ -811,6 +786,12 @@ html, body, #root{
             width: 85%;
             justify-content: space-between;
             padding: 0px 20px;
+            .AlarmsEdit{
+                display: flex;
+                flex-direction:row;
+                width: 15%;
+                justify-content: space-around;
+            }
             .date{
                 flex: 1;
                 text-align: center;
@@ -843,3 +824,4 @@ html, body, #root{
         }
     }
 }
+

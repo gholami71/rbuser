@@ -103,20 +103,20 @@
   justify-content: space-between;
   margin: 10px 0px;
 }
-.InpIcn input {
+.InpIcn input, .InpIcn select {
   width: 190px;
   height: 40px;
   background: #FFFFFF;
   border: 0px;
   padding: 0px 5px;
 }
-.InpIcn input::-webkit-inner-spin-button {
+.InpIcn input::-webkit-inner-spin-button, .InpIcn select::-webkit-inner-spin-button {
   display: none;
 }
-.InpIcn input::-webkit-outer-spin-button {
+.InpIcn input::-webkit-outer-spin-button, .InpIcn select::-webkit-outer-spin-button {
   display: none;
 }
-.InpIcn input:focus {
+.InpIcn input:focus, .InpIcn select:focus {
   outline: 0px;
 }
 .InpIcn .icn {
@@ -492,8 +492,10 @@ html, body, #root {
   align-items: center;
   padding: 0px 0px 5px 0px;
   margin: 6px 0px;
-  cursor: pointer;
   border-bottom: 1px #111C36 solid;
+}
+.InfoUser ul li:hover {
+  background-color: #F3F1EF;
 }
 .InfoUser ul li > p {
   font-size: 11pt;
@@ -528,6 +530,8 @@ html, body, #root {
 .PopUp {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   position: absolute;
   width: 500px;
   height: 400px;
@@ -538,6 +542,14 @@ html, body, #root {
   border-radius: 10px;
   z-index: 2;
 }
+.PopUp .TicketTitle {
+  width: 100%;
+}
+.PopUp .closeIcon {
+  align-self: self-start;
+  color: #F3F1EF;
+  font-size: 15pt;
+}
 .PopUp > :nth-child(n) {
   margin-bottom: 5px;
   padding: 5px;
@@ -546,13 +558,6 @@ html, body, #root {
 }
 .PopUp > :nth-child(n):focus {
   outline: 0px;
-}
-.PopUp span {
-  color: #F3F1EF;
-  font-size: 15pt;
-}
-.PopUp input {
-  height: 40px;
 }
 .PopUp button {
   display: flex;
@@ -567,6 +572,7 @@ html, body, #root {
 }
 .PopUp textarea {
   height: 70%;
+  width: 100%;
 }
 .PopUp button {
   background-color: #26C5A8;
@@ -612,44 +618,12 @@ html, body, #root {
   color: #F3F1EF;
 }
 
-.support {
+.elements {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.support .create {
-  width: 70%;
-  height: 50px;
-  margin: 20px;
-  border: 2px #D9D9D9 solid;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  outline: 5px rgba(255, 255, 255, 0.1) solid;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.support .create:hover {
-  background: rgba(255, 255, 255, 0.15);
-  outline: 5px rgba(255, 255, 255, 0.15) solid;
-}
-.support .create span {
-  font-size: 23pt;
-  color: #FFFFFF;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 10px;
-}
-.support .create h6 {
-  font-size: 16pt;
-  color: #FFFFFF;
-  margin: 0px 10px;
-}
-.support .create1 {
+.elements .create {
   display: flex;
   flex-direction: column;
   font-size: 20pt;
@@ -662,55 +636,55 @@ html, body, #root {
   height: 120px;
   cursor: pointer;
 }
-.support .create1 span {
+.elements .create span {
   margin: 0px;
   cursor: pointer;
   font-size: 35px;
   height: 35px;
 }
-.support .create1 h6 {
-  font-size: 15pt;
+.elements .create h6 {
+  font-size: 14pt;
   font-family: "Thin";
 }
-.support .history {
+.elements .history {
   display: flex;
   flex-direction: column;
   margin-top: 2%;
   width: 100%;
   align-items: center;
 }
-.support .history > :nth-child(2n) {
+.elements .history > :nth-child(2n) {
   background-color: #F3F1EF;
   font: #222B40;
 }
-.support .history > :nth-child(2n) .date {
+.elements .history > :nth-child(2n) .date {
   color: #222B40;
 }
-.support .history > :nth-child(2n) .title {
+.elements .history > :nth-child(2n) .title {
   color: #222B40;
 }
-.support .history > :nth-child(2n) .content {
+.elements .history > :nth-child(2n) .content {
   color: #222B40;
 }
-.support .history > :nth-child(2n) p, .support .history > :nth-child(2n) span {
+.elements .history > :nth-child(2n) p, .elements .history > :nth-child(2n) span {
   color: #222B40;
 }
-.support .history > :nth-child(2n+1) {
+.elements .history > :nth-child(2n+1) {
   font: #222B40;
 }
-.support .history > :nth-child(2n+1) .date {
+.elements .history > :nth-child(2n+1) .date {
   color: #F3F1EF;
 }
-.support .history > :nth-child(2n+1) .title {
+.elements .history > :nth-child(2n+1) .title {
   color: #F3F1EF;
 }
-.support .history > :nth-child(2n+1) .content {
+.elements .history > :nth-child(2n+1) .content {
   color: #F3F1EF;
 }
-.support .history > :nth-child(2n+1) p, .support .history > :nth-child(2n+1) span {
+.elements .history > :nth-child(2n+1) p, .elements .history > :nth-child(2n+1) span {
   color: #F3F1EF;
 }
-.support .history .ticket-row {
+.elements .history .element-row {
   height: 40px;
   margin: 3px 0px;
   align-items: center;
@@ -724,27 +698,33 @@ html, body, #root {
   justify-content: space-between;
   padding: 0px 20px;
 }
-.support .history .ticket-row .date {
+.elements .history .element-row .AlarmsEdit {
+  display: flex;
+  flex-direction: row;
+  width: 15%;
+  justify-content: space-around;
+}
+.elements .history .element-row .date {
   flex: 1;
   text-align: center;
   font-size: 10pt;
 }
-.support .history .ticket-row .title {
+.elements .history .element-row .title {
   flex: 3;
   text-align: center;
   font-size: 15pt;
 }
-.support .history .ticket-row .content {
+.elements .history .element-row .content {
   flex: 8;
   text-align: center;
   font-size: 11pt;
   text-overflow: ellipsis;
 }
-.support .history .ticket-row p {
+.elements .history .element-row p {
   font-size: 14pt;
   flex: 2;
 }
-.support .history .ticket-row span {
+.elements .history .element-row span {
   font-size: 18pt;
   display: flex;
   align-items: center;

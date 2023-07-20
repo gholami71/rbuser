@@ -50,7 +50,7 @@ const Support = () =>{
 
     useEffect(handlerGetHistorySupport,[])
     return(
-        <div className="container-page support">
+        <div className="container-page elements">
             <ToastContainer autoClose={3000} />
             <CreateTicket popUp={popUp} setPopUp={setPopUp}/>
 
@@ -62,18 +62,15 @@ const Support = () =>{
                 </div>
                 :null
             }
-
-
-            <div className="create1" onClick={()=>setPopUp(!popUp)}>
+            <div className="create" onClick={()=>setPopUp(!popUp)}>
                 <span><AiOutlinePlus/></span>
-
                 <h6>ایجاد تیکت</h6>
             </div>
             <div className="history">
                 {
                     history.map(i=>{
                         return(
-                            <div key={i._id} className="ticket-row">
+                            <div key={i._id} className="element-row">
                                 <h4 className="date">{i.date}</h4>
                                 <h3 className="title">{i.title}</h3>
                                 <h5 className="content">{i.content}</h5>

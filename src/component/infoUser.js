@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi";
 import { BiTimeFive ,BiUser} from "react-icons/bi";
 import { useState } from "react";
 import { MdMenuOpen } from "react-icons/md";
+import { RxCross1 } from "react-icons/rx";
 
 
 
@@ -16,7 +17,7 @@ const InfoUser = () =>{
         
         <div className="InfoUser" >
             
-            <p className="icons" onClick={()=>{setStatus(!status)}}>{status? <MdMenuOpen/> : <FiMenu/>}</p>
+            <p className="icons" onClick={()=>{setStatus(!status)}}>{status? <RxCross1/> : <FiMenu/>}</p>
             {status?
             <ul>
                 <li>

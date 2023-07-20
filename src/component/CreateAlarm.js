@@ -3,6 +3,12 @@ import { useState } from "react"
 import { OnRun } from "../config/OnRun"
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import { MdDriveFileRenameOutline , MdOutlineAlternateEmail , MdLocationOn, MdNumbers} from "react-icons/md";
+import { MdCancelPresentation } from "react-icons/md";
+import { RxCross1 } from "react-icons/rx";
+
+
+
 
 
 
@@ -43,9 +49,11 @@ const CreateAlarm = (props) =>{
             {
                 props.popup?
                 <div className="PopUp">
+                    <span className="closeIcon" onClick={()=>{props.setPopup(false)}}><RxCross1/></span>
 
                 <div className="options">
-                    <div>
+                    <div className="InpIcn">
+                        
                         <input list="symbols" placeholder="نماد" onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
                         <datalist id="symbols">
                             <option>خودرو</option>
@@ -55,41 +63,68 @@ const CreateAlarm = (props) =>{
                             <option>ویسا</option>
                             <option>طلا</option>
                         </datalist>
+                        <div className="icn">                         
+                            <span><MdDriveFileRenameOutline/></span>
+                        </div>
                     </div>
                         
-                    <div>
+                    <div className="InpIcn">
                         <select value={InputUser.AlarmtType} onChange={(e)=>{handleAlarmType(e)}}>
                             <option>قیمت</option>
                             <option>صف</option>
                             <option>پیام ناظر</option>
                         </select>
+                        <div className="icn">                         
+                            <span><MdDriveFileRenameOutline/></span>
+                        </div>
+
                     </div>
                     <div>
                         {
                             InputUser.AlarmtType == 'قیمت'?
                                 <>
-                                    <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
-                                        <option>بیشتر</option>
-                                        <option>کمتر</option>   
-                                    </select>
-                                    <input onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="فیمت"></input>
+                                    <div className="InpIcn">
+                                                          
+                                        <input onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="فیمت"></input>
+                                        <div className="icn">                         
+                                            <span><MdDriveFileRenameOutline/></span>
+                                        </div>
+                                    </div>
+                                    <div className="InpIcn">
+                                        <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
+                                            <option>بیشتر</option>
+                                            <option>کمتر</option>   
+                                        </select>
+                                        <div className="icn">                         
+                                            <span><MdDriveFileRenameOutline/></span>
+                                        </div>
+                                    </div>                                   
                                 </>
 
                             :InputUser.AlarmtType == 'صف'?
-                                <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
+                            <div  className="InpIcn">
+                                 <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
                                     <option>صف خرید شدن</option>
                                     <option>صف فروش شدن</option>   
                                     <option>ریختن صف خرید</option>   
                                     <option>جمع شدن صف فروش</option>   
                                 </select>
+                                <div className="icn">                         
+                                    <span><MdDriveFileRenameOutline/></span>
+                                </div>
+                            </div>
+                               
                             :InputUser.AlarmtType == 'پیام ناظر'?
-                
-                                <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
-                                    <option>همه</option>
-                                    <option>بازگشایی</option>   
-                                    <option>توقف</option>                
-                                </select>
-
+                                <div  className="InpIcn">
+                                    <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
+                                        <option>همه</option>
+                                        <option>بازگشایی</option>   
+                                        <option>توقف</option>                
+                                    </select>
+                                    <div className="icn">                         
+                                        <span><MdDriveFileRenameOutline/></span>
+                                    </div>                                   
+                                </div>
                             :null
                         }
                     </div>
