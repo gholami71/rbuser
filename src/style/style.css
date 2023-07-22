@@ -237,7 +237,7 @@ html, body, #root {
 .user-login .login .FormContiner .InpCpt .ic {
   display: flex;
   flex-direction: row;
-  background: #FFFFFF;
+  background: #ECE8E5;
   width: 200px;
 }
 .user-login .login .FormContiner .InpCpt .ic input {
