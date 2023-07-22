@@ -129,8 +129,8 @@ const CreateAlarm = (props) =>{
                         }
                     </div>
                 </div>
-                <button onClick={handlePopUp}>ثبت</button>
-                <button onClick={()=>{props.setPopup(false)}}>لغو</button>
+                <button type="submit" onClick={handlePopUp}>ثبت</button>
+                <button  onClick={()=>{props.setPopup(false)}}>لغو</button>
             </div>
             :null
             }

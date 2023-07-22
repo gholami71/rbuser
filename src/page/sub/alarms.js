@@ -27,8 +27,8 @@ const Alarms = () =>{
     const handlDeleteAlarm = () =>{
         
     }
+    useEffect(getAlarms, [!popup])
 
-    useEffect(getAlarms, [])
     return(
 
         <div className="container-page elements">
@@ -37,6 +37,7 @@ const Alarms = () =>{
                 <h6>هشدار جدید</h6>
             </div>
             <CreateAlarm popup={popup} setPopup={setPopup}/>
+            
             <div className="history">
                 {
                   alarms.map(i =>{
