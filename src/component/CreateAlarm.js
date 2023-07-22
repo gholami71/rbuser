@@ -21,6 +21,7 @@ const CreateAlarm = (props) =>{
         props.setPopup(false)
         axios.post(OnRun+'/user/setalarm', {phu:phu, InputUser:InputUser}).then(response=>{
             if(response.data.reply){
+                props.getAlarms()
                 toast.success('هشدار جدید ثبت شد.',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
             }
             else{

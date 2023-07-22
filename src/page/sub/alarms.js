@@ -27,7 +27,7 @@ const Alarms = () =>{
     const handlDeleteAlarm = () =>{
         
     }
-    useEffect(getAlarms, [!popup])
+    useEffect(getAlarms, [popup])
 
     return(
 
@@ -36,7 +36,7 @@ const Alarms = () =>{
                 <span><AiOutlinePlus/></span>
                 <h6>هشدار جدید</h6>
             </div>
-            <CreateAlarm popup={popup} setPopup={setPopup}/>
+            <CreateAlarm getAlarms={getAlarms} popup={popup} setPopup={setPopup}/>
             
             <div className="history">
                 {
