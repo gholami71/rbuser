@@ -160,6 +160,9 @@ $FontThin :'Thin';
 
         }
     }
+    select{
+        width: 200px;
+    }
     .icn{
         display: flex;
         flex-direction: column;
@@ -702,6 +705,31 @@ html, body, #root{
     flex-direction: row;
     font-family: $FontRegular;
     color: $colorLinen;
+    justify-content: space-between;
+    height: 100%;
+    .price{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+        border: 1px rgba($color: $colorLinen, $alpha: 0.5) solid;
+        width: 30%;
+        height: 90%;
+        .type{
+            font-size: 16pt;
+        }
+        p{
+            color: $colorQuillGrey;
+        }
+        button{
+            @include btn1();
+            width: 80%;
+
+        }
+
+        
+    }
 }
 
 .elements{
