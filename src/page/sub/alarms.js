@@ -11,6 +11,8 @@ const Alarms = () =>{
     const [popup, setPopup] = useState(false)
     const [phu] = useOutletContext()
     const [alarms, setAlarms] = useState([])
+    const [editAlarms, setEditAlarms] = useState(null)
+
 
     const getAlarms = () =>{
         axios.post(OnRun+'/user/getalarm', {phu:phu}).then(response =>{
@@ -18,7 +20,6 @@ const Alarms = () =>{
                 setAlarms(response.data.alarms)    
             }
             else{
-
 
             }
         })    
@@ -36,13 +37,13 @@ const Alarms = () =>{
                 <span><AiOutlinePlus/></span>
                 <h6>هشدار جدید</h6>
             </div>
-            <CreateAlarm getAlarms={getAlarms} popup={popup} setPopup={setPopup}/>
+            <CreateAlarm editAlarms={editAlarms} getAlarms={getAlarms} popup={popup} setPopup={setPopup}/>
             
             <div className="history">
                 {
                   alarms.map(i =>{
                     return(
-                        <div className="element-row">
+                        <div  className="element-row">
                             <p>{i.symbol}</p>
                             <p>{i.AlarmtType}</p>
                             <p>{i.method}</p>
@@ -50,7 +51,7 @@ const Alarms = () =>{
                             <p>{i.notification}</p>
                             <div className="AlarmsEdit">
                                 <span onClick={handlDeleteAlarm}><MdDeleteForever/></span>
-                                <span><MdModeEditOutline/></span>
+                                <span onClick={()=>setEditAlarms(i)}><MdModeEditOutline/></span>
                             </div>
                         </div>
                     )

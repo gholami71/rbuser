@@ -13,6 +13,7 @@ import { RxCross1 } from "react-icons/rx";
 
 
 const CreateAlarm = (props) =>{
+    console.log(props.editAlarms)
 
     const [InputUser, setInputUser] = useState({'symbol':'','AlarmtType':'قیمت', 'method':'بیشتر','price':'', 'notification':''})
     const [phu] = useOutletContext()
@@ -41,7 +42,6 @@ const CreateAlarm = (props) =>{
             setInputUser({...InputUser,AlarmtType:e.target.value,method:'همه'})
         }
     }
-    console.log(InputUser)
 
         return(
             

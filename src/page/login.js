@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { OnRun } from '../config/OnRun'
 import { useNavigate } from 'react-router-dom'
 import { setCookie, getCookie } from '../function/cookie'
@@ -51,16 +51,11 @@ const Login = () => {
         } else if (UserInput.phone.length !== 11) {
             alert('مقدار شماره همراه را به صورت صحیح وارد کنید')
         } else {
-
             axios.post(OnRun + '/user/applyphone', { UserInput: UserInput, CaptchaCode: CaptchaCode })
                 .then(response => {
                     if (response.data.reply) {
                         setStatus(false)
-
-
                     }
-
-
                 })
         }
     }
