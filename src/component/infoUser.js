@@ -19,21 +19,24 @@ const InfoUser = () =>{
             
             <p className="icons" onClick={()=>{setStatus(!status)}}>{status? <RxCross1/> : <FiMenu/>}</p>
             {status?
-            <ul>
-                <li>
-                    <span><BiUser/></span>
-                    <p onClick={()=>navigate('profile')}>پروفایل</p>
-                </li>
-              
-                <li>
-                    <span><BiTimeFive/></span>
-                    <p onClick={()=>navigate('pricing')}>تعرفه ها</p>
-                </li>
-                <li>
-                    <span><BiTimeFive/></span>
-                    <p onClick={()=>navigate('support')}>پشتیبانی</p>
-                </li>
-            </ul>
+                <>
+                    <ul>
+                        <li>
+                            <span><BiUser/></span>
+                            <p onClick={()=>navigate('profile')}>پروفایل</p>
+                        </li>
+                    
+                        <li>
+                            <span><BiTimeFive/></span>
+                            <p onClick={()=>navigate('pricing')}>تعرفه ها</p>
+                        </li>
+                        <li>
+                            <span><BiTimeFive/></span>
+                            <p onClick={()=>navigate('support')}>پشتیبانی</p>
+                        </li>
+                    </ul>
+                    <div className="hide" onClick={()=>setStatus(false)}></div>
+                </>
             
             :null
 

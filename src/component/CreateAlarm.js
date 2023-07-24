@@ -17,7 +17,6 @@ import { AiOutlineBranches } from "react-icons/ai";
 
 
 const CreateAlarm = (props) =>{
-    console.log(props.editAlarms)
 
     const [InputUser, setInputUser] = useState({'symbol':'','AlarmtType':'قیمت', 'method':'بیشتر','price':'', 'notification':''})
     const [phu] = useOutletContext()
@@ -34,7 +33,17 @@ const CreateAlarm = (props) =>{
             }
         })
     }
+
+    const handleEdit = () =>{
+        if (props.editAlarms!=null) {
+            setInputUser(props.editAlarms)
+        }else{
+            setInputUser({'symbol':'','AlarmtType':'قیمت', 'method':'بیشتر','price':'', 'notification':''})
+        }
+    }
+
     useEffect(getSymbol,[])
+    useEffect(handleEdit,[props.editAlarms])
     
     const handlePopUp = () =>{
         if(!symbols.includes(InputUser.symbol)){
@@ -49,7 +58,7 @@ const CreateAlarm = (props) =>{
                 if(response.data.reply){
                     props.setPopup(false)
                     props.getAlarms()
-                    toast.success('هشدار جدید ثبت شد.',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+                    toast.success('هشدار ثبت شد.',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
             }
             else{
                 toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
@@ -77,93 +86,98 @@ const CreateAlarm = (props) =>{
             <ToastContainer autoClose={3000}/>
             {
                 props.popup?
-                <div className="PopUp">
-                    <span className="closeIcon" onClick={()=>{props.setPopup(false)}}><RxCross1/></span>
+                <>
+                    <div className="PopUp">
+                        <span className="closeIcon" onClick={()=>{props.setPopup(false)}}><RxCross1/></span>
 
-                <div className="options">
-                    <div className="InpIcn">
-                        
-                        <input list="symbols" placeholder="نماد" onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
-                        <datalist id="symbols">
-                            {
-                                symbols.map(i=>{
-                                    return(
-                                        <option>{i}</option>
-                                    )
-                                
-                                })
-                            }
+                    <div className="options">
+                        <div className="InpIcn">
+                            
+                            <input list="symbols" placeholder="نماد" value={InputUser.symbol} onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
+                            <datalist id="symbols">
+                                {
+                                    symbols.map(i=>{
+                                        return(
+                                            <option key={i}>{i}</option>
+                                        )
+                                    
+                                    })
+                                }
 
-                        </datalist>
-                        <div className="icn">                         
-                            <span><VscSymbolNumeric/></span>
-                        </div>
-                    </div>
-                        
-                    <div className="InpIcn">
-                        <select value={InputUser.AlarmtType} onChange={(e)=>{handleAlarmType(e)}}>
-                            <option>قیمت</option>
-                            <option>صف</option>
-                            <option>پیام ناظر</option>
-                        </select>
-                        <div className="icn">                         
-                            <span><MdDriveFileRenameOutline/></span>
-                        </div>
-
-                    </div>
-                    <div>
-                        {
-                            InputUser.AlarmtType == 'قیمت'?
-                                <>
-                                    <div className="InpIcn">
-                                                          
-                                        <input type="number" onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="فیمت"></input>
-                                        <div className="icn">                         
-                                            <span><MdAttachMoney/></span>
-                                        </div>
-                                    </div>
-                                    <div className="InpIcn">
-                                        <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
-                                            <option>بیشتر</option>
-                                            <option>کمتر</option>   
-                                        </select>
-                                        <div className="icn">                         
-                                            <span><LuAlignEndHorizontal/></span>
-                                        </div>
-                                    </div>                                   
-                                </>
-
-                            :InputUser.AlarmtType == 'صف'?
-                            <div  className="InpIcn">
-                                 <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
-                                    <option>صف خرید شدن</option>
-                                    <option>صف فروش شدن</option>   
-                                    <option>ریختن صف خرید</option>   
-                                    <option>جمع شدن صف فروش</option>   
-                                </select>
-                                <div className="icn">                         
-                                    <span><MdStackedLineChart/></span>
-                                </div>
+                            </datalist>
+                            <div className="icn">                         
+                                <span><VscSymbolNumeric/></span>
                             </div>
-                               
-                            :InputUser.AlarmtType == 'پیام ناظر'?
+                        </div>
+                            
+                        <div className="InpIcn">
+                            <select value={InputUser.AlarmtType} onChange={(e)=>{handleAlarmType(e)}}>
+                                <option>قیمت</option>
+                                <option>صف</option>
+                                <option>پیام ناظر</option>
+                            </select>
+                            <div className="icn">                         
+                                <span><MdDriveFileRenameOutline/></span>
+                            </div>
+
+                        </div>
+                        <div>
+                            {
+                                InputUser.AlarmtType == 'قیمت'?
+                                    <>
+                                        <div className="InpIcn">
+                                                            
+                                            <input type="number" value={InputUser.price} onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="فیمت"></input>
+                                            <div className="icn">                         
+                                                <span><MdAttachMoney/></span>
+                                            </div>
+                                        </div>
+                                        <div className="InpIcn">
+                                            <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
+                                                <option>بیشتر</option>
+                                                <option>کمتر</option>   
+                                            </select>
+                                            <div className="icn">                         
+                                                <span><LuAlignEndHorizontal/></span>
+                                            </div>
+                                        </div>                                   
+                                    </>
+
+                                :InputUser.AlarmtType == 'صف'?
                                 <div  className="InpIcn">
                                     <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
-                                        <option>همه</option>
-                                        <option>بازگشایی</option>   
-                                        <option>توقف</option>                
+                                        <option>صف خرید شدن</option>
+                                        <option>صف فروش شدن</option>   
+                                        <option>ریختن صف خرید</option>   
+                                        <option>جمع شدن صف فروش</option>   
                                     </select>
                                     <div className="icn">                         
-                                        <span><AiOutlineBranches/></span>
-                                    </div>                                   
+                                        <span><MdStackedLineChart/></span>
+                                    </div>
                                 </div>
-                            :null
-                        }
+                                
+                                :InputUser.AlarmtType == 'پیام ناظر'?
+                                    <div  className="InpIcn">
+                                        <select value={InputUser.method} onChange={(e)=>{setInputUser({...InputUser,method:e.target.value})}}>
+                                            <option>همه</option>
+                                            <option>بازگشایی</option>   
+                                            <option>توقف</option>                
+                                        </select>
+                                        <div className="icn">                         
+                                            <span><AiOutlineBranches/></span>
+                                        </div>                                   
+                                    </div>
+                                :null
+                                }
+                            </div>
+                        </div>
+                        <button type="submit" onClick={handlePopUp}>ثبت</button>
+                        <button  onClick={()=>{props.setPopup(false)}}>لغو</button>
                     </div>
-                </div>
-                <button type="submit" onClick={handlePopUp}>ثبت</button>
-                <button  onClick={()=>{props.setPopup(false)}}>لغو</button>
-            </div>
+
+                    <div className="hide" onClick={()=>props.setPopup(false)}></div>
+                </>
+
             :null
             }
             </>

@@ -5,6 +5,7 @@ import { OnRun } from '../config/OnRun'
 import { useNavigate } from 'react-router-dom'
 import { setCookie, getCookie } from '../function/cookie'
 import { FiPhone } from "react-icons/fi";
+import { MdOutlineSms } from "react-icons/md";
 import { IoReloadSharp } from "react-icons/io5";
 const Login = () => {
     const [UserInput, setUserInput] = useState({ 'phone': '', 'captcha': '', 'code': '' })
@@ -130,7 +131,7 @@ const Login = () => {
                             <div className='InpIcn'>
                                 <input value={UserInput.code} onChange={(e) => { setUserInput({ ...UserInput, code: e.target.value }) }} placeholder='کد تایید' />
                                 <div className='icn'>
-                                    <span><FiPhone /></span>
+                                    <span><MdOutlineSms /></span>
                                 </div>
                             </div>
                             <button className='ent' onClick={handleCode}>ورود</button>

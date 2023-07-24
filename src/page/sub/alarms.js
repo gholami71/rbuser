@@ -16,13 +16,15 @@ const Alarms = () =>{
     const [editAlarms, setEditAlarms] = useState(null)
 
 
+
+
     const getAlarms = () =>{
         axios.post(OnRun+'/user/getalarm', {phu:phu}).then(response =>{
             if (response.data.reply){
-                setAlarms(response.data.alarms)    
+                setAlarms(response.data.alarms)
             }
             else{
-
+                setAlarms([])
             }
         })    
     }
@@ -40,40 +42,49 @@ const Alarms = () =>{
         
     }
 
-    const handelEdit = () =>{
-        
+    const handleEdit = (i) =>{
+        setEditAlarms(i)
+        setPopup(true)
     }
+
+    const handleNew = () =>{
+        setPopup(!popup)
+        setEditAlarms(null)
+
+    }
+
+
 
     useEffect(getAlarms, [popup])
 
-    return(
 
+    return(
         <div className="container-page elements">
             <ToastContainer autoClose={3000} />
-            <div className="create" onClick={()=>setPopup(!popup)}>
+            <div className="create" onClick={handleNew}>
                 <span><AiOutlinePlus/></span>
                 <h6>هشدار جدید</h6>
             </div>
             <CreateAlarm editAlarms={editAlarms} getAlarms={getAlarms} popup={popup} setPopup={setPopup}/>
-            
+
             <div className="history">
                 {
-                  alarms.map(i =>{
-                    return(
-                        <div key={i['_id']} className="element-row">
-                            <p>{i.symbol}</p>
-                            <p>{i.AlarmtType}</p>
-                            <p>{i.method}</p>
-                            <p>{i.price}</p>
-                            <p>{i.active?'در انتظار':'غیرفعال'}</p>
-                            <p>{i.notification}</p>
-                            <div className="AlarmsEdit">
-                                <span onClick={()=>handlDeleteAlarm(i['_id'])}><MdDeleteForever/></span>
-                                <span><MdModeEditOutline/></span>
+                    alarms.map(i =>{
+                        return(
+                            <div key={i['_id']} className="element-row">
+                                <p>{i.symbol}</p>
+                                <p>{i.AlarmtType}</p>
+                                <p>{i.method}</p>
+                                <p>{i.price}</p>
+                                <p>{i.active?'در انتظار':'غیرفعال'}</p>
+                                <p>{i.notification}</p>
+                                <div className="AlarmsEdit">
+                                    <span onClick={()=>handlDeleteAlarm(i['_id'])}><MdDeleteForever/></span>
+                                    <span onClick={()=>handleEdit(i)}><MdModeEditOutline/></span>
+                                </div>
                             </div>
-                        </div>
-                    )
-                  })
+                        )
+                    })
                 }
             </div>
         </div>

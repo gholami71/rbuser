@@ -32,10 +32,9 @@ const InfoUserMenu = () =>{
                     </div>
                     <div className={userdata.creditDay?'countdown credit':'countdown nocredit'}>
                         <span>{userdata.creditDay?<BsCheck2Circle/>:<BsXCircle/>}</span>
-                        <p>{userdata.creditDay?userdata.creditDay + 'روز اعتبار دارید':'اعتبار ندارید'}</p>
+                        <p>{userdata.creditDay?userdata.creditDay + 'اعتبار دارید':'اعتبار ندارید'}</p>
                     </div>
                 </div>
-    
                 :null
             }
         </>
