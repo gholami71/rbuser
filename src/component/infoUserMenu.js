@@ -20,21 +20,7 @@ const InfoUserMenu = () =>{
 
     useEffect(infoMenu, [])
     return(
-<<<<<<< HEAD
-        <div className="InfoUserMenu">
-            <div>
-                <span><GoPerson/></span>
-                <p>{userdata.name?userdata.name:userdata.phone}</p>
-                <p>{userdata.label}</p>
-            </div>
-            <div className={userdata.creditDay?'countdown credit':'countdown nocredit'}>
-                <span>{userdata.creditDay?<BsCheck2Circle/>:<BsXCircle/>}</span>
-                <p>{userdata.creditDay?userdata.creditDay + 'اعتبار دارید':'اعتبار ندارید'}</p>
-            </div>
-        </div>
 
-    )
-=======
         <>
         {
             userdata!=null?
@@ -54,7 +40,6 @@ const InfoUserMenu = () =>{
             }
         </>
         )
-    
->>>>>>> 19392481c108d619291763f1365034c46d20320d
+
 }
 export default InfoUserMenu
