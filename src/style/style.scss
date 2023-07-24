@@ -863,3 +863,42 @@ html, body, #root{
     }
 }
 
+.delpopupMassage{
+     display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: flex-start;
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    top: calc((100% - 260px)/2);
+    left: calc((100% - 375px)/2);
+    background-color: $colorMidnight;
+    padding: 30px;
+    border-radius: 10px;
+    height: 200px;
+    width: 300px;
+    z-index: 3;
+    p{
+        font-size: 13pt;
+        font-family: $FontMedium;
+        color: $colorQuillGrey;
+        margin: 40px 0px;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        
+        button{
+        @include btn1();
+        width: 80px;
+
+        } 
+              
+    }
+    
+}
+

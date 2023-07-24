@@ -769,4 +769,43 @@ html, body, #root {
   justify-content: center;
   flex: 1;
   cursor: pointer;
+}
+
+.delpopupMassage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  top: calc((100% - 260px) / 2);
+  left: calc((100% - 375px) / 2);
+  background-color: #111C36;
+  padding: 30px;
+  border-radius: 10px;
+  height: 200px;
+  width: 300px;
+  z-index: 3;
+}
+.delpopupMassage p {
+  font-size: 13pt;
+  font-family: "Medium";
+  color: #D9D9D9;
+  margin: 40px 0px;
+}
+.delpopupMassage .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.delpopupMassage .buttons button {
+  background-color: #26C5A8;
+  color: #FFFFFF;
+  border: 0px;
+  height: 40px;
+  font-size: 13pt;
+  width: 80px;
 }/*# sourceMappingURL=style.css.map */

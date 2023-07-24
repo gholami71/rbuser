@@ -10,12 +10,13 @@ import { AiOutlineDelete,AiOutlinePlus } from "react-icons/ai";
 const Support = () =>{
     const [popUp, setPopUp] = useState(false)
     const [popupReply, setPopupReplay] = useState({active:false,msg:''})
-
+    const [delpopUp, setdelpopUp] = useState(false)
     const [history, setHistory] = useState([])
     const [phu] = useOutletContext()
 
 
     const handlerGetHistorySupport = ()=>{
+        
         axios.post(OnRun+'/user/getticket',{phu:phu})
         .then(response=>{
             if(response.data.reply){
@@ -34,6 +35,7 @@ const Support = () =>{
     const delTicket = (id) =>{
         axios.post(OnRun+'/user/delticket', {id:id,phu:phu})
         .then(response=>{
+            setdelpopUp(false)
             if (response.data.reply) {
                 handlerGetHistorySupport()
                 toast.success('تیکت حذف شد',{position: toast.POSITION.BOTTOM_RIGHT,className: 'position-toast'})
@@ -48,7 +50,7 @@ const Support = () =>{
 
 
 
-    useEffect(handlerGetHistorySupport,[])
+    useEffect(handlerGetHistorySupport,[popUp])
     return(
         <div className="container-page elements">
             <ToastContainer autoClose={3000} />
@@ -74,7 +76,7 @@ const Support = () =>{
                                 <h4 className="date">{i.date}</h4>
                                 <h3 className="title">{i.title}</h3>
                                 <h5 className="content">{i.content}</h5>
-                                <span onClick={()=>delTicket(i._id)}><AiOutlineDelete/></span>
+                                <span onClick={()=>setdelpopUp(i._id)}><AiOutlineDelete/></span>
                                 {i.reply==''?<p>درحال بررسی</p>:<p onClick={()=>setPopupReplay({active:!popupReply.active,msg:i.reply})}>مشاهده پاسخ</p>}
                             </div>
                         )
@@ -82,6 +84,21 @@ const Support = () =>{
                 }
 
             </div>
+            {
+                delpopUp?
+                <>
+                <div className="delpopupMassage">
+                    <p>آیا میخواهید تیکت حذف شود؟</p>
+                    <div className="buttons">
+                        <button className="btn1" onClick={()=>{delTicket(delpopUp)}}>تایید</button>
+                        <button className="btn1" onClick={()=>{setdelpopUp(false)}}>لغو</button>
+                    </div>
+                </div>
+                <div className="hide" onClick={()=>setdelpopUp(false)}></div>
+                
+                </>
+                :null
+            }
 
         </div>
     )
