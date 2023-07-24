@@ -60,7 +60,7 @@ const Alarms = () =>{
                 {
                   alarms.map(i =>{
                     return(
-                        <div  className="element-row">
+                        <div key={i['_id']} className="element-row">
                             <p>{i.symbol}</p>
                             <p>{i.AlarmtType}</p>
                             <p>{i.method}</p>
@@ -68,7 +68,7 @@ const Alarms = () =>{
                             <p>{i.active?'در انتظار':'غیرفعال'}</p>
                             <p>{i.notification}</p>
                             <div className="AlarmsEdit">
-                                <span onClick={handlDeleteAlarm}><MdDeleteForever/></span>
+                                <span onClick={()=>handlDeleteAlarm(i['_id'])}><MdDeleteForever/></span>
                                 <span><MdModeEditOutline/></span>
                             </div>
                         </div>
