@@ -1,11 +1,15 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { OnRun } from "../config/OnRun"
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import { MdDriveFileRenameOutline , MdOutlineAlternateEmail , MdLocationOn, MdNumbers} from "react-icons/md";
-import { MdCancelPresentation } from "react-icons/md";
+import { MdCancelPresentation,MdAttachMoney,MdStackedLineChart } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
+import { VscSymbolNumeric } from "react-icons/vsc";
+import { LuAlignEndHorizontal } from "react-icons/lu";
+import { AiOutlineBranches } from "react-icons/ai";
+
 
 
 
@@ -17,18 +21,42 @@ const CreateAlarm = (props) =>{
 
     const [InputUser, setInputUser] = useState({'symbol':'','AlarmtType':'قیمت', 'method':'بیشتر','price':'', 'notification':''})
     const [phu] = useOutletContext()
+    const [symbols, setSymbols] = useState([])
+
+    const getSymbol = () =>{
+        axios.post(OnRun+'/user/getsymbols', {phu:phu})
+        .then(response=>{
+            if(response.data.reply){
+                setSymbols(response.data.symbols)
+            }
+            else{
+
+            }
+        })
+    }
+    useEffect(getSymbol,[])
     
     const handlePopUp = () =>{
-        props.setPopup(false)
-        axios.post(OnRun+'/user/setalarm', {phu:phu, InputUser:InputUser}).then(response=>{
-            if(response.data.reply){
-                props.getAlarms()
-                toast.success('هشدار جدید ثبت شد.',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+        if(!symbols.includes(InputUser.symbol)){
+            toast.warning('فیلد نماد صحیح نیست',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+        }
+        else if((InputUser.AlarmtType == 'قیمت') && (isNaN(InputUser.price) || InputUser.price<=0)){
+
+                toast.warning('لطفا مقدار قیمت را صحیح وارد کنید ',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+        }
+        else{
+            axios.post(OnRun+'/user/setalarm', {phu:phu, InputUser:InputUser}).then(response=>{
+                if(response.data.reply){
+                    props.setPopup(false)
+                    props.getAlarms()
+                    toast.success('هشدار جدید ثبت شد.',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
             }
             else{
                 toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
             }
         })
+
+        }
 
     }
     const handleAlarmType = (e) =>{
@@ -57,15 +85,18 @@ const CreateAlarm = (props) =>{
                         
                         <input list="symbols" placeholder="نماد" onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
                         <datalist id="symbols">
-                            <option>خودرو</option>
-                            <option>گوهر</option>
-                            <option>فولاد</option>
-                            <option>تپسی</option>
-                            <option>ویسا</option>
-                            <option>طلا</option>
+                            {
+                                symbols.map(i=>{
+                                    return(
+                                        <option>{i}</option>
+                                    )
+                                
+                                })
+                            }
+
                         </datalist>
                         <div className="icn">                         
-                            <span><MdDriveFileRenameOutline/></span>
+                            <span><VscSymbolNumeric/></span>
                         </div>
                     </div>
                         
@@ -86,9 +117,9 @@ const CreateAlarm = (props) =>{
                                 <>
                                     <div className="InpIcn">
                                                           
-                                        <input onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="فیمت"></input>
+                                        <input type="number" onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="فیمت"></input>
                                         <div className="icn">                         
-                                            <span><MdDriveFileRenameOutline/></span>
+                                            <span><MdAttachMoney/></span>
                                         </div>
                                     </div>
                                     <div className="InpIcn">
@@ -97,7 +128,7 @@ const CreateAlarm = (props) =>{
                                             <option>کمتر</option>   
                                         </select>
                                         <div className="icn">                         
-                                            <span><MdDriveFileRenameOutline/></span>
+                                            <span><LuAlignEndHorizontal/></span>
                                         </div>
                                     </div>                                   
                                 </>
@@ -111,7 +142,7 @@ const CreateAlarm = (props) =>{
                                     <option>جمع شدن صف فروش</option>   
                                 </select>
                                 <div className="icn">                         
-                                    <span><MdDriveFileRenameOutline/></span>
+                                    <span><MdStackedLineChart/></span>
                                 </div>
                             </div>
                                
@@ -123,7 +154,7 @@ const CreateAlarm = (props) =>{
                                         <option>توقف</option>                
                                     </select>
                                     <div className="icn">                         
-                                        <span><MdDriveFileRenameOutline/></span>
+                                        <span><AiOutlineBranches/></span>
                                     </div>                                   
                                 </div>
                             :null

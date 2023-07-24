@@ -7,7 +7,7 @@ import { BsXCircle, BsCheck2Circle } from "react-icons/bs";
 
 const InfoUserMenu = () =>{
     const phu = getCookie('phu')
-    const [userdata, setuserdata] = useState({'fullName':'','label':''})
+    const [userdata, setuserdata] = useState(null)
     
     const infoMenu = () =>{
         axios.post(OnRun+'/user/userinfo',{phu:phu})
@@ -19,8 +19,8 @@ const InfoUserMenu = () =>{
     }
 
     useEffect(infoMenu, [])
-
     return(
+<<<<<<< HEAD
         <div className="InfoUserMenu">
             <div>
                 <span><GoPerson/></span>
@@ -34,5 +34,27 @@ const InfoUserMenu = () =>{
         </div>
 
     )
+=======
+        <>
+        {
+            userdata!=null?
+                <div className="InfoUserMenu">
+                    <div>
+                        <span><GoPerson/></span>
+                        <p>{userdata.name?userdata.name:userdata.phone}</p>
+                        <p>{userdata.label}</p>
+                    </div>
+                    <div className={userdata.creditDay?'countdown credit':'countdown nocredit'}>
+                        <span>{userdata.creditDay?<BsCheck2Circle/>:<BsXCircle/>}</span>
+                        <p>{userdata.creditDay?userdata.creditDay + 'روز اعتبار دارید':'اعتبار ندارید'}</p>
+                    </div>
+                </div>
+    
+                :null
+            }
+        </>
+        )
+    
+>>>>>>> 19392481c108d619291763f1365034c46d20320d
 }
 export default InfoUserMenu

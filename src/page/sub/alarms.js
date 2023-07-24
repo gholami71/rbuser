@@ -5,6 +5,8 @@ import { OnRun } from "../../config/OnRun"
 import { useOutletContext } from "react-router-dom";
 import { MdDeleteForever,MdModeEditOutline } from "react-icons/md";
 import { AiOutlineDelete,AiOutlinePlus } from "react-icons/ai";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 const Alarms = () =>{
@@ -25,14 +27,29 @@ const Alarms = () =>{
         })    
     }
 
-    const handlDeleteAlarm = () =>{
+    const handlDeleteAlarm = (id) =>{
+        axios.post(OnRun+'/user/delalarm', {phu:phu,id:id}).then(
+            response=>{
+                if(response.data.reply){
+                    toast.warning('هشدار با موفقیت پاک شد',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'})
+                    getAlarms()
+
+                }
+            }
+        )
         
     }
+
+    const handelEdit = () =>{
+        
+    }
+
     useEffect(getAlarms, [popup])
 
     return(
 
         <div className="container-page elements">
+            <ToastContainer autoClose={3000} />
             <div className="create" onClick={()=>setPopup(!popup)}>
                 <span><AiOutlinePlus/></span>
                 <h6>هشدار جدید</h6>
@@ -48,10 +65,11 @@ const Alarms = () =>{
                             <p>{i.AlarmtType}</p>
                             <p>{i.method}</p>
                             <p>{i.price}</p>
+                            <p>{i.active?'در انتظار':'غیرفعال'}</p>
                             <p>{i.notification}</p>
                             <div className="AlarmsEdit">
                                 <span onClick={handlDeleteAlarm}><MdDeleteForever/></span>
-                                <span onClick={()=>setEditAlarms(i)}><MdModeEditOutline/></span>
+                                <span><MdModeEditOutline/></span>
                             </div>
                         </div>
                     )

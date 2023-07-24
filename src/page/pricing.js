@@ -31,22 +31,31 @@ const Pricing = () =>{
                 <label htmlFor="OnYear">یک ساله</label>
             </div>
             <div className="TimeDetail">
-                    <div>
-                        <p>پریمیوم</p>
+
+                     <div className="price">
+                        <p className="type">پرو</p>
                         <p>نعداد هشدار در روز</p>
-                        <p>قیمت {price.primium}</p>
+                        <p>اولویت پشتیبانی:3</p>
+                        <p>قیمت{price.pro}</p>
+                        <button>خرید</button>
                     </div>
                     
-                    <div>
-                        <p>پروپلاس</p>
+                    <div className="price">
+                        <p className="type">پروپلاس</p>
                         <p>نعداد هشدار در روز</p>
+                        <p>اولویت پشتیبانی:2</p>
                         <p>قیمت {price.proPlus}</p>
+                        <button>خرید</button>
                      </div>
-                    <div>
-                        <p>پرو</p>
+                     
+                     <div className="price">
+                        <p className="type">پریمیوم</p>
                         <p>نعداد هشدار در روز</p>
-                        <p>قیمت{price.pro}</p>
+                        <p>اولویت پشتیبانی:1</p>
+                        <p>قیمت {price.primium}</p>
+                        <button>خرید</button>
                     </div>
+                   
             </div>
             
         </div>
