@@ -203,8 +203,8 @@ html, body, #root{
             height: 350px;
 
             .circle{
-                width: 350px;
-                height: 350px;
+                width: 100%;
+                height: 100%;
             }
             .logoConteiner{
                 display: flex;
@@ -902,3 +902,72 @@ html, body, #root{
     
 }
 
+
+
+@media screen and (max-width:1024px){
+    .user-login{
+        .login{
+            margin: 50px;
+        }
+        header{
+            
+            .logos{
+                width: 200px;
+                height: 200px;
+                left: 10%;
+                top: 150px;
+                .logoConteiner{
+                    top: 25px;
+                    left: 40px;
+                    :nth-child(1){
+                        width: 55px;
+
+                    }
+                    :nth-child(2){
+                        width: 130px;
+                    }
+
+                }
+            }
+
+        }
+    }
+    
+}
+
+@media screen and (max-width:767px){
+    .user-login{
+        .login{
+            margin: 150px 0px 0px 0px;
+            .rowBrand{
+                width: 60%;
+                img{
+                    display: none;
+                }
+            }
+
+        }
+        header{
+            height: 150px;
+            .logos{
+                width: 200px;
+                height: 200px;
+                top: 50px;
+                .logoConteiner{
+                    top: 25px;
+                    left: 40px;
+                    :nth-child(1){
+                        width: 55px;
+
+                    }
+                    :nth-child(2){
+                        width: 130px;
+                    }
+
+                }
+            }
+
+        }
+    }
+    
+}
