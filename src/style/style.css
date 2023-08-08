@@ -163,8 +163,8 @@ html, body, #root {
   height: 350px;
 }
 .user-login header .logos .circle {
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: 100%;
 }
 .user-login header .logos .logoConteiner {
   display: flex;
@@ -808,4 +808,55 @@ html, body, #root {
   height: 40px;
   font-size: 13pt;
   width: 80px;
+}
+
+@media screen and (max-width: 1024px) {
+  .user-login .login {
+    margin: 50px;
+  }
+  .user-login header .logos {
+    width: 200px;
+    height: 200px;
+    left: 10%;
+    top: 150px;
+  }
+  .user-login header .logos .logoConteiner {
+    top: 25px;
+    left: 40px;
+  }
+  .user-login header .logos .logoConteiner :nth-child(1) {
+    width: 55px;
+  }
+  .user-login header .logos .logoConteiner :nth-child(2) {
+    width: 130px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .user-login .login {
+    margin: 150px 0px 0px 0px;
+  }
+  .user-login .login .rowBrand {
+    width: 60%;
+  }
+  .user-login .login .rowBrand img {
+    display: none;
+  }
+  .user-login header {
+    height: 150px;
+  }
+  .user-login header .logos {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+  }
+  .user-login header .logos .logoConteiner {
+    top: 25px;
+    left: 40px;
+  }
+  .user-login header .logos .logoConteiner :nth-child(1) {
+    width: 55px;
+  }
+  .user-login header .logos .logoConteiner :nth-child(2) {
+    width: 130px;
+  }
 }/*# sourceMappingURL=style.css.map */
