@@ -11,7 +11,7 @@ const Login = () => {
     const [UserInput, setUserInput] = useState({ 'phone': '', 'captcha': '', 'code': '' })
     const [CaptchaCode, setCaptchaCode] = useState(null)
     const [CaptchaImg, setCaptchaImg] = useState(null)
-    const [Code, setCode] = useState('')
+    const [secend, setSecend] = useState(60)
     const [status, setStatus] = useState(true)
     const Navigate = useNavigate()
     const cookie = getCookie('phu')
@@ -52,6 +52,7 @@ const Login = () => {
         } else if (UserInput.phone.length !== 11) {
             alert('مقدار شماره همراه را به صورت صحیح وارد کنید')
         } else {
+            setSecend(60)
             axios.post(OnRun + '/user/applyphone', { UserInput: UserInput, CaptchaCode: CaptchaCode })
                 .then(response => {
                     if (response.data.reply) {
@@ -81,12 +82,22 @@ const Login = () => {
     useEffect(getCaptcha, [])
     useEffect(checkUser, [])
 
+    useEffect(() => {
+        if (!status) {
+            const interval = setInterval(() => {if (secend > 0) {setSecend(prevCount => prevCount - 1)}}, 1000);
+            return () => clearInterval(interval);
+        }else{
+            setSecend(60)
+        }
+    }, [secend,status]);
+    
+
     return (
 
         <div className="user-login">
             <header>
                 <div className='logos'>
-                    <img className='circle' src={process.env.PUBLIC_URL + '/img/circle.svg'}></img>
+                    <img className='circle' src={process.env.PUBLIC_URL + '/img/circle.png'}></img>
                     <div className='logoConteiner'>
                         <img className='logoAbsolote' src={process.env.PUBLIC_URL + '/img/logo.svg'}></img>
                         <img src={process.env.PUBLIC_URL + '/img/subLogo.svg'}></img>
@@ -135,6 +146,14 @@ const Login = () => {
                                 </div>
                             </div>
                             <button className='ent' onClick={handleCode}>ورود</button>
+                            <div className='editPhone'>
+                                <p onClick={()=>setStatus(true)}>اصلاح شماره</p>
+                                {
+                                    secend>0?<p>{secend}s</p>:<p onClick={applyphone}>ارسال مجدد</p>
+                                }
+
+                                
+                            </div>
                         </>
                     }
 
