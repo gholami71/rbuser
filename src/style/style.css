@@ -771,6 +771,14 @@ html, body, #root {
   cursor: pointer;
 }
 
+.License {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
 .delpopupMassage {
   display: flex;
   flex-direction: column;
