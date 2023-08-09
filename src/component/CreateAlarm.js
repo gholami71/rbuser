@@ -127,7 +127,7 @@ const CreateAlarm = (props) =>{
                                     <>
                                         <div className="InpIcn">
                                                             
-                                            <input type="number" value={InputUser.price} onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="فیمت"></input>
+                                            <input type="number" value={InputUser.price} onChange={(e)=>{setInputUser({...InputUser,price:e.target.value})}} placeholder="قیمت"></input>
                                             <div className="icn">                         
                                                 <span><MdAttachMoney/></span>
                                             </div>

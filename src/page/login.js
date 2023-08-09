@@ -1,12 +1,14 @@
 
 import axios from 'axios'
-import { useCallback, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { OnRun } from '../config/OnRun'
 import { useNavigate } from 'react-router-dom'
 import { setCookie, getCookie } from '../function/cookie'
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineSms } from "react-icons/md";
 import { IoReloadSharp } from "react-icons/io5";
+import { ToastContainer, toast } from 'react-toastify';
+
 const Login = () => {
     const [UserInput, setUserInput] = useState({ 'phone': '', 'captcha': '', 'code': '' })
     const [CaptchaCode, setCaptchaCode] = useState(null)
@@ -57,6 +59,8 @@ const Login = () => {
                 .then(response => {
                     if (response.data.reply) {
                         setStatus(false)
+                    }else{
+                        toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
                     }
                 })
         }
@@ -68,6 +72,8 @@ const Login = () => {
                 if (response.data.reply) {
                     setCookie('phu', response.data.phu, 1)
                     Navigate('/dashboard')
+                }else{
+                    toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
                 }
 
             })

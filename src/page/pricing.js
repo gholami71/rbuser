@@ -1,9 +1,15 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
+import { OnRun } from "../config/OnRun"
+import { ToastContainer, toast } from 'react-toastify';
 
+import { useOutletContext } from "react-router-dom";
 
 const Pricing = () =>{
+
     const [data, setData] = useState({time:1})
     const [price, setPrice] = useState({pro:1000, proPlus:1500,primium:2000})
+    const [phu] = useOutletContext()
 
 
     const handlePrice = () =>{
@@ -12,9 +18,24 @@ const Pricing = () =>{
         }
         else{
             setPrice({pro:1000*data.time, proPlus:1500*data.time,primium:2000*data.time})            
-
         }
     }
+
+
+    const Payment = (level) =>{
+        axios.post(OnRun+'/payment/create',{phu:phu,period:data,level:level})
+        .then(response=>{
+            if (response.data.reply) {
+                console.log('https://api.payping.ir/v2/pay/gotoipg/'+response.data.responseCode)
+                window.location.assign('https://api.payping.ir/v2/pay/gotoipg/'+response.data.responseCode)
+            }else{
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+            }
+        })
+
+    }
+
+
 
     useEffect(handlePrice,[data.time])
 
@@ -37,7 +58,7 @@ const Pricing = () =>{
                         <p>نعداد هشدار در روز</p>
                         <p>اولویت پشتیبانی:3</p>
                         <p>قیمت{price.pro}</p>
-                        <button>خرید</button>
+                        <button onClick={()=>Payment('pro')}>خرید</button>
                     </div>
                     
                     <div className="price">
@@ -45,7 +66,7 @@ const Pricing = () =>{
                         <p>نعداد هشدار در روز</p>
                         <p>اولویت پشتیبانی:2</p>
                         <p>قیمت {price.proPlus}</p>
-                        <button>خرید</button>
+                        <button onClick={()=>Payment('proPlus')}>خرید</button>
                      </div>
                      
                      <div className="price">
@@ -53,13 +74,10 @@ const Pricing = () =>{
                         <p>نعداد هشدار در روز</p>
                         <p>اولویت پشتیبانی:1</p>
                         <p>قیمت {price.primium}</p>
-                        <button>خرید</button>
+                        <button onClick={()=>Payment('primium')}>خرید</button>
                     </div>
-                   
             </div>
-            
         </div>
     )
-
 }
 export default Pricing
