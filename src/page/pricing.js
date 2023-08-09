@@ -41,6 +41,7 @@ const Pricing = () =>{
 
     return(
         <div className="container-page">
+            <ToastContainer autoClose={3000} />
             <div className="TimePricing">
                 <input type="radio" checked={data.time == 1} onChange={(e)=>setData({...data,time:e.target.value})} value='1' id="OneMonth"></input>
                 <label htmlFor="OneMonth">یک ماهه</label>
