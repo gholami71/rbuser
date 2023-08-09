@@ -230,6 +230,18 @@ html, body, #root {
   font-size: 13pt;
   width: 100%;
 }
+.user-login .login .FormContiner .editPhone {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.user-login .login .FormContiner .editPhone p {
+  color: #5398FF;
+  cursor: pointer;
+  font-size: 11pt;
+}
 .user-login .login .FormContiner .InpCpt {
   display: flex;
   flex-direction: row;
@@ -249,7 +261,7 @@ html, body, #root {
   background: #FFFFFF;
   border: 0px;
   padding: 0px 5px;
-  margin: 0px 5px;
+  margin: 0px 0px 0px 10px;
 }
 .user-login .login .FormContiner .InpCpt .ic input:focus {
   outline: 0px;
@@ -866,5 +878,11 @@ html, body, #root {
   }
   .user-login header .logos .logoConteiner :nth-child(2) {
     width: 130px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .user-login .login {
+    width: auto;
+    align-items: center;
   }
 }/*# sourceMappingURL=style.css.map */

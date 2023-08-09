@@ -270,6 +270,18 @@ html, body, #root{
                 @include btn1();
                 width: 100%;
             }
+            .editPhone{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                margin: 10px 0px;
+                p{
+                    color: $colorSoftBlue;
+                    cursor: pointer;
+                    font-size: 11pt;
+                }
+            }
             
             .InpCpt{
                 display: flex;
@@ -288,7 +300,7 @@ html, body, #root{
                         background: $colorMilkWhite;
                         border: 0px;
                         padding: 0px 5px;
-                        margin: 0px 5px;
+                        margin: 0px 0px 0px 10px;
                         &:focus{
                             outline: 0px;
                         }
@@ -975,6 +987,16 @@ html, body, #root{
                 }
             }
 
+        }
+    }
+    
+}
+
+@media screen and (max-width:480px){
+    .user-login{
+        .login{
+            width: auto;
+            align-items: center;
         }
     }
     
