@@ -3,7 +3,6 @@ import { useNavigate } from "react-router";
 import { FiMenu } from "react-icons/fi";
 import { BiTimeFive ,BiUser} from "react-icons/bi";
 import { useState } from "react";
-import { MdMenuOpen } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 
 
@@ -11,6 +10,12 @@ import { RxCross1 } from "react-icons/rx";
 const InfoUser = () =>{
     const navigate = useNavigate()
     const [status, setStatus] = useState(false)
+
+    const goTo = (goTo) =>{
+        setStatus(false)
+        navigate(goTo)
+    }
+
 
     
     return(
@@ -21,18 +26,18 @@ const InfoUser = () =>{
             {status?
                 <>
                     <ul>
-                        <li>
+                        <li onClick={()=>goTo('profile')}>
                             <span><BiUser/></span>
-                            <p onClick={()=>navigate('profile')}>پروفایل</p>
+                            <p>پروفایل</p>
                         </li>
                     
-                        <li>
+                        <li onClick={()=>goTo('pricing')}>
                             <span><BiTimeFive/></span>
-                            <p onClick={()=>navigate('pricing')}>تعرفه ها</p>
+                            <p >تعرفه ها</p>
                         </li>
-                        <li>
+                        <li onClick={()=>goTo('support')}>
                             <span><BiTimeFive/></span>
-                            <p onClick={()=>navigate('support')}>پشتیبانی</p>
+                            <p >پشتیبانی</p>
                         </li>
                     </ul>
                     <div className="hide" onClick={()=>setStatus(false)}></div>

@@ -73,6 +73,14 @@ $FontThin :'Thin';
     padding: 15px;
     background-color: $colorBalticSea;
     border-radius: 10px;
+    align-items: center;
+    >.title{
+        text-align: center;
+        color: $colorLinen;
+        font-family: $FontBold;
+        margin: 10px 0px 20px 0px;
+
+    }
 
 }
 
@@ -570,15 +578,14 @@ html, body, #root{
         flex-direction: column;
         position: absolute;
         margin-top: 60px;
-        width: 120px;
-        padding: 5px 8px;
+        width: 150px;
         background-color: $colorQuillGrey;
         font-size: 13pt;
         border-radius: 10px;
         z-index: 3;
+        overflow: hidden;
         :last-child{
             border-bottom: 0px !important;
-
         }
         
 
@@ -588,8 +595,8 @@ html, body, #root{
             display: flex;
             flex-direction: row;
             align-items: center;
-            padding: 0px 0px 5px 0px;
-            margin: 6px 0px;
+            padding: 10px 0px;
+
             
             border-bottom: 1px $colorMidnight solid;
             &:hover{
@@ -701,6 +708,10 @@ html, body, #root{
 .TimePricing{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
     input{
         display: none;
         + label{
@@ -709,12 +720,16 @@ html, body, #root{
             font-family: $FontMedium;
             color: $colorMilkWhite;
             justify-content:center;
-            width: 25%;
+            padding: 10px 20px;
+            background: rgba($colorLinen, 0.1);
+            transition: 0.5s;
 
         }
         &:checked{
             + label{
                 background-color: $colorLightOrange;
+                color: $colorBalticSea;
+
             }
         }
     }
@@ -726,22 +741,44 @@ html, body, #root{
     flex-direction: row;
     font-family: $FontRegular;
     color: $colorLinen;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 100%;
-    .price{
+    width: 100%;
+    .section{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         margin-top: 20px;
         border: 1px rgba($color: $colorLinen, $alpha: 0.5) solid;
-        width: 30%;
+        width: 25%;
         height: 90%;
+        border-radius: 15px;
         .type{
-            font-size: 16pt;
+            font-size: 20pt;
+            font-family: $FontBold;
+            color: $colorMilkWhite;
         }
-        p{
+        >p{
             color: $colorQuillGrey;
+            font-family: $FontMedium;
+            font-size: 14pt;
+        }
+        .pricBox{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            >p{
+                color: $colorQuillGrey;
+                font-family: $FontMedium;
+                font-size: 14pt;
+            }
+            .prcTikects{
+                display: flex;
+                flex-direction: row;
+
+            }
         }
         button{
             @include btn1();
