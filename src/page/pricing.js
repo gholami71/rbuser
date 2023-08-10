@@ -17,7 +17,6 @@ const Pricing = () =>{
     const [phu] = useOutletContext()
 
 
-    console.log(price[data.time]['pro'])
     const Payment = (level) =>{
         axios.post(OnRun+'/payment/create',{phu:phu,period:data,level:level})
         .then(response=>{

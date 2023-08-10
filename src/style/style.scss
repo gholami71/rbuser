@@ -777,7 +777,10 @@ html, body, #root{
             .prcTikects{
                 display: flex;
                 flex-direction: row;
-
+                .Tikect{
+                    display: flex;
+                    flex-direction: row;
+                }
             }
         }
         button{
