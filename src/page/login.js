@@ -171,9 +171,10 @@ const Login = () => {
 
             </div>
             <div className='License'>
-            <a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=366425&amp;Code=BTyNCNsAGUglHioh2tdU"><img referrerPolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=366425&amp;Code=BTyNCNsAGUglHioh2tdU" alt="" style={{cursor:"pointer"}} id="BTyNCNsAGUglHioh2tdU"></img></a>
-
-
+                <a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=366425&amp;Code=BTyNCNsAGUglHioh2tdU"><img referrerPolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=366425&amp;Code=BTyNCNsAGUglHioh2tdU" alt="" style={{cursor:"pointer"}} id="BTyNCNsAGUglHioh2tdU"></img></a>
+                <footer>
+                    <button onClick={()=>Navigate('/rules')}>قوانیــن</button>
+                </footer>
             </div>
         </div>
     )

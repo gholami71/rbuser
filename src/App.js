@@ -3,6 +3,8 @@ import './style/style.css'
 import 'react-toastify/dist/ReactToastify.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from './page/login'
+import Rules from './page/other/rules';
+
 import Dashboard from './page/dashboard';
 import Profile from './page/profile';
 import Pricing from './page/pricing'
@@ -16,6 +18,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='' element={<Login/>}></Route>
+        <Route path='/rules' element={<Rules/>}></Route>
         <Route path='/dashboard' element={<Dashboard/>}>
           <Route path='alarms' element={<Alarms/>}></Route>
           <Route path='explor' element={<Explor/>}></Route>

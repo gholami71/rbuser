@@ -3,8 +3,8 @@ import { useEffect, useState } from "react"
 import { OnRun } from "../config/OnRun"
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-import { MdDriveFileRenameOutline , MdOutlineAlternateEmail , MdLocationOn, MdNumbers} from "react-icons/md";
-import { MdCancelPresentation,MdAttachMoney,MdStackedLineChart } from "react-icons/md";
+import { MdDriveFileRenameOutline } from "react-icons/md";
+import { MdAttachMoney,MdStackedLineChart } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { VscSymbolNumeric } from "react-icons/vsc";
 import { LuAlignEndHorizontal } from "react-icons/lu";

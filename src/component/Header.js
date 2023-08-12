@@ -12,16 +12,10 @@ const Header = () =>{
     const navigate = useNavigate()
 
     const handleExit = () =>{
-        axios.post(OnRun+'/user/atuh', {phu:phu})
-        .then(response=>{
-            if (response.data.reply){
 
-            }
-            else{
-                setCookie('phu', '',0)
-                navigate('/')
-            }
-        })
+        setCookie('phu', '',0)
+        navigate('/')
+
     }
     return(
         <header>
@@ -34,9 +28,9 @@ const Header = () =>{
                     <InfoUser/>
                 </div>                             
             </div>
-            <div className="exit">
+            <div className="exit" onClick={handleExit}>
                 <p><RxExit/></p>
-                <p onClick={handleExit}>خروج</p>
+                <p >خروج</p>
             </div>
             
         </header>

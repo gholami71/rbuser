@@ -3,7 +3,8 @@ import { useEffect, useState } from "react"
 import { OnRun } from "../config/OnRun"
 import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-import { MdCategory , MdOutlineSsidChart} from "react-icons/md";
+import { MdCategory , MdOutlineSsidChart,MdOutlineCandlestickChart} from "react-icons/md";
+import { CgArrowsH} from "react-icons/cg";
 import { TbRulerMeasure , TbStatusChange} from "react-icons/tb";
 import { IoTodayOutline} from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
@@ -15,8 +16,19 @@ import { RxCross1 } from "react-icons/rx";
 
 const CreateExplor = (props) =>{
 
-    const [InputUser, setInputUser] = useState({type:'indicator',indicator:'rsi', position:'cross',value:'', lastday:'1',candlestick:'doji'})
+    const [InputUser, setInputUser] = useState({type:'indicator',indicator:'rsi', position:'cross',length:20,value:'50', lastday:'1',candlestick:'doji',supportresistance:'support',distance:'5'})
     const [phu] = useOutletContext()
+
+    const getExplor =()=>{
+        axios.post(OnRun+'/user/getexplor',{phu:phu,inp:InputUser})
+        .then(response=>{
+            if (response.data.reply) {
+                console.log(response.data)
+            }else{
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+            }
+        })
+    }
 
 
         return(
@@ -45,7 +57,7 @@ const CreateExplor = (props) =>{
                             
                             {
                                 /*اندیکارتور ها */
-                                InputUser.type=='اندیکاتور'?
+                                InputUser.type=='indicator'?
                                 <>
                                     <div className="InpIcnLbl">
                                         <p>اندیکاتور</p>
@@ -55,7 +67,6 @@ const CreateExplor = (props) =>{
                                             <option value={'ema'}>EMA (میانگین نمایی)</option>
                                             <option value={'wma'}>WMA (میانگین وزنی)</option>
                                             <option value={'cci'}>CCI</option>
-                                            <option value={'bb'}>Bollinger Bands</option>
                                             <option value={'supertrend'}>Supertrend</option>
                                         </select>
                                         <div className="icn">                         
@@ -78,18 +89,28 @@ const CreateExplor = (props) =>{
                                                     <span><TbStatusChange/></span>
                                                 </div>
                                             </div>
-                                            :
-                                            <div className="InpIcnLbl">
-                                                <p>موقعیت</p>
-                                                <select value={InputUser.position} onChange={(e)=>{setInputUser({...InputUser,position:e.target.value})}}>
-                                                    <option value={'greater'}>بزرگتر قیمت</option>
-                                                    <option value={'less'}>کوچکتر قیمت</option>
-                                                    <option value={'cross'}>شکست قیمت (cross)</option>
-                                                </select>
-                                                <div className="icn">                         
-                                                    <span><TbStatusChange/></span>
+                                            :['ema','sma','wma','supertrend'].includes(InputUser.indicator)?
+                                            <>
+                                                <div className="InpIcnLbl">
+                                                    <p>طول</p>
+                                                    <input value={InputUser.length} onChange={(e)=>{setInputUser({...InputUser,length:e.target.value})}}/>
+                                                    <div className="icn">                         
+                                                        <span><CgArrowsH/></span>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div className="InpIcnLbl">
+                                                    <p>موقعیت</p>
+                                                    <select value={InputUser.position} onChange={(e)=>{setInputUser({...InputUser,position:e.target.value})}}>
+                                                        <option value={'greater'}>بزرگتر قیمت</option>
+                                                        <option value={'less'}>کوچکتر قیمت</option>
+                                                        <option value={'cross'}>شکست قیمت (cross)</option>
+                                                    </select>
+                                                    <div className="icn">                         
+                                                        <span><TbStatusChange/></span>
+                                                    </div>
+                                                </div>
+                                            </>
+                                            :null
 
                                         }
 
@@ -142,7 +163,7 @@ const CreateExplor = (props) =>{
                                             <option value={'dragonflydoji'}>دوجی سنجاقک</option>
                                         </select>
                                         <div className="icn">                         
-                                            <span><TbStatusChange/></span>
+                                            <span><MdOutlineCandlestickChart/></span>
                                         </div>
                                     </div>
                                     <div className="InpIcnLbl">
@@ -155,10 +176,38 @@ const CreateExplor = (props) =>{
                                 </>
                                 :null
                             }
+                            {
+                                InputUser.type=='supportresistance'?
+                                <>
+                                    <div className="InpIcnLbl">
+                                        <p>موقعیت</p>
+                                        <select value={InputUser.supportresistance} onChange={(e)=>{setInputUser({...InputUser,supportresistance:e.target.value})}}>
+                                            <option value={'support'}>حمایت</option>
+                                            <option value={'resistance'}>مقاومت</option>
+                                        </select>
+                                        <div className="icn">                         
+                                            <span><TbStatusChange/></span>
+                                        </div>
+                                    </div>
+                                    <div className="InpIcnLbl">
+                                        <p>فاصله</p>
+                                        <select value={InputUser.distance} onChange={(e)=>{setInputUser({...InputUser,distance:e.target.value})}}>
+                                            <option value={'5'}>کمتر از 5% با قیمت</option>
+                                            <option value={'10'}>کمتر از 10% با قیمت</option>
+                                            <option value={'20'}>کمتر از 20% با قیمت</option>
+                                            <option value={'30'}>کمتر از 30% با قیمت</option>
+                                        </select>
+                                        <div className="icn">                         
+                                            <span><TbStatusChange/></span>
+                                        </div>
+                                    </div>
+                                </>
+                                :null
+                            }
 
-                            <button type="submit">ثبت</button>
-                            <button  onClick={()=>{props.setPopup(false)}}>لغو</button>
                         </div>
+                        <button onClick={getExplor} type="submit">ثبت</button>
+                        <button  onClick={()=>{props.setPopup(false)}}>لغو</button>
                     </div>
                     <div className="hide" onClick={()=>props.setPopup(false)}></div>
                 </>
