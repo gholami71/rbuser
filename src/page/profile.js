@@ -56,6 +56,8 @@ const Profile = () =>{
     return(
         <div className="container-page profile">
             <ToastContainer autoClose={3000} />
+            <h2 className="title">پروفایل</h2>
+
             <div className="InpRdiIcn">
                 <div className="rdi">
                     <input type="radio" checked={data.personality=='true'} onChange={(e)=>setData({...data,personality:e.target.value})} id="true" value="true" name="personality"/>

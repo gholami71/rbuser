@@ -65,7 +65,6 @@ const Pricing = () =>{
                                         )
                                     })
                                 }
-
                             </div>
                         </div>
                         <button onClick={()=>Payment('pro')}>خرید</button>

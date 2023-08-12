@@ -90,38 +90,38 @@ const CreateAlarm = (props) =>{
                     <div className="PopUp">
                         <span className="closeIcon" onClick={()=>{props.setPopup(false)}}><RxCross1/></span>
 
-                    <div className="options">
-                        <div className="InpIcn">
-                            
-                            <input list="symbols" placeholder="نماد" value={InputUser.symbol} onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
-                            <datalist id="symbols">
-                                {
-                                    symbols.map(i=>{
-                                        return(
-                                            <option key={i}>{i}</option>
-                                        )
-                                    
-                                    })
-                                }
+                        <div className="options">
 
-                            </datalist>
-                            <div className="icn">                         
-                                <span><VscSymbolNumeric/></span>
-                            </div>
-                        </div>
-                            
-                        <div className="InpIcn">
-                            <select value={InputUser.AlarmtType} onChange={(e)=>{handleAlarmType(e)}}>
-                                <option>قیمت</option>
-                                <option>صف</option>
-                                <option>پیام ناظر</option>
-                            </select>
-                            <div className="icn">                         
-                                <span><MdDriveFileRenameOutline/></span>
-                            </div>
+                            <div className="InpIcn">
+                                <input list="symbols" placeholder="نماد" value={InputUser.symbol} onChange={(e)=>{setInputUser({...InputUser,symbol:e.target.value})}}/>
+                                <datalist id="symbols">
+                                    {
+                                        symbols.map(i=>{
+                                            return(
+                                                <option key={i}>{i}</option>
+                                            )
+                                        
+                                        })
+                                    }
 
-                        </div>
-                        <div>
+                                </datalist>
+                                <div className="icn">                         
+                                    <span><VscSymbolNumeric/></span>
+                                </div>
+                            </div>
+                            
+                            <div className="InpIcn">
+                                <select value={InputUser.AlarmtType} onChange={(e)=>{handleAlarmType(e)}}>
+                                    <option>قیمت</option>
+                                    <option>صف</option>
+                                    <option>پیام ناظر</option>
+                                </select>
+                                <div className="icn">                         
+                                    <span><MdDriveFileRenameOutline/></span>
+                                </div>
+
+                            </div>
+                            <div>
                             {
                                 InputUser.AlarmtType == 'قیمت'?
                                     <>

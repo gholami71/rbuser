@@ -50,7 +50,6 @@ const Alarms = () =>{
     const handleNew = () =>{
         setPopup(!popup)
         setEditAlarms(null)
-
     }
 
 
@@ -66,7 +65,6 @@ const Alarms = () =>{
                 <h6>هشدار جدید</h6>
             </div>
             <CreateAlarm editAlarms={editAlarms} getAlarms={getAlarms} popup={popup} setPopup={setPopup}/>
-
             <div className="history">
                 {
                     alarms.map(i =>{

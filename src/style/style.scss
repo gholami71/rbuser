@@ -151,6 +151,7 @@ $FontThin :'Thin';
     width: 245px;
     justify-content: space-between;
     margin: 10px 0px;
+    align-items: center;
     input, select{
         width: 190px;
         height: 40px;
@@ -186,6 +187,21 @@ $FontThin :'Thin';
             align-items: center;
             justify-content: center;
         }
+    }
+}
+
+.InpIcnLbl{
+    @extend .InpIcn;
+    width: 330px;
+    >p{
+        color: $colorJordyBlue;
+        background: $colorMilkWhite;
+        height: 40px;
+        width: 80px;
+        font-family: $FontSemiBold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -769,6 +785,7 @@ html, body, #root{
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%;
             >p{
                 color: $colorQuillGrey;
                 font-family: $FontMedium;
@@ -777,9 +794,16 @@ html, body, #root{
             .prcTikects{
                 display: flex;
                 flex-direction: row;
+                align-items: center;
                 .Tikect{
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    >p{
+                        margin: 0px 3px;
+                    }
+                    width: 100%;
                 }
             }
         }
@@ -821,6 +845,9 @@ html, body, #root{
             font-size: 14pt;
             font-family: $FontThin;
 
+        }
+        &:hover{
+            background: mix($colorMangoOrange, $colorLinen, 85);
         }
     }
     .history{

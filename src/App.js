@@ -9,7 +9,7 @@ import Pricing from './page/pricing'
 import Support from './page/support';
 import Payment from './page/payment';
 import Alarms from './page/sub/alarms';
-
+import Explor from './page/sub/explor';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path='' element={<Login/>}></Route>
         <Route path='/dashboard' element={<Dashboard/>}>
           <Route path='alarms' element={<Alarms/>}></Route>
+          <Route path='explor' element={<Explor/>}></Route>
           <Route path='profile' element={<Profile/>}></Route>
           <Route path='pricing' element={<Pricing/>}></Route>
           <Route path='support' element={<Support/>}></Route>
@@ -25,7 +26,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-    
   );
 }
 

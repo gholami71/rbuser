@@ -103,33 +103,34 @@
   justify-content: center;
 }
 
-.InpIcn {
+.InpIcn, .InpIcnLbl {
   display: flex;
   flex-direction: row;
   width: 245px;
   justify-content: space-between;
   margin: 10px 0px;
+  align-items: center;
 }
-.InpIcn input, .InpIcn select {
+.InpIcn input, .InpIcnLbl input, .InpIcn select, .InpIcnLbl select {
   width: 190px;
   height: 40px;
   background: #FFFFFF;
   border: 0px;
   padding: 0px 5px;
 }
-.InpIcn input::-webkit-inner-spin-button, .InpIcn select::-webkit-inner-spin-button {
+.InpIcn input::-webkit-inner-spin-button, .InpIcnLbl input::-webkit-inner-spin-button, .InpIcn select::-webkit-inner-spin-button, .InpIcnLbl select::-webkit-inner-spin-button {
   display: none;
 }
-.InpIcn input::-webkit-outer-spin-button, .InpIcn select::-webkit-outer-spin-button {
+.InpIcn input::-webkit-outer-spin-button, .InpIcnLbl input::-webkit-outer-spin-button, .InpIcn select::-webkit-outer-spin-button, .InpIcnLbl select::-webkit-outer-spin-button {
   display: none;
 }
-.InpIcn input:focus, .InpIcn select:focus {
+.InpIcn input:focus, .InpIcnLbl input:focus, .InpIcn select:focus, .InpIcnLbl select:focus {
   outline: 0px;
 }
-.InpIcn select {
+.InpIcn select, .InpIcnLbl select {
   width: 200px;
 }
-.InpIcn .icn {
+.InpIcn .icn, .InpIcnLbl .icn {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,9 +139,23 @@
   height: 40px;
   background: #FFFFFF;
 }
-.InpIcn .icn span {
+.InpIcn .icn span, .InpIcnLbl .icn span {
   font-size: 15pt;
   color: #5398FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.InpIcnLbl {
+  width: 330px;
+}
+.InpIcnLbl > p {
+  color: #8BA7F0;
+  background: #FFFFFF;
+  height: 40px;
+  width: 80px;
+  font-family: "SemiBold";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -683,6 +698,7 @@ html, body, #root {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .TimeDetail .section .pricBox > p {
   color: #D9D9D9;
@@ -692,6 +708,17 @@ html, body, #root {
 .TimeDetail .section .pricBox .prcTikects {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+.TimeDetail .section .pricBox .prcTikects .Tikect {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.TimeDetail .section .pricBox .prcTikects .Tikect > p {
+  margin: 0px 3px;
 }
 .TimeDetail .section button {
   background-color: #26C5A8;
@@ -729,6 +756,9 @@ html, body, #root {
 .elements .create h6 {
   font-size: 14pt;
   font-family: "Thin";
+}
+.elements .create:hover {
+  background: #fd886b;
 }
 .elements .history {
   display: flex;
