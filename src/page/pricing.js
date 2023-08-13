@@ -21,7 +21,6 @@ const Pricing = () =>{
         axios.post(OnRun+'/payment/create',{phu:phu,period:data,level:level})
         .then(response=>{
             if (response.data.reply) {
-                console.log('https://api.payping.ir/v2/pay/gotoipg/'+response.data.responseCode)
                 window.location.assign('https://api.payping.ir/v2/pay/gotoipg/'+response.data.responseCode)
             }else{
                 toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
@@ -51,7 +50,7 @@ const Pricing = () =>{
                      <div className="section">
                         <p className="type">پرو</p>
                         <p>حداکثر 5 هشدار فعال</p>
-                        <p>الویت سوم پشتیبانی</p>
+                        <p>اولویت سوم پشتیبانی</p>
                         <div className="pricBox">
                             <p>قیمت</p>
                             <div className="prcTikects">
@@ -73,7 +72,7 @@ const Pricing = () =>{
                     <div className="section">
                         <p className="type">پروپلاس</p>
                         <p>حداکثر 10 هشدار فعال</p>
-                        <p>الویت دوم پشتیبانی</p>
+                        <p>اولویت دوم پشتیبانی</p>
                         <div className="pricBox">
                             <p>قیمت</p>
                             <div className="prcTikects">
@@ -95,7 +94,7 @@ const Pricing = () =>{
                      <div className="section">
                         <p className="type">پریمیوم</p>
                         <p>حداکثر 40 هشدار فعال</p>
-                        <p>الویت نخست پشتیبانی</p>
+                        <p>اولویت نخست پشتیبانی</p>
                         <div className="pricBox">
                             <p>قیمت</p>
                             <div className="prcTikects">

@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom"
 
 
 const Rules = () => {
+    const Navigate = useNavigate()
 
 
 
@@ -97,7 +99,7 @@ const Rules = () => {
             <div className='License'>
                 <a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=366425&amp;Code=BTyNCNsAGUglHioh2tdU"><img referrerPolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=366425&amp;Code=BTyNCNsAGUglHioh2tdU" alt="" style={{cursor:"pointer"}} id="BTyNCNsAGUglHioh2tdU"></img></a>
                 <footer>
-                    <button>قوانیــن</button>
+                    <button onClick={()=>Navigate('/')}>صفحه نخست</button>
                 </footer>
             </div>
         </div>

@@ -25,7 +25,7 @@ const InfoUserMenu = () =>{
         {
             userdata!=null?
                 <div className="InfoUserMenu">
-                    <div>
+                    <div className="phonelable">
                         <span><GoPerson/></span>
                         <p>{userdata.name?userdata.name:userdata.phone}</p>
                         <p>{userdata.label}</p>

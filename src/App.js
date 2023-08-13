@@ -9,7 +9,6 @@ import Dashboard from './page/dashboard';
 import Profile from './page/profile';
 import Pricing from './page/pricing'
 import Support from './page/support';
-import Payment from './page/payment';
 import Alarms from './page/sub/alarms';
 import Explor from './page/sub/explor';
 
@@ -25,7 +24,6 @@ function App() {
           <Route path='profile' element={<Profile/>}></Route>
           <Route path='pricing' element={<Pricing/>}></Route>
           <Route path='support' element={<Support/>}></Route>
-          <Route path='payment' element={<Payment/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

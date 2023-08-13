@@ -4,7 +4,9 @@ import { FiMenu } from "react-icons/fi";
 import { BiTimeFive ,BiUser} from "react-icons/bi";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
+import {RxExit} from 'react-icons/rx'
 
+import { setCookie } from '../function/cookie'
 
 
 const InfoUser = () =>{
@@ -17,7 +19,11 @@ const InfoUser = () =>{
     }
 
 
-    
+    const handleExit = () =>{
+        setCookie('phu', '',0)
+        navigate('/')
+    }
+
     return(
         
         <div className="InfoUser" >
@@ -38,6 +44,10 @@ const InfoUser = () =>{
                         <li onClick={()=>goTo('support')}>
                             <span><BiTimeFive/></span>
                             <p >پشتیبانی</p>
+                        </li>
+                        <li className="exit" onClick={handleExit}>
+                            <span><RxExit/></span>
+                            <p >خروج</p>
                         </li>
                     </ul>
                     <div className="hide" onClick={()=>setStatus(false)}></div>
