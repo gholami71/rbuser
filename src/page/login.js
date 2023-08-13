@@ -8,13 +8,14 @@ import { FiPhone } from "react-icons/fi";
 import { MdOutlineSms } from "react-icons/md";
 import { IoReloadSharp } from "react-icons/io5";
 import { ToastContainer, toast } from 'react-toastify';
+import { MiniLoader } from '../component/Loader'
 
 const Login = () => {
     const [UserInput, setUserInput] = useState({ 'phone': '', 'captcha': '', 'code': '' })
     const [CaptchaCode, setCaptchaCode] = useState(null)
     const [CaptchaImg, setCaptchaImg] = useState(null)
     const [secend, setSecend] = useState(60)
-    const [status, setStatus] = useState(true)
+    const [status, setStatus] = useState('phone')
     const Navigate = useNavigate()
     const cookie = getCookie('phu')
 
@@ -54,12 +55,14 @@ const Login = () => {
         } else if (UserInput.phone.length !== 11) {
             alert('مقدار شماره همراه را به صورت صحیح وارد کنید')
         } else {
-            setSecend(60)
+            setStatus('loading')
             axios.post(OnRun + '/user/applyphone', { UserInput: UserInput, CaptchaCode: CaptchaCode })
-                .then(response => {
-                    if (response.data.reply) {
-                        setStatus(false)
+            .then(response => {
+                if (response.data.reply) {
+                    setStatus('code')
+                    setSecend(60)
                     }else{
+                        setStatus('phone')
                         toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
                     }
                 })
@@ -89,7 +92,7 @@ const Login = () => {
     useEffect(checkUser, [])
 
     useEffect(() => {
-        if (!status) {
+        if (status=='code') {
             const interval = setInterval(() => {if (secend > 0) {setSecend(prevCount => prevCount - 1)}}, 1000);
             return () => clearInterval(interval);
         }else{
@@ -101,6 +104,7 @@ const Login = () => {
     return (
 
         <div className="user-login">
+            <ToastContainer autoClose={3000} />
             <header>
                 <div className='logos'>
                     <img className='circle' src={process.env.PUBLIC_URL + '/img/circle.png'}></img>
@@ -123,7 +127,7 @@ const Login = () => {
                 <div className='FormContiner'>
 
                     <h5>ورود به حساب کاربری</h5>
-                    {status ?
+                    {status=='phone' ?
                         <>
                             <div className='InpIcn'>
                                 <input value={UserInput.phone} onChange={(e) => setUserInput({ ...UserInput, phone: e.target.value })} placeholder='شماره همراه خود را وارد کنید' type='number' />
@@ -144,6 +148,11 @@ const Login = () => {
                             <button className='ent' onClick={applyphone}>تایید</button>
                         </>
                         :
+                        status=='loading'?
+                        <>
+                            <MiniLoader />
+                        </>
+                        :
                         <>
                             <div className='InpIcn'>
                                 <input value={UserInput.code} onChange={(e) => { setUserInput({ ...UserInput, code: e.target.value }) }} placeholder='کد تایید' />
@@ -153,7 +162,7 @@ const Login = () => {
                             </div>
                             <button className='ent' onClick={handleCode}>ورود</button>
                             <div className='editPhone'>
-                                <p onClick={()=>setStatus(true)}>اصلاح شماره</p>
+                                <p onClick={()=>setStatus('phone')}>اصلاح شماره</p>
                                 {
                                     secend>0?<p>{secend}s</p>:<p onClick={applyphone}>ارسال مجدد</p>
                                 }

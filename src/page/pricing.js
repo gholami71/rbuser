@@ -1,41 +1,30 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { OnRun } from "../config/OnRun"
-import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
-import { useOutletContext } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import { price } from "../config/priceObject";
 
 const Pricing = () =>{
 
     const [data, setData] = useState({time:'1'})
-    const [price, setPrice] = useState({
-        '1': {pro:[{prc:36,unt:'هزار'}], proplus:[{prc:67,unt:'هزار'}],premium:[{prc:263,unt:'هزار'}]},
-        '3': {pro:[{prc:107,unt:'هزار'}], proplus:[{prc:197,unt:'هزار'}],premium:[{prc:774,unt:'هزار'}]},
-        '6': {pro:[{prc:208,unt:'هزار'}], proplus:[{prc:383,unt:'هزار'}],premium:[{prc:1,unt:'میلیون'},{prc:500,unt:'هزار'}]},
-        '12':{pro:[{prc:390,unt:'هزار'}], proplus:[{prc:718,unt:'هزار'}],premium:[{prc:2,unt:'میلیون'},{prc:808,unt:'هزار'}]},
-    })
-    const [phu] = useOutletContext()
+
+    const Navigate = useNavigate()
 
 
-    const Payment = (level) =>{
-        axios.post(OnRun+'/payment/create',{phu:phu,period:data,level:level})
-        .then(response=>{
-            if (response.data.reply) {
-                window.location.assign('https://api.payping.ir/v2/pay/gotoipg/'+response.data.responseCode)
-            }else{
-                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
-            }
-        })
+
+    const toPayment = (level) =>{
+        console.log(level)
+        Navigate('/dashboard/payment',{state:{data:{time:data.time,level:level}}})
 
     }
-
 
 
 
     return(
         <div className="container-page">
             <ToastContainer autoClose={3000} />
-            <h2 className="title">افزایش اشتراک</h2>
+            <h2 className="title">تعرفه ها</h2>
             <div className="TimePricing">
                 <input type="radio" checked={data.time === '1'} onChange={(e)=>setData({...data,time:e.target.value})} value='1' id="OneMonth"></input>
                 <label htmlFor="OneMonth">یک ماهه</label>
@@ -57,7 +46,7 @@ const Pricing = () =>{
                                 {
                                     price[data.time]['pro'].map(i=>{
                                         return(
-                                            <div className="Tikect">
+                                            <div key={Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000} className="Tikect">
                                                 <p>{i.prc}</p>
                                                 <p>{i.unt}</p>
                                             </div>
@@ -66,7 +55,7 @@ const Pricing = () =>{
                                 }
                             </div>
                         </div>
-                        <button onClick={()=>Payment('pro')}>خرید</button>
+                        <button onClick={()=>toPayment('pro')}>خرید</button>
                     </div>
                     
                     <div className="section">
@@ -79,7 +68,7 @@ const Pricing = () =>{
                                 {
                                     price[data.time]['proplus'].map(i=>{
                                         return(
-                                            <div className="Tikect">
+                                            <div key={Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000} className="Tikect">
                                                 <p>{i.prc}</p>
                                                 <p>{i.unt}</p>
                                             </div>
@@ -88,7 +77,7 @@ const Pricing = () =>{
                                 }
                             </div>
                         </div>
-                        <button onClick={()=>Payment('proplus')}>خرید</button>
+                        <button onClick={()=>toPayment('proplus')}>خرید</button>
                      </div>
                      
                      <div className="section">
@@ -101,7 +90,7 @@ const Pricing = () =>{
                                 {
                                     price[data.time]['premium'].map(i=>{
                                         return(
-                                            <div className="Tikect">
+                                            <div key={Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000} className="Tikect">
                                                 <p>{i.prc}</p>
                                                 <p>{i.unt}</p>
                                             </div>
@@ -110,7 +99,7 @@ const Pricing = () =>{
                                 }
                             </div>
                         </div>
-                        <button onClick={()=>Payment('premium')}>خرید</button>
+                        <button onClick={()=>toPayment('premium')}>خرید</button>
                     </div>
             </div>
         </div>

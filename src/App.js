@@ -11,6 +11,7 @@ import Pricing from './page/pricing'
 import Support from './page/support';
 import Alarms from './page/sub/alarms';
 import Explor from './page/sub/explor';
+import Payment from './page/payment';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='explor' element={<Explor/>}></Route>
           <Route path='profile' element={<Profile/>}></Route>
           <Route path='pricing' element={<Pricing/>}></Route>
+          <Route path='payment' element={<Payment/>}></Route>
           <Route path='support' element={<Support/>}></Route>
         </Route>
       </Routes>

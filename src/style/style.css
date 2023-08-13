@@ -167,6 +167,50 @@ html, body, #root {
   background: #111C36;
 }
 
+.mini-load {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.mini-load .circle {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px #111C36 solid;
+  border-radius: 50%;
+  border-top-color: #ECBB3E;
+  animation: miniloader 1.5s 0s infinite;
+  animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation-direction: reverse;
+}
+.mini-load .circle img {
+  height: 60%;
+  animation: miniloaderimg 1.5s 0s infinite;
+  animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation-direction: reverse;
+}
+.mini-load p {
+  font-size: 11pt;
+}
+@keyframes miniloader {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes miniloaderimg {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 .user-login {
   display: flex;
   height: 100%;
@@ -561,6 +605,20 @@ html, body, #root {
   right: 0px;
   left: 0px;
   z-index: 3;
+}
+
+.payment button {
+  background-color: #26C5A8;
+  color: #FFFFFF;
+  border: 0px;
+  height: 40px;
+  font-size: 13pt;
+  width: 245px;
+  margin: 5px;
+  cursor: pointer;
+}
+.payment .cancel {
+  background: #FF7554;
 }
 
 .InfoUser {

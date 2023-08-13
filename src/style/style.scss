@@ -210,6 +210,55 @@ html, body, #root{
     background: $colorMidnight;
 }
 
+
+.mini-load{
+    width: 120px;
+    height: 120px;
+    background: rgba($colorMilkWhite,0.6);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    .circle{
+        width: 65px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px $colorMidnight solid;
+        border-radius: 50%;
+        border-top-color: $colorLightOrange;
+        animation: miniloader 1.5s  0s infinite;
+        animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        animation-direction: reverse;
+        img{
+            height: 60%;
+            animation: miniloaderimg 1.5s  0s infinite;
+            animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+            animation-direction: reverse;
+
+
+        }
+    }
+    p{
+        font-size: 11pt;
+    }
+    @keyframes miniloader {
+        to{
+            transform: rotate(360deg);
+        }
+        
+    }
+    @keyframes miniloaderimg {
+        to{
+            transform: rotate(-360deg);
+        }
+        
+    }
+
+}
 .user-login{
     display: flex;
     height: 100%;
@@ -637,6 +686,18 @@ html, body, #root{
     z-index: 3;
 }
 
+.payment{
+
+    button{
+        @include btn1();
+        width: 245px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .cancel{
+        background: $colorMangoOrange;
+    }
+}
 .InfoUser{
     display: flex;
     flex-direction: column;
