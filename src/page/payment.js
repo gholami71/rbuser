@@ -10,6 +10,7 @@ const Payment = () =>{
     const location = useLocation()
     const data = location.state.data
     const [discountCode,setDiscountCode] = useState('')
+    const [df, setDf] = useState(null)
 
 
     const [phu] = useOutletContext()
@@ -27,20 +28,60 @@ const Payment = () =>{
     }
 
 
+    const checkPayment = () =>{
+        axios.post(OnRun+'/payment/checkperpayment',{phu:phu,data:data,code:discountCode})
+        .then(response=>{
+            if(response.data.reply){
+                setDf(response.data.df)
+            }else{
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+            }
+        })
+    }
 
+
+
+    useEffect(checkPayment,[])
 
     return(
         <div className="container-page payment">
             <ToastContainer autoClose={3000} />
             <h2 className="title">افزایش اشتراک</h2>
             <div className="detail">
-                <div className="InpIcn">
-                    <input placeholder="کد تخفیف" value={discountCode} onChange={(e)=>{setDiscountCode(e.target.value)}}/>
-                    <div className="icn">                         
-                        <span><BiSolidDiscount/></span>
-                    </div>
-                </div>
-                <button>اعمال کد تخفیف</button>
+                {
+                    df==null?null:
+                    <>
+                        <div className="box">
+                            <h5>بسته</h5>
+                            <h4>{df.period}</h4>
+                            <h4>{df.labelName}</h4>
+                        </div>
+                        <div className="prc">
+                            <div className="prc-bs">
+                                <h4>{df.priceBaseInt}</h4>
+                                <h6>{df.priceBaseHorof}</h6>
+                            </div>
+                            <div className="prc-bs">
+                                <h4>{df.pricePayInt}</h4>
+                                <h6>{df.pricePayHorof}</h6>
+                            </div>
+                        </div>
+                        <div className="InpIcn">
+                            <input placeholder="کد تخفیف" value={discountCode} onChange={(e)=>{setDiscountCode(e.target.value)}}/>
+                            <div className="icn">                         
+                                <span><BiSolidDiscount/></span>
+                            </div>
+                        </div>
+                        <div className="code">
+                            <p>{df.codeMsg}</p>
+                        </div>
+                        <div className="">
+
+                        </div>
+                        <button onClick={checkPayment}>اعمال کد تخفیف</button>
+                    </>
+
+                }
 
 
 

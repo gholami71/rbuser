@@ -14,7 +14,6 @@ const Pricing = () =>{
 
 
     const toPayment = (level) =>{
-        console.log(level)
         Navigate('/dashboard/payment',{state:{data:{time:data.time,level:level}}})
 
     }
