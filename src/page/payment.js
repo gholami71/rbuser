@@ -52,11 +52,12 @@ const Payment = () =>{
                     df==null?null:
                     <>
                         <div className="box">
-                            <h5>بسته</h5>
+                            <h4>بسته</h4>
                             <h4>{df.period}</h4>
                             <h4>{df.labelName}</h4>
                         </div>
-                        <div className="prc">
+                        <h6 className="py-val">مبلغ قابل پرداخت</h6>
+                        <div className={df.codestatus?"prc discount":"prc"}>
                             <div className="prc-bs">
                                 <h4>{df.priceBaseInt}</h4>
                                 <h6>{df.priceBaseHorof}</h6>
@@ -72,12 +73,13 @@ const Payment = () =>{
                                 <span><BiSolidDiscount/></span>
                             </div>
                         </div>
-                        <div className="code">
-                            <p>{df.codeMsg}</p>
-                        </div>
-                        <div className="">
-
-                        </div>
+                        {
+                            df.codestatus?
+                            <div className="code-msg">
+                                <p>{df.codeMsg}</p>
+                            </div>
+                            :null
+                        }
                         <button onClick={checkPayment}>اعمال کد تخفیف</button>
                     </>
 

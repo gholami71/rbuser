@@ -687,6 +687,60 @@ html, body, #root{
 }
 
 .payment{
+    .detail{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        .box{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 20px 0px;
+            h4{
+                color: $colorMilkWhite;
+                font-size: 20pt;
+                margin: 0px 7px;
+            }
+        }
+        .py-val{
+            color: $colorMilkWhite;
+            font-size: 14pt;
+        }
+        .prc{
+            display: flex;
+            flex-direction: row;
+            .prc-bs{
+                display: flex;
+                flex-direction: column;
+                margin: 0px 15px;
+                h4{
+                    font-size: 13pt;
+                    color: $colorQuillGrey;
+                }
+                h6{
+                    font-size: 11pt;
+                    color: $colorQuillGrey;
+                }
+            }
+            >:nth-child(2){
+                display: none;
+            }
+
+        }
+        .discount{
+            >:nth-child(1){
+                h4{
+                    text-decoration: line-through;
+                }
+                h6{
+                    text-decoration: line-through;
+                }
+            }
+            >:nth-child(2){
+                display: flex;
+            }
+        }
+    }
 
     button{
         @include btn1();

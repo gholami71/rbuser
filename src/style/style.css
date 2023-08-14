@@ -607,6 +607,55 @@ html, body, #root {
   z-index: 3;
 }
 
+.payment .detail {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.payment .detail .box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px 0px;
+}
+.payment .detail .box h4 {
+  color: #FFFFFF;
+  font-size: 20pt;
+  margin: 0px 7px;
+}
+.payment .detail .py-val {
+  color: #FFFFFF;
+  font-size: 14pt;
+}
+.payment .detail .prc {
+  display: flex;
+  flex-direction: row;
+}
+.payment .detail .prc .prc-bs {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 15px;
+}
+.payment .detail .prc .prc-bs h4 {
+  font-size: 13pt;
+  color: #D9D9D9;
+}
+.payment .detail .prc .prc-bs h6 {
+  font-size: 11pt;
+  color: #D9D9D9;
+}
+.payment .detail .prc > :nth-child(2) {
+  display: none;
+}
+.payment .detail .discount > :nth-child(1) h4 {
+  text-decoration: line-through;
+}
+.payment .detail .discount > :nth-child(1) h6 {
+  text-decoration: line-through;
+}
+.payment .detail .discount > :nth-child(2) {
+  display: flex;
+}
 .payment button {
   background-color: #26C5A8;
   color: #FFFFFF;
