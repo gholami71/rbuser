@@ -702,6 +702,7 @@ html, body, #root{
             align-items: center;
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
+            background: $colorLinen;
             .icns{
                 margin: 10px;
                 span{
@@ -719,7 +720,7 @@ html, body, #root{
                 justify-content: center;
                 
                 h4{
-                    color: $colorMilkWhite;
+                    color: $colorJordyBlue;
                     font-size: 20pt;
                     margin: 0px 7px;
                 }
@@ -730,10 +731,12 @@ html, body, #root{
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-around;
-                margin-top: 28px;
+                margin-top: 31px;
                 span{
-                    color: $colorLinen;
-                    font-size: 13pt;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: $colorBalticSea;
                 }
             }
 

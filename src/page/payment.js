@@ -69,7 +69,6 @@ const Payment = () =>{
                                 {Array.from({length:15}).map((_,i)=>{
                                     return(
                                         <span key={i}>
-                                            <GoDot />
                                         </span>
                                     )
                                 })}

@@ -623,6 +623,7 @@ html, body, #root {
   align-items: center;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  background: #F3F1EF;
 }
 .payment .detail .box .icns {
   margin: 10px;
@@ -641,7 +642,7 @@ html, body, #root {
   justify-content: center;
 }
 .payment .detail .box .ttls h4 {
-  color: #FFFFFF;
+  color: #8BA7F0;
   font-size: 20pt;
   margin: 0px 7px;
 }
@@ -651,11 +652,13 @@ html, body, #root {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-top: 28px;
+  margin-top: 31px;
 }
 .payment .detail .box .prfr span {
-  color: #F3F1EF;
-  font-size: 13pt;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #222B40;
 }
 .payment .detail .pay-box {
   display: flex;
