@@ -691,58 +691,162 @@ html, body, #root{
         display: flex;
         flex-direction: column;
         width: 80%;
+        align-items: center;
         .box{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            border: 1px $colorLinen solid;
+            border-bottom: 0px;
+            width: 400px;
+            height: 150px;
             align-items: center;
-            margin: 20px 0px;
-            h4{
-                color: $colorMilkWhite;
-                font-size: 20pt;
-                margin: 0px 7px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            .icns{
+                margin: 10px;
+                span{
+                    color: $colorJellyfish;
+                    font-size: 40pt;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
+            .ttls{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                
+                h4{
+                    color: $colorMilkWhite;
+                    font-size: 20pt;
+                    margin: 0px 7px;
+                }
+            }
+            .prfr{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                margin-top: 28px;
+                span{
+                    color: $colorLinen;
+                    font-size: 13pt;
+                }
+            }
+
         }
-        .py-val{
-            color: $colorMilkWhite;
-            font-size: 14pt;
-        }
-        .prc{
+        .pay-box{
             display: flex;
-            flex-direction: row;
-            .prc-bs{
+            flex-direction: column;
+            width: 400px;
+            border: 1px $colorLinen solid;
+            border-top: 0px;
+            margin-top: 5px;
+            align-items: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            .py-val{
+                color: $colorMilkWhite;
+                font-size: 12pt;
+                margin: 15px;
+            }
+            .prc{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                margin-bottom: 30px;
+                .prc-bs{
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0px 15px;
+                    h4{
+                        font-size: 12pt;
+                        color: $colorQuillGrey;
+                    }
+                    h6{
+                        font-size: 8pt;
+                        color: $colorQuillGrey;
+                    }
+                }
+                >:nth-child(2){
+                    display: none;
+                }
+            }
+            .discount{
+                >:nth-child(1){
+                    h4{
+                        text-decoration: line-through;
+                        color: rgba($colorLinen,0.5);
+                    }
+                    h6{
+                        text-decoration: line-through;
+                        color: rgba($colorLinen,0.5);
+
+                    }
+                }
+                >:nth-child(2){
+                    display: flex;
+                }
+            }
+
+            >button{
+                @include btn1();
+                width: 110px;
+                font-size: 10pt;
+                margin-bottom: 10px;
+                background-color: $colorSoftBlue;
+            }
+            .code-msg{
+                color: $colorMilkWhite;
+                font-size: 13pt;
+                font-family: $FontSemiBold;
+                margin: 10px
+            }
+            .alrt{
+                margin: 10px 20px;
+                background: mix($colorLightOrange,$colorLinen,50);
                 display: flex;
                 flex-direction: column;
-                margin: 0px 15px;
-                h4{
-                    font-size: 13pt;
-                    color: $colorQuillGrey;
-                }
+                align-items: center;
+                justify-content: center;
+                padding: 5px 15px;
+                border: 3px $colorLightOrange solid;
+                border-radius: 10px;
                 h6{
-                    font-size: 11pt;
-                    color: $colorQuillGrey;
+                    font-size: 12pt;
+                    font-family: $FontBold;
                 }
-            }
-            >:nth-child(2){
-                display: none;
-            }
+                p{
+                    font-size: 12px;
+                    text-align: justify;
+                }
 
-        }
-        .discount{
-            >:nth-child(1){
-                h4{
-                    text-decoration: line-through;
-                }
-                h6{
-                    text-decoration: line-through;
-                }
             }
-            >:nth-child(2){
+            .dt-dt{
                 display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+                margin: 15px 0px;
+                p{
+                    color: $colorLinen;
+                    font-size: 12pt;
+                    font-family: $FontMedium;
+                }
             }
         }
+
+
     }
 
-    button{
+    >button{
         @include btn1();
         width: 245px;
         margin: 5px;

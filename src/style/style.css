@@ -611,52 +611,154 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   width: 80%;
+  align-items: center;
 }
 .payment .detail .box {
   display: flex;
+  flex-direction: column;
+  border: 1px #F3F1EF solid;
+  border-bottom: 0px;
+  width: 400px;
+  height: 150px;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.payment .detail .box .icns {
+  margin: 10px;
+}
+.payment .detail .box .icns span {
+  color: #26C5A8;
+  font-size: 40pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.payment .detail .box .ttls {
+  display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 20px 0px;
+  justify-content: center;
 }
-.payment .detail .box h4 {
+.payment .detail .box .ttls h4 {
   color: #FFFFFF;
   font-size: 20pt;
   margin: 0px 7px;
 }
-.payment .detail .py-val {
-  color: #FFFFFF;
-  font-size: 14pt;
-}
-.payment .detail .prc {
+.payment .detail .box .prfr {
+  width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 28px;
 }
-.payment .detail .prc .prc-bs {
+.payment .detail .box .prfr span {
+  color: #F3F1EF;
+  font-size: 13pt;
+}
+.payment .detail .pay-box {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border: 1px #F3F1EF solid;
+  border-top: 0px;
+  margin-top: 5px;
+  align-items: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+.payment .detail .pay-box .py-val {
+  color: #FFFFFF;
+  font-size: 12pt;
+  margin: 15px;
+}
+.payment .detail .pay-box .prc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+.payment .detail .pay-box .prc .prc-bs {
   display: flex;
   flex-direction: column;
   margin: 0px 15px;
 }
-.payment .detail .prc .prc-bs h4 {
-  font-size: 13pt;
+.payment .detail .pay-box .prc .prc-bs h4 {
+  font-size: 12pt;
   color: #D9D9D9;
 }
-.payment .detail .prc .prc-bs h6 {
-  font-size: 11pt;
+.payment .detail .pay-box .prc .prc-bs h6 {
+  font-size: 8pt;
   color: #D9D9D9;
 }
-.payment .detail .prc > :nth-child(2) {
+.payment .detail .pay-box .prc > :nth-child(2) {
   display: none;
 }
-.payment .detail .discount > :nth-child(1) h4 {
+.payment .detail .pay-box .discount > :nth-child(1) h4 {
   text-decoration: line-through;
+  color: rgba(243, 241, 239, 0.5);
 }
-.payment .detail .discount > :nth-child(1) h6 {
+.payment .detail .pay-box .discount > :nth-child(1) h6 {
   text-decoration: line-through;
+  color: rgba(243, 241, 239, 0.5);
 }
-.payment .detail .discount > :nth-child(2) {
+.payment .detail .pay-box .discount > :nth-child(2) {
   display: flex;
 }
-.payment button {
+.payment .detail .pay-box > button {
+  background-color: #26C5A8;
+  color: #FFFFFF;
+  border: 0px;
+  height: 40px;
+  font-size: 13pt;
+  width: 110px;
+  font-size: 10pt;
+  margin-bottom: 10px;
+  background-color: #5398FF;
+}
+.payment .detail .pay-box .code-msg {
+  color: #FFFFFF;
+  font-size: 13pt;
+  font-family: "SemiBold";
+  margin: 10px;
+}
+.payment .detail .pay-box .alrt {
+  margin: 10px 20px;
+  background: #f0d697;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 15px;
+  border: 3px #ECBB3E solid;
+  border-radius: 10px;
+}
+.payment .detail .pay-box .alrt h6 {
+  font-size: 12pt;
+  font-family: "Bold";
+}
+.payment .detail .pay-box .alrt p {
+  font-size: 12px;
+  text-align: justify;
+}
+.payment .detail .pay-box .dt-dt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: 15px 0px;
+}
+.payment .detail .pay-box .dt-dt p {
+  color: #F3F1EF;
+  font-size: 12pt;
+  font-family: "Medium";
+}
+.payment > button {
   background-color: #26C5A8;
   color: #FFFFFF;
   border: 0px;
