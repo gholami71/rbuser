@@ -32,16 +32,19 @@ const CreateExplor = (props) =>{
     }
 
     const addCondition = () =>{
-        if (props.Condition.includes(InputUser)) {
-            toast.warning('این شرط تکراری است',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
-        }else{
+        
             axios.post(OnRun+'/user/setcondition',{phu:phu,data:InputUser})
-            .then(response=>{if ()
-
-            })
-            props.setCondition(current =>[...current ,InputUser])
+            .then(response=>{
+                if (response.data.reply){
+                toast.success('شرظ با موفقیت ثبت شد', {position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'})
+            }
+            
+            else{
+               toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+            }
+        })
             props.setPopup(false)
-        }
+        
     }
 
 

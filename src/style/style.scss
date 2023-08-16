@@ -243,8 +243,9 @@ html, body, #root{
         img{
             height: 60%;
             animation: miniloaderimg 1.5s  0s infinite;
-            animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
             animation-direction: reverse;
+            animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
 
 
         }
@@ -253,6 +254,8 @@ html, body, #root{
         font-size: 11pt;
     }
     @keyframes miniloader {
+        
+
         to{
             transform: rotate(360deg);
         }

@@ -10,6 +10,9 @@ import { CgArrowsH} from "react-icons/cg";
 import { TbStatusChange} from "react-icons/tb";
 import { BsSpeedometer2} from "react-icons/bs";
 import { HiOutlineViewfinderCircle} from "react-icons/hi2";
+import axios from 'axios';
+import { OnRun } from '../../config/OnRun';
+import { useOutletContext } from 'react-router';
 
 
 
@@ -17,6 +20,8 @@ import { HiOutlineViewfinderCircle} from "react-icons/hi2";
 const Explor = () =>{
     const [popup, setPopup] = useState(false)
     const [Condition, setCondition] = useState([])
+    const [phu] = useOutletContext()
+    
 
     const replacementMapCandle = {
         "bullish":"صعودی",
@@ -34,6 +39,7 @@ const Explor = () =>{
     "resistance":"مقاومت",
     }
 
+
     const replacementMapPosition = {
         "greater":"بزرگتر",
         "less":"کوچکتر",
@@ -45,6 +51,20 @@ const Explor = () =>{
     const handlDeleteCondition = (element) =>{
         setCondition(Condition.filter(i=>i!=element))
     }
+
+    const getCondition = () =>{
+        axios.post(OnRun+'/user/getcondition',{phu:phu})
+        .then(response=>{
+            if(response.data.reply){
+                setCondition(response.data.conditions)
+            }
+            else{
+
+            }
+        })
+    }
+
+    useEffect(getCondition,[popup])
 
     const handleNew = () =>{setPopup(!popup)}
 

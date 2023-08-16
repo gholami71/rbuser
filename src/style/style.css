@@ -201,8 +201,8 @@ html, body, #root {
 .mini-load .circle img {
   height: 60%;
   animation: miniloaderimg 1.5s 0s infinite;
-  animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
   animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 .mini-load p {
   font-size: 11pt;
