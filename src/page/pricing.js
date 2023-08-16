@@ -38,6 +38,7 @@ const Pricing = () =>{
                      <div className="section">
                         <p className="type">پرو</p>
                         <p>حداکثر 5 هشدار فعال</p>
+                        <p>حداکثر 1 شرط برای کاوش</p>
                         <p>اولویت سوم پشتیبانی</p>
                         <div className="pricBox">
                             <p>قیمت</p>
@@ -60,6 +61,7 @@ const Pricing = () =>{
                     <div className="section">
                         <p className="type">پروپلاس</p>
                         <p>حداکثر 10 هشدار فعال</p>
+                        <p>حداکثر 3 شرط برای کاوش</p>
                         <p>اولویت دوم پشتیبانی</p>
                         <div className="pricBox">
                             <p>قیمت</p>
@@ -82,6 +84,7 @@ const Pricing = () =>{
                      <div className="section">
                         <p className="type">پریمیوم</p>
                         <p>حداکثر 40 هشدار فعال</p>
+                        <p>حداکثر 9 شرط برای کاوش</p>
                         <p>اولویت نخست پشتیبانی</p>
                         <div className="pricBox">
                             <p>قیمت</p>

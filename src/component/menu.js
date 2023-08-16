@@ -15,7 +15,7 @@ const Menu = () =>{
             <InfoUserMenu/>
             <div className="basic">
                 <p className={active=='alarms'?'active':'noactive'} onClick={()=>{handler('alarms')}}>هشدارها</p>
-                <p className={active=='alarms'?'active':'noactive'} onClick={()=>{handler('explor')}}>کاوش</p>
+                <p className={active=='explor'?'active':'noactive'} onClick={()=>{handler('explor')}}>کاوش</p>
             </div>
     
         </div>

@@ -5,6 +5,7 @@ import { useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import { MdCategory , MdOutlineSsidChart,MdOutlineCandlestickChart} from "react-icons/md";
 import { CgArrowsH} from "react-icons/cg";
+import { FaArrowDownUpAcrossLine} from "react-icons/fa6";
 import { TbRulerMeasure , TbStatusChange} from "react-icons/tb";
 import { IoTodayOutline} from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
@@ -16,7 +17,7 @@ import { RxCross1 } from "react-icons/rx";
 
 const CreateExplor = (props) =>{
 
-    const [InputUser, setInputUser] = useState({type:'indicator',indicator:'rsi', position:'cross',length:20,value:'50', lastday:'1',candlestick:'doji',supportresistance:'support',distance:'5'})
+    const [InputUser, setInputUser] = useState({type:'indicator',indicator:'rsi', position:'cross',length:20,value:'50', lastday:'1',candlestick:'hummer',supportresistance:'support',distance:'5'})
     const [phu] = useOutletContext()
 
     const getExplor =()=>{
@@ -28,6 +29,19 @@ const CreateExplor = (props) =>{
                 toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
             }
         })
+    }
+
+    const addCondition = () =>{
+        if (props.Condition.includes(InputUser)) {
+            toast.warning('این شرط تکراری است',{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+        }else{
+            axios.post(OnRun+'/user/setcondition',{phu:phu,data:InputUser})
+            .then(response=>{if ()
+
+            })
+            props.setCondition(current =>[...current ,InputUser])
+            props.setPopup(false)
+        }
     }
 
 
@@ -154,7 +168,7 @@ const CreateExplor = (props) =>{
                                         <p>الگو</p>
                                         <select value={InputUser.candlestick} onChange={(e)=>{setInputUser({...InputUser,candlestick:e.target.value})}}>
                                             <option value={'bullish'}>صعودی</option>
-                                            <option value={'Bearish'}>نزولی</option>
+                                            <option value={'bearish'}>نزولی</option>
                                             <option value={'hummer'}>چکش</option>
                                             <option value={'invertedhammer'}>چکش معکوس</option>
                                             <option value={'star'}>ستاره</option>
@@ -198,7 +212,7 @@ const CreateExplor = (props) =>{
                                             <option value={'30'}>کمتر از 30% با قیمت</option>
                                         </select>
                                         <div className="icn">                         
-                                            <span><TbStatusChange/></span>
+                                            <span><FaArrowDownUpAcrossLine/></span>
                                         </div>
                                     </div>
                                 </>
@@ -206,7 +220,7 @@ const CreateExplor = (props) =>{
                             }
 
                         </div>
-                        <button onClick={getExplor} type="submit">ثبت</button>
+                        <button onClick={addCondition} type="submit">افزودن</button>
                         <button  onClick={()=>{props.setPopup(false)}}>لغو</button>
                     </div>
                     <div className="hide" onClick={()=>props.setPopup(false)}></div>
