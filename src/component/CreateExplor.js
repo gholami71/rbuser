@@ -20,23 +20,13 @@ const CreateExplor = (props) =>{
     const [InputUser, setInputUser] = useState({type:'indicator',indicator:'rsi', position:'cross',length:20,value:'50', lastday:'1',candlestick:'hummer',supportresistance:'support',distance:'5'})
     const [phu] = useOutletContext()
 
-    const getExplor =()=>{
-        axios.post(OnRun+'/user/getexplor',{phu:phu,inp:InputUser})
-        .then(response=>{
-            if (response.data.reply) {
-                console.log(response.data)
-            }else{
-                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
-            }
-        })
-    }
 
     const addCondition = () =>{
         
             axios.post(OnRun+'/user/setcondition',{phu:phu,data:InputUser})
             .then(response=>{
                 if (response.data.reply){
-                toast.success('شرظ با موفقیت ثبت شد', {position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'})
+                toast.success('شرط با موفقیت ثبت شد', {position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'})
             }
             
             else{

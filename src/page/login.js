@@ -15,7 +15,7 @@ const Login = () => {
     const [CaptchaCode, setCaptchaCode] = useState(null)
     const [CaptchaImg, setCaptchaImg] = useState(null)
     const [secend, setSecend] = useState(60)
-    const [status, setStatus] = useState('loading')
+    const [status, setStatus] = useState('phone')
     const Navigate = useNavigate()
     const cookie = getCookie('phu')
 

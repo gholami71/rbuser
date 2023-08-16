@@ -46,27 +46,48 @@ const Explor = () =>{
         "cross":"شکست",
     }
 
-    console.log(Condition)
 
-    const handlDeleteCondition = (element) =>{
-        setCondition(Condition.filter(i=>i!=element))
-    }
+
 
     const getCondition = () =>{
         axios.post(OnRun+'/user/getcondition',{phu:phu})
         .then(response=>{
             if(response.data.reply){
-                setCondition(response.data.conditions)
+                setCondition(response.data.df)
             }
             else{
-
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
             }
         })
     }
 
+    const handlDeleteCondition = (id) =>{
+        axios.post(OnRun+'/user/delcondition',{phu:phu,id:id})
+        .then(response=>{
+             if (response.data.reply) {
+                getCondition()
+                toast.success('حذف شد',{position: toast.POSITION.BOTTOM_RIGHT,className: 'posetive-toast'});
+             }else{
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+             }
+        })
+     }
+
+
     useEffect(getCondition,[popup])
 
     const handleNew = () =>{setPopup(!popup)}
+
+    const handleFind = () =>{
+        axios.post(OnRun+'/user/getexplor',{phu:phu})
+        .then(response=>{
+            if (response.data.reply) {
+                console.log(response.data)
+            }else{
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+            }
+        })
+    }
 
     return(
         <div className="container-page elements">
@@ -78,7 +99,7 @@ const Explor = () =>{
                 </div>
                 {
                     Condition.length>0?
-                    <div className="create create2" onClick={handleNew}>
+                    <div className="create create2" onClick={handleFind}>
                         <span><HiOutlineViewfinderCircle/></span>
                         <h6>یافتن</h6>
                     </div>
@@ -98,16 +119,19 @@ const Explor = () =>{
                                                 <p>اندیکاتور</p>
                                                 <span><MdOutlineSsidChart/></span>
                                             </div>
-                                            <div className='picn'>
-                                                <p>{i.indicator} {i.value}</p>
-                                                <span><BsSpeedometer2/></span>
-                                            </div>
                                             {
                                                 ['ema','sma','wma','supertrend'].includes(i.indicator)?
                                                 <>
                                                     <div className='picn'>
-                                                        <p>طول {i.length}</p>
-                                                        <span><CgArrowsH/></span>                                
+                                                        <p>{i.indicator} {i.length}</p>
+                                                        <span><BsSpeedometer2/></span>                                
+                                                    </div>
+                                                </>
+                                                :['rsi','cci'].includes(i.indicator)?
+                                                <>
+                                                    <div className='picn'>
+                                                        <p>{i.indicator} {i.value}</p>
+                                                        <span><BsSpeedometer2/></span>                                
                                                     </div>
                                                 </>
                                                 :null
@@ -162,7 +186,7 @@ const Explor = () =>{
                                     :null
                                 }
                                 <div className='AlarmsEdit'>
-                                    <span onClick={()=>handlDeleteCondition(i)}><MdDeleteForever/></span>
+                                    <span onClick={()=>handlDeleteCondition(i._id)}><MdDeleteForever/></span>
 
                                 </div>
 
