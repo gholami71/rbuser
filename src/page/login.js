@@ -73,7 +73,7 @@ const Login = () => {
         axios.post(OnRun + '/user/coderegistered', { UserInput: UserInput })
             .then(response => {
                 if (response.data.reply) {
-                    setCookie('phu', response.data.phu, 1)
+                    setCookie('phu', response.data.phu, 5)
                     Navigate('/dashboard')
                 }else{
                     toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});

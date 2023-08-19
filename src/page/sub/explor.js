@@ -6,21 +6,22 @@ import CreateExplor from '../../component/CreateExplor';
 import {MdOutlineSsidChart, MdOutlineCandlestickChart,MdDeleteForever} from "react-icons/md";
 import { FaArrowDownUpAcrossLine,FaLessThanEqual} from "react-icons/fa6";
 import { BiArrowToTop,BiArrowToBottom} from "react-icons/bi";
-import { CgArrowsH} from "react-icons/cg";
 import { TbStatusChange} from "react-icons/tb";
 import { BsSpeedometer2} from "react-icons/bs";
 import { HiOutlineViewfinderCircle} from "react-icons/hi2";
 import axios from 'axios';
 import { OnRun } from '../../config/OnRun';
 import { useOutletContext } from 'react-router';
-
-
+import { TextTypeLoader } from '../../component/Loader';
+import ExplorTable from '../../component/table/ExplorTable';
 
 
 const Explor = () =>{
     const [popup, setPopup] = useState(false)
     const [Condition, setCondition] = useState([])
     const [phu] = useOutletContext()
+    const [status, setStatus] = useState('condition')
+    const [dfExplor, setDfExplor] = useState([])
     
 
     const replacementMapCandle = {
@@ -79,12 +80,16 @@ const Explor = () =>{
     const handleNew = () =>{setPopup(!popup)}
 
     const handleFind = () =>{
+        setStatus('loading')
         axios.post(OnRun+'/user/getexplor',{phu:phu})
         .then(response=>{
             if (response.data.reply) {
-                console.log(response.data)
+                setDfExplor(response.data.df)
+                console.log(response.data.df)
+                setStatus('explor')
             }else{
                 toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+                setStatus('condition')
             }
         })
     }
@@ -108,92 +113,103 @@ const Explor = () =>{
             </div>
             <CreateExplor popup={popup} setPopup={setPopup} Condition={Condition} setCondition={setCondition}/>
             <div className='history'>
+
                 {
-                    Condition.map(i=>{
-                        return(
-                            <div key={Math.floor(Math.random()*10000)} className="element-row">
-                                {
-                                    i.type=="indicator"?
-                                        <>
-                                            <div className='picn'>
-                                                <p>اندیکاتور</p>
-                                                <span><MdOutlineSsidChart/></span>
-                                            </div>
-                                            {
-                                                ['ema','sma','wma','supertrend'].includes(i.indicator)?
-                                                <>
+                    status=='condition'?
+                        Condition.map(i=>{
+                            return(
+                                <div key={Math.floor(Math.random()*10000)} className="element-row">
+                                    {
+                                        i.type=="indicator"?
+                                            <>
+                                                <div className='picn'>
+                                                    <p>اندیکاتور</p>
+                                                    <span><MdOutlineSsidChart/></span>
+                                                </div>
+                                                {
+                                                    ['ema','sma','wma','supertrend'].includes(i.indicator)?
+                                                    <>
+                                                        <div className='picn'>
+                                                            <p>{i.indicator} {i.length}</p>
+                                                            <span><BsSpeedometer2/></span>                                
+                                                        </div>
+                                                    </>
+                                                    :['rsi','cci'].includes(i.indicator)?
+                                                    <>
+                                                        <div className='picn'>
+                                                            <p>{i.indicator} {i.value}</p>
+                                                            <span><BsSpeedometer2/></span>                                
+                                                        </div>
+                                                    </>
+                                                    :null
+                                                }
+                                                <div className='picn'>
+                                                    <p>{(i.position).replace(new RegExp(Object.keys(replacementMapPosition).join("|"), "gi"),matched => replacementMapPosition[matched.toLowerCase()])}</p>
+                                                    <span><TbStatusChange/></span>
+                                                </div>
+                                                {
+                                                    i.position=='cross'?
                                                     <div className='picn'>
-                                                        <p>{i.indicator} {i.length}</p>
-                                                        <span><BsSpeedometer2/></span>                                
+                                                        <p>{i.lastday} روز اخیر</p>
                                                     </div>
-                                                </>
-                                                :['rsi','cci'].includes(i.indicator)?
-                                                <>
-                                                    <div className='picn'>
-                                                        <p>{i.indicator} {i.value}</p>
-                                                        <span><BsSpeedometer2/></span>                                
-                                                    </div>
-                                                </>
-                                                :null
-                                            }
-                                            <div className='picn'>
-                                                <p>{(i.position).replace(new RegExp(Object.keys(replacementMapPosition).join("|"), "gi"),matched => replacementMapPosition[matched.toLowerCase()])}</p>
-                                                <span><TbStatusChange/></span>
-                                            </div>
-                                            {
-                                                i.position=='cross'?
+                                                    :null
+                                                }
+                                            </>
+                                        :i.type=="candlestick"?
+                                            <>
+                                                <div className='picn'>
+                                                    <p>الگو شمعی</p>
+                                                    <span><MdOutlineCandlestickChart/></span>
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>{(i.candlestick).replace(new RegExp(Object.keys(replacementMapCandle).join("|"), "gi"),matched => replacementMapCandle[matched.toLowerCase()])}</p>
+                                                </div>
                                                 <div className='picn'>
                                                     <p>{i.lastday} روز اخیر</p>
                                                 </div>
-                                                :null
-                                            }
-                                        </>
-                                    :i.type=="candlestick"?
-                                        <>
-                                            <div className='picn'>
-                                                <p>الگو شمعی</p>
-                                                <span><MdOutlineCandlestickChart/></span>
-                                            </div>
-                                            <div className='picn'>
-                                                <p>{(i.candlestick).replace(new RegExp(Object.keys(replacementMapCandle).join("|"), "gi"),matched => replacementMapCandle[matched.toLowerCase()])}</p>
-                                            </div>
-                                            <div className='picn'>
-                                                <p>{i.lastday} روز اخیر</p>
-                                            </div>
 
-                                        </>
-                                    :i.type=="supportresistance"?
-                                        <>
-                                            <div className='picn'>
-                                                <p>حمایت مقاومت</p>
-                                                <span><FaArrowDownUpAcrossLine/></span>
-                                            </div>
-                                            <div className='picn'>
-                                                <p>{(i.supportresistance).replace(new RegExp(Object.keys(replacementMapSupRes).join("|"), "gi"),matched => replacementMapSupRes[matched.toLowerCase()])}</p>
-                                                {
-                                                    i.supportresistance=="support"?
-                                                    <span><BiArrowToBottom/></span>
-                                                    :<span><BiArrowToTop/></span>
+                                            </>
+                                        :i.type=="supportresistance"?
+                                            <>
+                                                <div className='picn'>
+                                                    <p>حمایت مقاومت</p>
+                                                    <span><FaArrowDownUpAcrossLine/></span>
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>{(i.supportresistance).replace(new RegExp(Object.keys(replacementMapSupRes).join("|"), "gi"),matched => replacementMapSupRes[matched.toLowerCase()])}</p>
+                                                    {
+                                                        i.supportresistance=="support"?
+                                                        <span><BiArrowToBottom/></span>
+                                                        :<span><BiArrowToTop/></span>
 
-                                                }
-                                            </div>
-                                            <div className='picn'>
-                                                <p>{i.distance}%</p>
-                                                <span><FaLessThanEqual/></span>
-                                            </div>
+                                                    }
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>{i.distance}%</p>
+                                                    <span><FaLessThanEqual/></span>
+                                                </div>
 
-                                        </>
-                                    :null
-                                }
-                                <div className='AlarmsEdit'>
-                                    <span onClick={()=>handlDeleteCondition(i._id)}><MdDeleteForever/></span>
+                                            </>
+                                        :null
+                                    }
+                                    <div className='AlarmsEdit'>
+                                        <span onClick={()=>handlDeleteCondition(i._id)}><MdDeleteForever/></span>
+
+                                    </div>
 
                                 </div>
+                            )
+                        })
+                    
 
-                            </div>
-                        )
-                    })
+                    :status=='loading'?
+                    <TextTypeLoader length={5}/>
+                    :<ExplorTable data={dfExplor} />
+                    
+
+                    
                 }
+
 
             </div>
         </div>
