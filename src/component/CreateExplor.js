@@ -22,19 +22,16 @@ const CreateExplor = (props) =>{
 
 
     const addCondition = () =>{
-        
-            axios.post(OnRun+'/user/setcondition',{phu:phu,data:InputUser})
-            .then(response=>{
-                if (response.data.reply){
+        axios.post(OnRun+'/user/setcondition',{phu:phu,data:InputUser})
+        .then(response=>{
+            if (response.data.reply){
                 toast.success('شرط با موفقیت ثبت شد', {position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'})
-            }
-            
-            else{
-               toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+                props.setPopup(false)
+            }else{
+                toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
+                props.setPopup(false)
             }
         })
-            props.setPopup(false)
-        
     }
 
 

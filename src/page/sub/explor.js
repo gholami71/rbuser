@@ -6,13 +6,13 @@ import CreateExplor from '../../component/CreateExplor';
 import {MdOutlineSsidChart, MdOutlineCandlestickChart,MdDeleteForever} from "react-icons/md";
 import { FaArrowDownUpAcrossLine,FaLessThanEqual} from "react-icons/fa6";
 import { BiArrowToTop,BiArrowToBottom} from "react-icons/bi";
-import { TbStatusChange} from "react-icons/tb";
+import { TbStatusChange,TbMathFunction} from "react-icons/tb";
 import { BsSpeedometer2} from "react-icons/bs";
 import { HiOutlineViewfinderCircle} from "react-icons/hi2";
 import axios from 'axios';
 import { OnRun } from '../../config/OnRun';
 import { useOutletContext } from 'react-router';
-import { TextTypeLoader } from '../../component/Loader';
+import { TableTypeLoader } from '../../component/Loader';
 import ExplorTable from '../../component/table/ExplorTable';
 
 
@@ -98,18 +98,39 @@ const Explor = () =>{
         <div className="container-page elements">
             <ToastContainer autoClose={3000} />
             <div className='btns'>
-                <div className="create" onClick={handleNew}>
-                    <span><AiOutlinePlus/></span>
-                    <h6>افزودن شرط</h6>
-                </div>
                 {
-                    Condition.length>0?
-                    <div className="create create2" onClick={handleFind}>
-                        <span><HiOutlineViewfinderCircle/></span>
-                        <h6>یافتن</h6>
-                    </div>
-                    :null
+                    status!='condition'?
+                    <>
+                        <div className="create" onClick={()=>setStatus('condition')}>
+                            <span><TbMathFunction/></span>
+                            <h6>بررسی شروط</h6>
+                        </div>
+                        {
+                            Condition.length>0?
+                            <div className="create create2" onClick={handleFind}>
+                                <span><HiOutlineViewfinderCircle/></span>
+                                <h6>یافتن مجدد</h6>
+                            </div>
+                            :null
+                        }
+                    </>
+                    :
+                    <>
+                        <div className="create" onClick={handleNew}>
+                            <span><TbMathFunction/></span>
+                            <h6>افزودن شرط</h6>
+                        </div>
+                        {
+                            Condition.length>0?
+                            <div className="create create2" onClick={handleFind}>
+                                <span><HiOutlineViewfinderCircle/></span>
+                                <h6>یافتن</h6>
+                            </div>
+                            :null
+                        }
+                    </>
                 }
+
             </div>
             <CreateExplor popup={popup} setPopup={setPopup} Condition={Condition} setCondition={setCondition}/>
             <div className='history'>
@@ -203,8 +224,8 @@ const Explor = () =>{
                     
 
                     :status=='loading'?
-                    <TextTypeLoader length={5}/>
-                    :<ExplorTable data={dfExplor} />
+                    <TableTypeLoader row={5} columns={8}/>
+                    :<ExplorTable data={dfExplor} status={status}/>
                     
 
                     

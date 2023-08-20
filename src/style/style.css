@@ -218,6 +218,62 @@ html, body, #root {
   }
 }
 
+.tbtx-load {
+  width: 100%;
+  height: 500px;
+  background: rgba(243, 241, 239, 0.5);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 50px;
+}
+.tbtx-load .header {
+  display: flex;
+  flex-direction: row;
+}
+.tbtx-load .header .header-column {
+  flex: 1;
+  height: 45px;
+  background: rgba(243, 241, 239, 0.75);
+  margin: 20px 25px;
+  border-radius: 10px;
+  animation: gradientAnimationTable 3s 0s cubic-bezier(0.5, 0.03, 0.6, 1.37) infinite;
+  animation-direction: alternate-reverse;
+  background: linear-gradient(90deg, rgba(243, 241, 239, 0.75), rgba(243, 241, 239, 0.75), rgba(243, 241, 239, 0.25), rgba(243, 241, 239, 0.75), rgba(243, 241, 239, 0.75));
+  background-size: 200% 200%;
+  color: transparent;
+  border: 1px solid rgba(243, 241, 239, 0.75);
+}
+.tbtx-load .body {
+  display: flex;
+  flex-direction: column;
+}
+.tbtx-load .body .row {
+  display: flex;
+  flex-direction: row;
+}
+.tbtx-load .body .row .row-column {
+  flex: 1;
+  height: 30px;
+  background: rgba(243, 241, 239, 0.5);
+  margin: 10px 25px;
+  border-radius: 10px;
+  animation: gradientAnimationTable 1.5s 0.6s cubic-bezier(0.25, 0.1, 0.5, 1.3) infinite;
+  animation-direction: alternate-reverse;
+  background: linear-gradient(90deg, rgba(243, 241, 239, 0.5), rgba(243, 241, 239, 0.5), rgba(243, 241, 239, 0.4), rgba(243, 241, 239, 0.5), rgba(243, 241, 239, 0.5));
+  background-size: 200% 200%;
+  color: transparent;
+  border: 1px solid rgba(243, 241, 239, 0.5);
+}
+
+@keyframes gradientAnimationTable {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 90% 90%;
+  }
+}
 .table {
   width: 100%;
   border-radius: 15px !important;

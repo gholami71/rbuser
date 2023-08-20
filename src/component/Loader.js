@@ -31,3 +31,33 @@ export const TextTypeLoader = (props) =>{
         </div>
     )
 }
+
+
+export const TableTypeLoader = (props) =>{
+    return(
+        <div className="tbtx-load">
+            <div className="header">
+                {Array.from({length:props.row}).map((_,i)=>{
+                    return(
+                        <div key={i} className="header-column">
+                        </div>
+                    )
+                })}
+            </div>
+            {Array.from({length:props.columns}).map((_,j)=>{
+                return(
+                    <div key={j} className="body">
+                        <div className="row">
+                            {Array.from({length:props.row}).map((_,i)=>{
+                                return(
+                                    <div className="row-column">
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+    )
+}
