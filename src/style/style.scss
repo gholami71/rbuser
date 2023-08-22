@@ -26,6 +26,7 @@
     src: url('../../public/font/IBMPlexArabic-Thin.ttf') format('truetype');
 }
 
+@import  "tabulator-tables";
 *{
     margin: 0px;
     padding: 0px;
@@ -358,6 +359,7 @@ html, body, #root{
     }
     .tabulator-footer{
         background: mix($colorBalticSea, $colorJordyBlue, 80) !important;
+        border-top: 1px $colorBalticSea solid !important;
     }
     .tabulator-cell{
         border-left: 1px $colorBalticSea solid !important;
@@ -371,6 +373,10 @@ html, body, #root{
     .tabulator-table{
         color: $colorLinen !important;
         text-align: center !important;
+    }
+    .tabulator-page{
+        color: $colorQuillGrey !important;
+        border: 1px $colorBalticSea solid !important;
     }
 }
 .txtp-load{
