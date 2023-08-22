@@ -23,7 +23,7 @@ const Header = () =>{
     return(
         <header>
             <div className='Conteiner'>
-                <div className="logos">
+                <div className="logos" onClick={()=>navigate('/dashboard')}>
                     <img className="logo" src={process.env.PUBLIC_URL+'/img/logo.svg'} ></img> 
                     <img src={process.env.PUBLIC_URL+'/img/subLogoDashboard.svg'}></img>            
                 </div>

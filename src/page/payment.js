@@ -24,7 +24,7 @@ const Payment = () =>{
         axios.post(OnRun+'/payment/create',{phu:phu,period:data,code:discountCode})
         .then(response=>{
             if (response.data.reply) {
-                window.location.assign('https://api.payping.ir/v2/pay/gotoipg/'+response.data.responseCode)
+                window.location.assign('https://gateway.zibal.ir/start/'+response.data.responseCode)
             }else{
                 toast.warning(response.data.msg,{position: toast.POSITION.BOTTOM_RIGHT,className: 'negetive-toast'});
             }

@@ -608,6 +608,7 @@ html, body, #root {
   margin-right: 50px;
 }
 .dashboard header .logos {
+  cursor: pointer;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
