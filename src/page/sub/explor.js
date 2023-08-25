@@ -1,13 +1,13 @@
 
 import { ToastContainer, toast } from 'react-toastify';
 import { useEffect, useState } from "react"
-import { AiOutlinePlus } from "react-icons/ai";
+import { PiCurrencyCircleDollarLight } from "react-icons/pi";
 import CreateExplor from '../../component/CreateExplor';
 import {MdOutlineSsidChart, MdOutlineCandlestickChart,MdDeleteForever} from "react-icons/md";
 import { FaArrowDownUpAcrossLine,FaLessThanEqual} from "react-icons/fa6";
 import { BiArrowToTop,BiArrowToBottom} from "react-icons/bi";
 import { TbStatusChange,TbMathFunction} from "react-icons/tb";
-import { BsSpeedometer2} from "react-icons/bs";
+import { BsSpeedometer2, BsCalendar3} from "react-icons/bs";
 import { HiOutlineViewfinderCircle} from "react-icons/hi2";
 import axios from 'axios';
 import { OnRun } from '../../config/OnRun';
@@ -47,7 +47,10 @@ const Explor = () =>{
         "cross":"شکست",
     }
 
-
+    const replacementMapPosition2 = {
+        "greater":"بیشتر",
+        "less":"کمتر",
+    }
 
 
     const getCondition = () =>{
@@ -211,6 +214,26 @@ const Explor = () =>{
                                                 </div>
 
                                             </>
+                                        :i.type=="gain"?
+                                            <>
+                                                <div className='picn'>
+                                                    <p>بازدهی</p>
+                                                    <span><PiCurrencyCircleDollarLight/></span>
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>{i.length} روزه</p>
+                                                    <span><BsCalendar3/></span>                                
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>{(i.position).replace(new RegExp(Object.keys(replacementMapPosition2).join("|"), "gi"),matched => replacementMapPosition2[matched.toLowerCase()])}</p>
+                                                    <span><TbStatusChange/></span>
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>% {i.value}</p>
+                                                    <span><BsSpeedometer2/></span>                                
+                                                </div>
+                                            </>
+            
                                         :null
                                     }
                                     <div className='AlarmsEdit'>

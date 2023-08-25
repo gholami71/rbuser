@@ -17,7 +17,7 @@ import { RxCross1 } from "react-icons/rx";
 
 const CreateExplor = (props) =>{
 
-    const [InputUser, setInputUser] = useState({type:'indicator',indicator:'rsi', position:'cross',length:20,value:'50', lastday:'1',candlestick:'hummer',supportresistance:'support',distance:'5'})
+    const [InputUser, setInputUser] = useState({type:'indicator',indicator:'rsi', position:'greater',length:20,value:'50', lastday:'1',candlestick:'hummer',supportresistance:'support',distance:'5'})
     const [phu] = useOutletContext()
 
 
@@ -53,6 +53,7 @@ const CreateExplor = (props) =>{
                                     <option value={'indicator'}>اندیکاتور</option>
                                     <option value={'candlestick'}>الگو های شمعی</option>
                                     <option value={'supportresistance'}>حمایت و مقاومت</option>
+                                    <option value={'gain'}>بازدهی</option>
                                 </select>
                                 <div className="icn">                         
                                     <span><MdCategory/></span>
@@ -203,6 +204,36 @@ const CreateExplor = (props) =>{
                                         </select>
                                         <div className="icn">                         
                                             <span><FaArrowDownUpAcrossLine/></span>
+                                        </div>
+                                    </div>
+                                </>
+                                :null
+                            }
+                            {
+                                InputUser.type=='gain'?
+                                <>
+                                    <div className="InpIcnLbl">
+                                        <p>دوره (روز)</p>
+                                        <input value={InputUser.length} onChange={(e)=>{setInputUser({...InputUser,length:e.target.value})}}/>
+                                        <div className="icn">                         
+                                            <span><CgArrowsH/></span>
+                                        </div>
+                                    </div>
+                                    <div className="InpIcnLbl">
+                                        <p>موقعیت</p>
+                                        <select value={InputUser.position} onChange={(e)=>{setInputUser({...InputUser,position:e.target.value})}}>
+                                            <option value={'greater'}>کمتر</option>
+                                            <option value={'less'}>بیشتر</option>
+                                        </select>
+                                        <div className="icn">                         
+                                            <span><TbStatusChange/></span>
+                                        </div>
+                                    </div>
+                                    <div className="InpIcnLbl">
+                                        <p>مقدار %</p>
+                                        <input value={InputUser.value} onChange={(e)=>{setInputUser({...InputUser,value:e.target.value})}}/>
+                                        <div className="icn">                         
+                                            <span><TbRulerMeasure/></span>
                                         </div>
                                     </div>
                                 </>
