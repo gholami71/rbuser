@@ -9,6 +9,7 @@ import { FaArrowDownUpAcrossLine} from "react-icons/fa6";
 import { TbRulerMeasure , TbStatusChange} from "react-icons/tb";
 import { IoTodayOutline} from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
+import { BsCurrencyDollar } from "react-icons/bs";
 
 
 
@@ -54,6 +55,7 @@ const CreateExplor = (props) =>{
                                     <option value={'candlestick'}>الگو های شمعی</option>
                                     <option value={'supportresistance'}>حمایت و مقاومت</option>
                                     <option value={'gain'}>بازدهی</option>
+                                    <option value={'value'}>ارزش</option>
                                 </select>
                                 <div className="icn">                         
                                     <span><MdCategory/></span>
@@ -222,8 +224,8 @@ const CreateExplor = (props) =>{
                                     <div className="InpIcnLbl">
                                         <p>موقعیت</p>
                                         <select value={InputUser.position} onChange={(e)=>{setInputUser({...InputUser,position:e.target.value})}}>
-                                            <option value={'greater'}>کمتر</option>
-                                            <option value={'less'}>بیشتر</option>
+                                            <option value={'greater'}>بیشتر</option>
+                                            <option value={'less'}>کمتر</option>
                                         </select>
                                         <div className="icn">                         
                                             <span><TbStatusChange/></span>
@@ -238,6 +240,38 @@ const CreateExplor = (props) =>{
                                     </div>
                                 </>
                                 :null
+                            }
+                            {
+                                InputUser.type=='value'?
+                                <>
+                                <div className="InpIcnLbl">
+                                        <p>دوره (روز)</p>
+                                        <input value={InputUser.length} onChange={(e)=>{setInputUser({...InputUser,length:e.target.value})}}/>
+                                        <div className="icn">                         
+                                            <span><CgArrowsH/></span>
+                                        </div>
+                                    </div>
+                                    <div className="InpIcnLbl">
+                                        <p>موقعیت</p>
+                                        <select value={InputUser.position} onChange={(e)=>{setInputUser({...InputUser,position:e.target.value})}}>
+                                            <option value={'greater'}>بیشتر</option>
+                                            <option value={'less'}>کمتر</option>
+                                        </select>
+                                        <div className="icn">                         
+                                            <span><TbStatusChange/></span>
+                                        </div>
+                                    </div>
+                                    <div className="InpIcnLbl">
+                                        <p className="smallfont">ارزش <br/>(میلیون ریال)  </p>
+                                        <input value={InputUser.value} onChange={(e)=>{setInputUser({...InputUser,value:e.target.value})}}/>
+                                        <div className="icn">                         
+                                            <span><BsCurrencyDollar/></span>
+                                        </div>
+                                    </div>
+
+                                </>
+                                :null
+
                             }
 
                         </div>

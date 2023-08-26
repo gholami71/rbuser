@@ -233,6 +233,27 @@ const Explor = () =>{
                                                     <span><BsSpeedometer2/></span>                                
                                                 </div>
                                             </>
+                                        :i.type=="value"?
+                                        <>
+                                        <div className='picn'>
+                                                    <p>ارزش</p>
+                                                    <span><PiCurrencyCircleDollarLight/></span>
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>{i.length} روزه</p>
+                                                    <span><BsCalendar3/></span>                                
+                                                </div>
+                                                <div className='picn'>
+                                                    <p>{(i.position).replace(new RegExp(Object.keys(replacementMapPosition2).join("|"), "gi"),matched => replacementMapPosition2[matched.toLowerCase()])}</p>
+                                                    <span><TbStatusChange/></span>
+                                                </div>
+                                                <div className='picn'>
+                                                    <p> {i.value} میلیون ریال</p>
+                                                    <span><BsSpeedometer2/></span>                                
+                                                </div>
+
+                                        </>
+                                        
             
                                         :null
                                     }

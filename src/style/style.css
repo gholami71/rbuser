@@ -168,6 +168,10 @@
   align-items: center;
   justify-content: center;
 }
+.InpIcnLbl .smallfont {
+  font-size: 10pt;
+  text-align: center;
+}
 
 html, body, #root {
   height: 100%;

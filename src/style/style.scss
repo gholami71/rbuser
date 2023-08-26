@@ -211,6 +211,10 @@ $FontThin :'Thin';
         align-items: center;
         justify-content: center;
     }
+    .smallfont{
+        font-size: 10pt;
+        text-align: center;
+    }
 }
 
 html, body, #root{
