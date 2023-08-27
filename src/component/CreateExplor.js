@@ -75,6 +75,7 @@ const CreateExplor = (props) =>{
                                             <option value={'wma'}>WMA (میانگین وزنی)</option>
                                             <option value={'cci'}>CCI</option>
                                             <option value={'supertrend'}>Supertrend</option>
+                                           
                                         </select>
                                         <div className="icn">                         
                                             <span><MdOutlineSsidChart/></span>
@@ -91,6 +92,8 @@ const CreateExplor = (props) =>{
                                                     <option value={'greater'}>بزرگتر</option>
                                                     <option value={'less'}>کوچکتر</option>
                                                     <option value={'cross'}>شکست (cross)</option>
+                                                    <option value={'divergence'}>واگرایی </option>
+                                                    <option value={'convergence'}>همگرایی </option>
                                                 </select>
                                                 <div className="icn">                         
                                                     <span><TbStatusChange/></span>
@@ -125,6 +128,10 @@ const CreateExplor = (props) =>{
                                         {
                                             ['rsi','cci'].includes(InputUser.indicator)?
                                             <>
+                                            {
+                                                ['divergence','convergence'].includes(InputUser.position)?
+                                                    null
+                                                :
                                                 <div className="InpIcnLbl">
                                                     <p>مقدار</p>
                                                     <input value={InputUser.value} onChange={(e)=>{setInputUser({...InputUser,value:e.target.value})}}/>
@@ -132,6 +139,9 @@ const CreateExplor = (props) =>{
                                                         <span><TbRulerMeasure/></span>
                                                     </div>
                                                 </div>
+
+                                            }
+                                                
                                             </>
                                             :null
                                         }

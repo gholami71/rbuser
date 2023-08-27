@@ -45,6 +45,8 @@ const Explor = () =>{
         "greater":"بزرگتر",
         "less":"کوچکتر",
         "cross":"شکست",
+        "divergence":"واگرایی",
+        "convergence":"همگرایی",
     }
 
     const replacementMapPosition2 = {
@@ -160,8 +162,12 @@ const Explor = () =>{
                                                     </>
                                                     :['rsi','cci'].includes(i.indicator)?
                                                     <>
+                                                        
                                                         <div className='picn'>
-                                                            <p>{i.indicator} {i.value}</p>
+                                                            {
+                                                                ['divergence','convergence'].includes(i.position)?
+                                                                <p> {i.indicator}</p>:<p> {i.indicator} {i.value}</p>
+                                                            }
                                                             <span><BsSpeedometer2/></span>                                
                                                         </div>
                                                     </>
